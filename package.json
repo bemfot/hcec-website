@@ -6,10 +6,10 @@
     "dev": "next dev",
     "build": "next build --no-lint",
     "start": "next start"
-    
   },
   "dependencies": {
     "emailjs-com": "^3.2.0",
+    "framer-motion": "^12.23.12",
     "next": "15.2.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
