@@ -43,7 +43,7 @@ const toggleMessage = () => {
             { messageOpen && (
             <div className="mt-1 p-2 bg-white text-black rounded shadow-lg transition-all duration-300 transition-in delay-150">
 
-              <h1>CHRIST'S LOVE TO SINNERS</h1>
+              <h1>CHRIST&apos;S LOVE TO SINNERS</h1>
             <p> Jesus Loves the sinners</p>
             </div>)
           }

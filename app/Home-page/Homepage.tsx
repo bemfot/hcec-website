@@ -1,5 +1,4 @@
 import React from "react";
-import UpcomingPrograms from "../Upcoming-Programs/page";
 
 import PrayerRequest from "../Contact-Us/Prayer-RequestForm/page";
 
