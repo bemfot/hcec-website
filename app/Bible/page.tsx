@@ -173,7 +173,7 @@ const BiblePage: React.FC = () => {
 
         {loading && (
           <div className="flex items-center justify-center py-16">
-            <LoadingSpinner size="large" />
+            <LoadingSpinner size="medium" />
           </div>
         )}
 
