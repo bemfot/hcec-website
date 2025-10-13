@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { NetworkErrorBoundary } from "./components/network-boarder";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -24,15 +25,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-    <head>
-      <link className="h-20 w-25" rel="icon" href="/assets/HCEC_LOGO.png" />
-    </head>
+      <head>
+        <link className="h-20 w-25" rel="icon" href="/assets/HCEC_LOGO.png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-       
-        {children}
-        {/* Footer Component */}
+        <NetworkErrorBoundary>{children}</NetworkErrorBoundary>
       </body>
     </html>
   );
