@@ -1,9 +1,9 @@
+"use client";
 
-"use client"
-
-import { dummyHymns } from "@/data/hymn-dummy.data";
+import api from "@/utils/api";
+import { LoadingSpinner } from "@/utils/loader-effect";
 import { Search } from "lucide-react";
-import React, { useMemo, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { HymnCard } from "../components/hymns/hymn-card";
 import { HymnDetail } from "../components/hymns/hymn-detail";
 import { Hymn } from "../components/hymns/types";
@@ -14,18 +14,74 @@ const GospelHymnPage: React.FC = () => {
     "english" | "yoruba"
   >("english");
   const [selectedHymn, setSelectedHymn] = useState<Hymn | null>(null);
+  const [hymns, setHymns] = useState<Hymn[]>([]);
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
+  const [isPageLoading, setIsPageLoading] = useState(false);
+  const [limit, setLimit] = useState(10);
+  const [page, setPage] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
 
-  const filteredHymns = useMemo(() => {
-    return dummyHymns.filter((hymn) => {
-      const matchesLanguage = hymn.language === selectedLanguage;
-      const matchesSearch =
-        searchQuery === "" ||
-        hymn.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        hymn.number.toString().includes(searchQuery);
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 500);
 
-      return matchesLanguage && matchesSearch;
-    });
-  }, [searchQuery, selectedLanguage]);
+    return () => {
+      clearTimeout(handler);
+    };
+  }, [searchQuery]);
+
+  const handleGetHymns = useCallback(async () => {
+    if (!debouncedSearchQuery && page === 1 && limit === 10) {
+    }
+
+    setIsPageLoading(true);
+
+    try {
+      const queryParams: Record<string, any> = {
+        ...(selectedLanguage ? { language: selectedLanguage } : {}),
+        ...(debouncedSearchQuery ? { search: debouncedSearchQuery } : {}),
+        ...(limit ? { limit: limit } : {}),
+        ...(page ? { page: page } : {}),
+      };
+
+      const queryString = new URLSearchParams(queryParams).toString();
+      const endpoint = queryString
+        ? `/hymns/filter?${queryString}`
+        : "/hymns/filter";
+
+      const response = await api.get(endpoint);
+
+      setHymns((prev) =>
+        prev.length === 0
+          ? response?.data?.data?.hymns
+          : [...prev, ...response?.data?.data?.hymns]
+      );
+
+      setHasMore(Boolean(response?.data?.data?.pagination?.hasMore));
+    } catch (err: any) {
+      console.error("Error getting hymns:", err);
+
+      if (
+        err.code === "ERR_NETWORK" ||
+        err.code === "ECONNABORTED" ||
+        err.message?.includes("Network Error")
+      ) {
+        window.dispatchEvent(new CustomEvent("network-error")); //TODO create a page to render if network error
+      }
+    } finally {
+      setIsPageLoading(false);
+    }
+  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+
+  useEffect(() => {
+    handleGetHymns();
+  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+
+  const handleLoadMore = () => {
+    if (isPageLoading || !hasMore) return;
+    setPage((prev) => prev + 1);
+  };
 
   return (
     <div className="min-h-screen bg-white">
@@ -63,14 +119,17 @@ const GospelHymnPage: React.FC = () => {
 
         <div className="mb-6">
           <p className="text-gray-600">
-            {filteredHymns.length}{" "}
-            {filteredHymns.length === 1 ? "hymn" : "hymns"} found
+            {hymns.length} {hymns.length === 1 ? "hymn" : "hymns"} found
           </p>
         </div>
 
-        {filteredHymns.length > 0 ? (
+        {isPageLoading ? (
+          <div className="flex items-center justify-center h-64">
+            <LoadingSpinner />
+          </div>
+        ) : hymns.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {filteredHymns.map((hymn) => (
+            {hymns.map((hymn) => (
               <HymnCard
                 key={hymn._id}
                 hymn={hymn}
@@ -93,6 +152,18 @@ const GospelHymnPage: React.FC = () => {
           </div>
         )}
       </div>
+
+      {hasMore && (
+        <div className="w-full flex justify-center mt-6 sm:mt-8 px-3">
+          <button
+            onClick={handleLoadMore}
+            disabled={isPageLoading}
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-[#9f0712] hover:bg-[#85060f] text-white rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-medium shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+          >
+            <span>{isPageLoading ? "Loading..." : "Load More Hymns"}</span>
+          </button>
+        </div>
+      )}
 
       {selectedHymn && (
         <HymnDetail hymn={selectedHymn} onClose={() => setSelectedHymn(null)} />
