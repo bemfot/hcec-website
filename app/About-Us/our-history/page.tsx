@@ -7,6 +7,7 @@ import Footer from '../../components/Footer';
 
 export default function OurHistory() {
   return (
+    <>
     <div className="flex flex-col md:flex-row min-h-screen bg-[#f3f4f6]">
       {/* History Section */}
       <div className="flex-1 flex justify-center items-start py-12 px-4 md:px-12">
@@ -37,22 +38,10 @@ export default function OurHistory() {
         </div>
       </div>
       {/* Fixed Image Section */}
-      <div className="relative w-full md:w-[400px] flex-shrink-0">
-        <div className="md:fixed md:top-7 md:bottom-7 rounded-lg md:right-0 md:w-[400px] flex flex-col items-center justify-center bg-white shadow-lg p-6">
-          <div className="w-full h-[300px] relative mb-4 mt-6 rounded-lg overflow-hidden">
-            <Image
-              src="/assets/late-founder.jpg"
-              alt="Rev Samson Adebayo Ogundeji"
-              fill
-              style={{ objectFit: "contain", objectPosition: "top" }}
-              className="rounded-lg"
-            />
-          </div>
-          <h2 className="text-xl font-bold mb text-red-500 text-center uppercase">Late Rev.Dr Samson <br /> Adebayo Ogundeji</h2>
-          <h3 className="text-lg font-semibold mb-4 text-gray-600 text-center">Founder & First General Overseer</h3>
-        </div>
-      </div>
-      <Footer/>
+
+      
     </div>
+    <Footer/>
+    </>
   );
 }

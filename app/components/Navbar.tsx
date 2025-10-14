@@ -63,12 +63,7 @@ const defaultNavItems: NavItem[] = [
       { label: "Contact Us", link: "/Contact-Us/Get-In-Touch" },
     ],
   },
-  { label: "HOME", link: "#", children: [{ label: "Our Programs", link: "/Upcoming-Programs" }, { label: "Prayer Requests", link: "Home-page/Prayer-RequestForm" }] },
-  { label: "ABOUT US", link: "#", children: [{ label: "Our History", link: "About-Us/our-history" }, { label: "Mission and Vision", link: "About-Us/mission-and-vision" }, { label: "Our Beliefs", link: "About-Us/our-beliefs" }] },
-  { label: "MEDIA RESOURCES", link: "#", children: [{ label: "Our Audio & Video Resources", link: "/Media-Resources" },] },
-  { label: "CHURCH RESOURCES", link: "#", children: [{ label: "Gospel Hymnal", link: "/Gospel-hymns" }, { label: "Honey From The Rock", link: "/Honey-from-the-rock" }, { label: "Daily Honey", link: "/Daily-honey" }] },
-  { label: "OUR PROGRAMS", link: "/Upcoming-Programs", },
-  { label: "CONTACT US", link: "/Contact-Us/Home", children: [{label: "Our Locations", link: "/Contact-Us/Our-Locations" }, {label: "Prayer Request", link:"/Contact-Us/Prayer-RequestPage"},{label: "Testimony", link:"/Contact-Us/Testimony"}, {label: "Contact Us", link:"/Contact-Us/Get-In-Touch"}, ]},
+
 ];
 
 export default function Navbar({
@@ -90,7 +85,7 @@ export default function Navbar({
         className="fixed top-0 left-0 w-full z-[80] bg-red-800 shadow-2xl transition-all duration-500"
         suppressHydrationWarning
       >
-        <div className="flex items-center justify-between max-w-7xl mx-auto px-4 py-3">
+        <div className="flex items-center justify-between max-w-7xl  px-4 py-3">
           {/* Logo at left */}
           <div className="flex items-center gap-2">
             <Image
@@ -107,7 +102,7 @@ export default function Navbar({
             </span>
           </div>
           {/* Desktop nav */}
-          <nav className="hidden md:flex text-[10px] ml-12 justify-between items-center gap-10">
+          <nav className="hidden md:flex text-white  text-[11px] ml-12 justify-between items-center gap-8">
             {navItems.map((d, i) => (
               <div
                 key={i}
