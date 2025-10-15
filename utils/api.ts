@@ -1,13 +1,13 @@
 import axios, { type InternalAxiosRequestConfig } from "axios";
 
 const api = axios.create({
-  baseURL: process.env.NEXT_PUBLIC_LOCAL_URL,
+  baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 });
 
 
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem("nexgad_token");
+    const token = localStorage.getItem("hcec_token");
     if (token) {
       config.headers.set("Authorization", ` Bearer ${token}`);
     }
