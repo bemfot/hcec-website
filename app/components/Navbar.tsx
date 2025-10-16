@@ -18,10 +18,10 @@ type NavbarProps = {
 };
 
 const defaultNavItems: NavItem[] = [
-  { label: "HOME", link: "#", children: [{ label: "Our Programs", link: "/Upcoming-Programs" }, { label: "Prayer Requests", link: "Home-page/Prayer-RequestForm" }] },
+  { label: "HOME", link: "#",  },
   { label: "ABOUT US", link: "#", children: [{ label: "Our History", link: "About-Us/our-history" }, { label: "Mission and Vision", link: "About-Us/mission-and-vision" }, { label: "Our Beliefs", link: "About-Us/our-beliefs" }] },
-  { label: "MEDIA RESOURCES", link: "#", children: [{ label: "Our Audio & Video Resources", link: "/Media-Resources" },] },
-  { label: "CHURCH RESOURCES", link: "#", children: [{ label: "Gospel Hymnal", link: "/Gospel-hymns" }, { label: "Honey From The Rock", link: "/Honey-from-the-rock" }, { label: "Daily Honey", link: "/Daily-honey" },  { label: "Bible", link: "/Bible" }] },
+  { label: "ONLINE GIVINGS", link: "#", children: [{ label: "Work In Progress", link: "#" },] },
+  { label: "CHURCH RESOURCES", link: "#", children: [{ label: "Gospel Hymnal", link: "/Gospel-hymns" }, { label: "Honey From The Rock", link: "/Honey-from-the-rock" }, { label: "Daily Honey", link: "/Daily-honey" },  { label: "Bible", link: "/Bible" }, { label: "Audio & Video Resources", link: "/Media-Resources" }] },
   { label: "OUR PROGRAMS", link: "/Upcoming-Programs", },
   { label: "CONTACT US", link: "/Contact-Us/Home", children: [{label: "Our Locations", link: "/Contact-Us/Our-Locations" }, {label: "Prayer Request", link:"/Contact-Us/Prayer-RequestPage"},{label: "Testimony", link:"/Contact-Us/Testimony"}, {label: "Contact Us", link:"/Contact-Us/Get-In-Touch"}, ]},
 ];

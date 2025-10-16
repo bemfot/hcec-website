@@ -22,7 +22,7 @@ export default function OurHistory() {
             />
             <h1 className="text-4xl font-bold text-[#0C101C] text-center">OUR HISTORY</h1>
           </div>
-          <div className="text-gray-700 text-lg leading-relaxed justify-center align-center">
+          <div className="text-gray-700 text-justify text-lg leading-relaxed justify-center align-center">
             <p className='mb-3'>
            The history of this church cannot be fully given in this booklet, but it can be briefly stated. The foundation of this Evangelical Church can be traced to seven (7) men who met frequently to pray for the revival which God promised all Christian Churches and to usher in the salvation of non-Christians. The seven afore-said Christian brothers started their spiritual life in one of the Pentecostal Churches in Nigeria, (The Redeemed Christian Church of God) which has its headquarters in Lagos. A local assembly of the church was at Ibadan where they were all converted. <br /> 
            </p>
