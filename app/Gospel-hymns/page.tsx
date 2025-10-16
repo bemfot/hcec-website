@@ -34,6 +34,7 @@ const GospelHymnPage: React.FC = () => {
   const handleGetHymns = useCallback(async () => {
     if (!debouncedSearchQuery && page === 1 && limit === 10) {
     }
+    setHymns([]);
 
     setIsPageLoading(true);
 
@@ -46,6 +47,7 @@ const GospelHymnPage: React.FC = () => {
       };
 
       const queryString = new URLSearchParams(queryParams).toString();
+
       const endpoint = queryString
         ? `/hymns/filter?${queryString}`
         : "/hymns/filter";
@@ -131,7 +133,7 @@ const GospelHymnPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {hymns.map((hymn) => (
               <HymnCard
-                key={hymn._id}
+                key={hymn.number}
                 hymn={hymn}
                 onClick={() => setSelectedHymn(hymn)}
               />
