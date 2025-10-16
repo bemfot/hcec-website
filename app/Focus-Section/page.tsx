@@ -22,10 +22,7 @@ export default function Focus() {
         {/* Gray Overlay */}
         <div className="absolute inset-0 bg-gray-900 opacity-70"></div>
 
-        {/* Content on Image */}
-        <div className="absolute inset-0 flex items-center justify-center z-10">
-          <p className="text-white text-lg font-bold">Image Background</p>
-        </div>
+     
 
         {/* Bottom Text Box */}
         <div className="absolute bottom-[-7.5rem] left-1/2 transform -translate-x-1/2 h-[15rem] w-[22rem] bg-white shadow-md p-3 rounded-md z-10">
