@@ -10,38 +10,24 @@ import { Hymn } from "../components/hymns/types";
 
 const GospelHymnPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeSearchQuery, setActiveSearchQuery] = useState(""); 
   const [selectedLanguage, setSelectedLanguage] = useState<
     "english" | "yoruba"
   >("english");
   const [selectedHymn, setSelectedHymn] = useState<Hymn | null>(null);
   const [hymns, setHymns] = useState<Hymn[]>([]);
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 500);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchQuery]);
-
   const handleGetHymns = useCallback(async () => {
-    if (!debouncedSearchQuery && page === 1 && limit === 10) {
-    }
-    setHymns([]);
-
     setIsPageLoading(true);
 
     try {
       const queryParams: Record<string, any> = {
         ...(selectedLanguage ? { language: selectedLanguage } : {}),
-        ...(debouncedSearchQuery ? { search: debouncedSearchQuery } : {}),
+        ...(activeSearchQuery ? { search: activeSearchQuery } : {}),
         ...(limit ? { limit: limit } : {}),
         ...(page ? { page: page } : {}),
       };
@@ -55,7 +41,7 @@ const GospelHymnPage: React.FC = () => {
       const response = await api.get(endpoint);
 
       setHymns((prev) =>
-        prev.length === 0
+        page === 1
           ? response?.data?.data?.hymns
           : [...prev, ...response?.data?.data?.hymns]
       );
@@ -69,21 +55,42 @@ const GospelHymnPage: React.FC = () => {
         err.code === "ECONNABORTED" ||
         err.message?.includes("Network Error")
       ) {
-        window.dispatchEvent(new CustomEvent("network-error")); //TODO create a page to render if network error
+        window.dispatchEvent(new CustomEvent("network-error"));
       }
     } finally {
       setIsPageLoading(false);
     }
-  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+  }, [selectedLanguage, activeSearchQuery, limit, page]);
 
   useEffect(() => {
     handleGetHymns();
-  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+  }, [handleGetHymns]);
 
   const handleLoadMore = () => {
     if (isPageLoading || !hasMore) return;
     setPage((prev) => prev + 1);
   };
+
+  const handleSearch = () => {
+    setPage(1);
+    setActiveSearchQuery(searchQuery.trim());
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+    setActiveSearchQuery("");
+    setPage(1);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    setPage(1);
+  }, [selectedLanguage]);
 
   return (
     <div className="min-h-screen bg-white">
@@ -103,9 +110,18 @@ const GospelHymnPage: React.FC = () => {
               placeholder="Search by title or hymn number..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onKeyPress={handleKeyPress}
               className="w-full text-black border border-gray-300 rounded-lg p-2 pl-10 pr-4 py-3 focus:outline-none focus:border-transparent focus:ring-4 focus:ring-[#9f0712]"
             />
           </div>
+
+          <button
+            onClick={handleSearch}
+            disabled={isPageLoading}
+            className="px-6 py-3 rounded-lg text-white font-medium transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed bg-[#9f0712] hover:bg-[#85060f] shadow-md hover:shadow-lg"
+          >
+            {isPageLoading ? "Searching..." : "Search"}
+          </button>
 
           <select
             value={selectedLanguage}
@@ -122,10 +138,13 @@ const GospelHymnPage: React.FC = () => {
         <div className="mb-6">
           <p className="text-gray-600">
             {hymns.length} {hymns.length === 1 ? "hymn" : "hymns"} found
+            {activeSearchQuery && (
+              <span className="ml-2 text-sm">for {activeSearchQuery}</span>
+            )}
           </p>
         </div>
 
-        {isPageLoading ? (
+        {isPageLoading && page === 1 ? (
           <div className="flex items-center justify-center h-64">
             <LoadingSpinner />
           </div>
@@ -133,7 +152,7 @@ const GospelHymnPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {hymns.map((hymn) => (
               <HymnCard
-                key={hymn.number}
+                key={hymn._id || hymn.number}
                 hymn={hymn}
                 onClick={() => setSelectedHymn(hymn)}
               />
@@ -145,7 +164,7 @@ const GospelHymnPage: React.FC = () => {
               No hymns found matching your search.
             </p>
             <button
-              onClick={() => setSearchQuery("")}
+              onClick={handleClearSearch}
               className="mt-4 px-6 py-2 rounded-lg text-white font-medium hover:opacity-90 transition-opacity"
               style={{ backgroundColor: "#9f0712" }}
             >
@@ -153,19 +172,19 @@ const GospelHymnPage: React.FC = () => {
             </button>
           </div>
         )}
-      </div>
 
-      {hasMore && (
-        <div className="w-full flex justify-center mt-6 sm:mt-8 px-3">
-          <button
-            onClick={handleLoadMore}
-            disabled={isPageLoading}
-            className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-[#9f0712] hover:bg-[#85060f] text-white rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-medium shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
-          >
-            <span>{isPageLoading ? "Loading..." : "Load More Hymns"}</span>
-          </button>
-        </div>
-      )}
+        {hasMore && hymns.length > 0 && (
+          <div className="w-full flex justify-center mt-6 sm:mt-8 px-3">
+            <button
+              onClick={handleLoadMore}
+              disabled={isPageLoading}
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 bg-[#9f0712] hover:bg-[#85060f] text-white rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 font-medium shadow-md hover:shadow-lg disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            >
+              <span>{isPageLoading ? "Loading..." : "Load More Hymns"}</span>
+            </button>
+          </div>
+        )}
+      </div>
 
       {selectedHymn && (
         <HymnDetail hymn={selectedHymn} onClose={() => setSelectedHymn(null)} />
