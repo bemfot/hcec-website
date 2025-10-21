@@ -2,6 +2,7 @@
 "use client";
 
 import { useState } from "react";
+import Navbar from "../components/Navbar";
 
 export default function GivePage() {
   const [paymentCode, setPaymentCode] = useState("");
@@ -29,7 +30,9 @@ export default function GivePage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+    <>
+    <Navbar />
+    <div className="min-h-screen bg-gray-50 pt-30 py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mx-auto bg-white rounded-xl shadow--lg overflow-hidden">
         <div className="px-6 py-8">
           <h1 className="text-3xl font-bold text-blue-900 mb-4">Online Giving / Offering</h1>
@@ -205,5 +208,6 @@ export default function GivePage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
