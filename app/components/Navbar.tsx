@@ -20,7 +20,7 @@ type NavbarProps = {
 const defaultNavItems: NavItem[] = [
   { label: "HOME", link: "#",  },
   { label: "ABOUT US", link: "#", children: [{ label: "Our History", link: "About-Us/our-history" }, { label: "Mission and Vision", link: "About-Us/mission-and-vision" }, { label: "Our Beliefs", link: "About-Us/our-beliefs" }] },
-  { label: "ONLINE GIVINGS", link: "#", children: [{ label: "Work In Progress", link: "#" },] },
+  { label: "ONLINE GIVINGS", link: "/Online-Giving", children: [{ label: "Work In Progress", link: "#" },] },
   { label: "CHURCH RESOURCES", link: "#", children: [{ label: "Gospel Hymnal", link: "/Gospel-hymns" }, { label: "Honey From The Rock", link: "/Honey-from-the-rock" }, { label: "Daily Honey", link: "/Daily-honey" },  { label: "Bible", link: "/Bible" }, { label: "Audio & Video Resources", link: "/Media-Resources" }] },
   { label: "OUR PROGRAMS", link: "/Upcoming-Programs", },
   { label: "CONTACT US", link: "/Contact-Us/Home", children: [{label: "Our Locations", link: "/Contact-Us/Our-Locations" }, {label: "Prayer Request", link:"/Contact-Us/Prayer-RequestPage"},{label: "Testimony", link:"/Contact-Us/Testimony"}, {label: "Contact Us", link:"/Contact-Us/Get-In-Touch"}, ]},
@@ -48,6 +48,7 @@ export default function Navbar({
         <div className="flex items-center justify-between max-w-7xl  px-4 py-3">
           {/* Logo at left */}
           <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/assets/HCEC_LOGO.png"
               width={80}
@@ -55,6 +56,7 @@ export default function Navbar({
               alt="HCEC Logo"
               className="h-[3rem] w-[5rem] object-cover"
             />
+            </Link>
             <span className="hidden md:inline font-bold text-lg uppercase text-white">
               {churchName.split("Evangelical")[0]}
               <br />
