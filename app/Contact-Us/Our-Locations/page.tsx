@@ -28,8 +28,8 @@ export default function OurLocations() {
     <div>
       <Image src='/assets/HCEC_LOGO.png' width={80} height={48} alt='Church logo' className='h-[6rem] w-[10rem]' />
     </div>
-    <h1 className="text-6xl font-bold">Worship With Us Today</h1>
-    <p className="text-2xl font-sm mt-2 p-2 backdrop-blur-xl border-1 border-dashed">Our Church Locations in Various Regions are Below</p>
+    <h1 className="text-3xl md:text-5xl font-bold">Worship With Us Today</h1>
+    <p className="text-lg md:text-2xl font-sm mt-2 p-2 backdrop-blur-xl border-1 border-dashed">Our Church Locations in Various Regions are Below</p>
   </div>
 </div>
 <div className='px-10'>
