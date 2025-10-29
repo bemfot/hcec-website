@@ -40,21 +40,21 @@ export default function Testimony() {
 
   return (
 
-    <div>   <div className="md:px-10 md:pt-[6rem] md:pb-5 bg-gray-800 shadow-lg min-h-screen"
+    <div>   <div className="md:px-10 md:pt-[2.8rem] md:pb-5  bg-gray-800 shadow-lg min-h-screen"
 
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 bg-black/60 min-h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-2 mt-[4rem]  bg-black/60 min-h-screen">
         {/* Left: Red Info Section */}
-        <div className="bg-gray-700 text-white px-10 flex flex-col justify-center">
+        <div className="bg-gray-700 py-20 text-white px-10 flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-4">Testimony</h2>
           <p className="mb-6">
             What has God done for you? And how has He came through for you that you want to share with us?
           </p>
           <div className="mb-2">
-            📞 <strong>Phone:</strong> +234 916 986 442, +234 906 099 3734
+             <strong>Phone:</strong> +234 916 986 442, +234 906 099 3734
           </div>
           <div>
-            📧 <strong>Email:</strong> contactcentre@lfcww.org
+             <strong>Email:</strong> info@hiscomingevangelicalchurch.org
           </div>
         </div>
 

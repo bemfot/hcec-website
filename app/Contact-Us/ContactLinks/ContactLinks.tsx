@@ -8,7 +8,7 @@ import { RiCloseLine } from "react-icons/ri";
 import { useState } from "react";
 
 const contactNavLinks = [
-  { label: "Home", link: "/Contact-Us/Home" },
+  
   { label: "Our Locations", link: "/Contact-Us/Our-Locations" },
   { label: "Prayer Request", link: "/Contact-Us/Prayer-RequestPage" },
   { label: "Testimony", link: "/Contact-Us/Testimony" },
@@ -42,7 +42,7 @@ export default function ContactLinks() {
         >
           <FaCommentDots className="text-xl" />
           <FaPhoneAlt className="text-xl" />
-          <span className="text-sm font-semibold">+234 801 234 5678</span>
+          <span className="text-sm font-semibold">+234916986442</span>
         </a>
 
         {/* Mobile toggle (right) */}

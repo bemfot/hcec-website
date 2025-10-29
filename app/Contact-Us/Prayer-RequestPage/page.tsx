@@ -5,8 +5,10 @@ import ContactLinks from '@/app/Contact-Us/ContactLinks/ContactLinks'
 export default function PrayerRequest() {
   return (
     <div>
-      <PrayerRequestForm />
+      
       <ContactLinks />
+      <PrayerRequestForm />
+    
 
     </div>
   )

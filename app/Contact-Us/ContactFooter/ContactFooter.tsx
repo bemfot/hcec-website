@@ -1,5 +1,5 @@
 import React from 'react';
-import { FaFacebookF, FaTwitter, FaInstagram, FaMapMarkerAlt } from 'react-icons/fa';
+import { FaFacebookF,  FaInstagram, FaMapMarkerAlt, FaYoutube } from 'react-icons/fa';
 
 
 export default function ContactFooter() {
@@ -9,11 +9,11 @@ export default function ContactFooter() {
         {/* Socials - bottom left */}
         <div className="flex items-center gap-3 text-white">
           <span className="font-semibold">Follow us:</span>
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
+          <a href="https://www.facebook.com/profile.php?id=100067408456230&mibextid=ZbWKwL" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400">
             <FaFacebookF />
           </a>
-          <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">
-            <FaTwitter />
+          <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer" className="hover:text-blue-300">
+            <FaYoutube />
           </a>
           <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="hover:text-pink-400">
             <FaInstagram />
@@ -22,7 +22,7 @@ export default function ContactFooter() {
         {/* Location - bottom right */}
         <div className="flex items-center gap-2 text-white">
           <FaMapMarkerAlt className="text-lg text-red-400" />
-          <span className="text-sm font-semibold">123 Church Avenue, City, Country</span>
+          <span className="text-sm font-semibold">Ajao village, Bare Junction, Old Lagos Road, Alomaja Ibadan.</span>
         </div>
       </div>
     </div>
