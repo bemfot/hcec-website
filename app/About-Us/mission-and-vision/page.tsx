@@ -11,7 +11,7 @@ export default function MissionVision() {
     <div className="flex flex-col  mt-[5rem] md:flex-row min-h-screen bg-[#f3f4f6]">
           {/* History Section */}
           <div className="flex-1 flex justify-center items-start py-12 px-4 md:px-12">
-            <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl border-l-2 border-red-500">
+            <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl border-l-2 text-justify border-red-500">
               <div className="flex flex-col items-center justify-center mb-6 gap-2">
                 <Image
                   src="/assets/HCEC_LOGO.png"

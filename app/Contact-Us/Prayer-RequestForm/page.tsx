@@ -40,23 +40,23 @@ export default function PrayerRequestForm() {
 
   return (
 
-    <div>   <div className="md:px-10 md:pt-[6rem] md:pb-5 shadow-lg min-h-screen"
+    <div className=''>   <div className="md:px-10  md:mt-[8rem]   md:pb-5 shadow-lg min-h-screen"
 
     >
       <div className="grid grid-cols-1 md:grid-cols-2 bg-black/60 min-h-screen">
 
         {/* Left: Info Section */}
-        <div className="bg-gray-700 text-white p-10 lg:px-20 lg:pb-[7rem] flex flex-col justify-center">
+        <div className="bg-gray-700 mt-[4rem] text-white p-10 lg:px-20 lg:pb-[7rem] flex flex-col justify-center">
           <h2 className="text-3xl font-bold mb-4">Prayer Request</h2>
           <p className="mb-6">
             You can now conveniently submit your prayer requests online, by filling the form or through mail,
             or via a simple phone call. This seamless process ensures that heartfelt intentions reach the dedicated prayer team.
           </p>
           <div className="mb-2">
-            📞 <strong>Phone:</strong> +234 916 986 442, +234 906 099 3734
+            📞 <strong>Phone:</strong> 08024097119
           </div>
           <div>
-            📧 <strong>Email:</strong> contactcentre@lfcww.org
+            📧 <strong>Email:</strong>info@hiscomingevangelicalchurch.org
           </div>
         </div>
 
