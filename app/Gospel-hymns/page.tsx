@@ -11,42 +11,30 @@ import { Hymn } from "../components/hymns/types";
 
 const GospelHymnPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const [activeSearchQuery, setActiveSearchQuery] = useState(""); 
   const [selectedLanguage, setSelectedLanguage] = useState<
     "english" | "yoruba"
   >("english");
   const [selectedHymn, setSelectedHymn] = useState<Hymn | null>(null);
   const [hymns, setHymns] = useState<Hymn[]>([]);
-  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("");
   const [isPageLoading, setIsPageLoading] = useState(false);
   const [limit, setLimit] = useState(10);
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
 
-  useEffect(() => {
-    const handler = setTimeout(() => {
-      setDebouncedSearchQuery(searchQuery);
-    }, 500);
-
-    return () => {
-      clearTimeout(handler);
-    };
-  }, [searchQuery]);
-
   const handleGetHymns = useCallback(async () => {
-    if (!debouncedSearchQuery && page === 1 && limit === 10) {
-    }
-
     setIsPageLoading(true);
 
     try {
       const queryParams: Record<string, any> = {
         ...(selectedLanguage ? { language: selectedLanguage } : {}),
-        ...(debouncedSearchQuery ? { search: debouncedSearchQuery } : {}),
+        ...(activeSearchQuery ? { search: activeSearchQuery } : {}),
         ...(limit ? { limit: limit } : {}),
         ...(page ? { page: page } : {}),
       };
 
       const queryString = new URLSearchParams(queryParams).toString();
+
       const endpoint = queryString
         ? `/hymns/filter?${queryString}`
         : "/hymns/filter";
@@ -54,7 +42,7 @@ const GospelHymnPage: React.FC = () => {
       const response = await api.get(endpoint);
 
       setHymns((prev) =>
-        prev.length === 0
+        page === 1
           ? response?.data?.data?.hymns
           : [...prev, ...response?.data?.data?.hymns],
       );
@@ -68,21 +56,42 @@ const GospelHymnPage: React.FC = () => {
         err.code === "ECONNABORTED" ||
         err.message?.includes("Network Error")
       ) {
-        window.dispatchEvent(new CustomEvent("network-error")); //TODO create a page to render if network error
+        window.dispatchEvent(new CustomEvent("network-error"));
       }
     } finally {
       setIsPageLoading(false);
     }
-  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+  }, [selectedLanguage, activeSearchQuery, limit, page]);
 
   useEffect(() => {
     handleGetHymns();
-  }, [selectedLanguage, debouncedSearchQuery, limit, page]);
+  }, [handleGetHymns]);
 
   const handleLoadMore = () => {
     if (isPageLoading || !hasMore) return;
     setPage((prev) => prev + 1);
   };
+
+  const handleSearch = () => {
+    setPage(1);
+    setActiveSearchQuery(searchQuery.trim());
+  };
+
+  const handleClearSearch = () => {
+    setSearchQuery("");
+    setActiveSearchQuery("");
+    setPage(1);
+  };
+
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === "Enter") {
+      handleSearch();
+    }
+  };
+
+  useEffect(() => {
+    setPage(1);
+  }, [selectedLanguage]);
 
   return (
     <>
