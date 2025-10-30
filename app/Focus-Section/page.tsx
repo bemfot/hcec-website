@@ -12,7 +12,7 @@ export default function Focus() {
       </div>
 
       {/* Image Background Section */}
-      <div className="relative w-full h-[25rem] mb-10 overflow-visible">
+      <div className="relative w-full h-[30rem] mb-10 overflow-visible">
         {/* Background Image */}
         <div
           className="h-full w-full absolute inset-0 bg-cover bg-center"

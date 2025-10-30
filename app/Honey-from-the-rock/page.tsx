@@ -6,6 +6,7 @@ import React, { useMemo, useState } from "react";
 import { HftrCard } from "../components/honey-from-the-rock/hftr-card";
 import { HftrDetail } from "../components/honey-from-the-rock/hftr-detail";
 import { HFTR } from "../components/honey-from-the-rock/types";
+import Navbar from "../components/Navbar";
 
 const HFTRPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -31,7 +32,9 @@ const HFTRPage: React.FC = () => {
   }, [filteredLessons]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+    <Navbar />
+    <div className="min-h-screen mt-[5rem] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {/* Header */}
         <div className="mb-8">
@@ -100,6 +103,7 @@ const HFTRPage: React.FC = () => {
         />
       )}
     </div>
+    </>
   );
 };
 

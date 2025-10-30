@@ -11,6 +11,7 @@ import {
   Search,
 } from "lucide-react";
 import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 import {
   BibleBook,
   BibleResponse,
@@ -115,8 +116,10 @@ const BiblePage: React.FC = () => {
   const newTestamentBooks = BIBLE_BOOKS.filter((b) => b.testament === "New");
 
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <>
+    <Navbar />
+    <div className="min-h-screen mt-[5rem] bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8 text-center">
           <h1 className="text-4xl font-bold text-black mb-2">Holy Bible</h1>
           <p className="text-gray-600">Search and read God&apos;s Word</p>
@@ -371,6 +374,7 @@ const BiblePage: React.FC = () => {
         )}
       </div>
     </div>
+    </>
   );
 };
 

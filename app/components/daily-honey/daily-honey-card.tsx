@@ -3,6 +3,7 @@ import { DailyHoney } from "./types";
 
 export const DailyStudyCard: React.FC<{ study: DailyHoney; onClick: () => void }> = ({ study, onClick }) => {
   return (
+    <>
     <div 
       onClick={onClick}
       className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-lg transition-shadow cursor-pointer"
@@ -34,5 +35,6 @@ export const DailyStudyCard: React.FC<{ study: DailyHoney; onClick: () => void }
         <span className="font-medium">Read more →</span>
       </div>
     </div>
+    </>
   );
 };
