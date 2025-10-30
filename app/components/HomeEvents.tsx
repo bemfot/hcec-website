@@ -16,7 +16,7 @@ type Event = {
 const mockEvents: Event[] = [
   {
     id: "1",
-    title: "Community Bible Study",
+    title: " Bible Study",
     date: "Jul 15, 2025",
     time: "7:00 PM – 9:00 PM",
     location: "Main Auditorium",
@@ -24,28 +24,13 @@ const mockEvents: Event[] = [
   },
   {
     id: "2",
-    title: "Community Bible Study",
-    date: "Jul 22, 2025",
+title: " Bible Study",
+    date: "Jul 15, 2025",
     time: "7:00 PM – 9:00 PM",
     location: "Main Auditorium",
     image: "/images/bible_study.jpg",
   },
-  {
-    id: "3",
-    title: "Community Bible Study",
-    date: "Jul 29, 2025",
-    time: "7:00 PM – 9:00 PM",
-    location: "Main Auditorium",
-    image: "/images/bible_study.jpg",
-  },
-  {
-    id: "4",
-    title: "Life Explored (Young Adults Event)",
-    date: "Aug 13, 2025",
-    time: "7:00 PM – 9:00 PM",
-    location: "Youth Hall",
-    image: "/images/life_explored.jpg",
-  },
+ 
 ];
 
 export default function HomeEvents() {
@@ -58,7 +43,7 @@ export default function HomeEvents() {
         </h2>
 
         {/* Event Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
           {mockEvents.map((event) => (
             <Link
               key={event.id}
@@ -94,7 +79,7 @@ export default function HomeEvents() {
         {/* View All Events Button */}
         <div className="mt-12">
           <Link
-            href="/UpcomingProgramsPage"
+            href="/Upcoming-Programs"
             className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition"
           >
             View All Programs

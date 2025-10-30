@@ -3,6 +3,7 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
+import Navbar from "../components/Navbar";
 
 type Event = {
   id: string;
@@ -18,21 +19,22 @@ type Event = {
 
 const mockEvents: Event[] = [
   {
-    id: "sept-prayer-room",
-    title: "September Prayer Room",
-    startDate: "2025-09-08",
-    endDate: "2025-09-12",
-    time: "Mon-Thu 8:30 AM - 7:00 PM • Fri 8:30 AM - 5:00 PM • Sundays before & after worship",
-    location: "Reception Room (just past the gym)",
+    id: "Bible Study",
+    title: "Weekly Bible Study",
+    startDate: "",
+    endDate: "",
+    time: "Tuesdays 6:00 PM - 8:00 PM ",
+    location: "At Our Branches",
     googleCalendarLink: "#",
     icsLink: "#",
   },
   {
-    id: "student-prayer-missions",
-    title: "Student Prayer with the Missions Hub",
-    startDate: "2025-09-12",
-    time: "10:00 AM - 11:00 AM",
-    location: "Knox Church",
+    id: "Revival Hour",
+    title: "Weekly Revival Hour",
+    startDate: "",
+    endDate: "",
+    time: "Thursdays 6:00 PM - 8:00 PM ",
+    location: "At Our Branches",
     googleCalendarLink: "#",
     icsLink: "#",
   },
@@ -41,7 +43,7 @@ const mockEvents: Event[] = [
     title: "Internationals’ Bible Study",
     startDate: "2025-09-14",
     time: "9:00 AM - 10:00 AM",
-    location: "Knox Church & Zoom",
+    location: "",
     googleCalendarLink: "#",
     icsLink: "#",
   },
@@ -50,7 +52,7 @@ const mockEvents: Event[] = [
     title: "Pre-service Prayer",
     startDate: "2025-09-14",
     time: "9:45 AM - 10:45 AM",
-    location: "Main Auditorium + Zoom",
+    location: "",
     googleCalendarLink: "#",
     icsLink: "#",
   },
@@ -62,7 +64,9 @@ export default function UpcomingProgramsPage() {
 
 
   return (
-    <div className="bg-gray-100 min-h-screen py-12 px-4 md:px-8 lg:px-16">
+    <>
+    <Navbar/>
+    <div className="bg-gray-100 min-h-screen mt-[5rem] py-12 px-4 md:px-8 lg:px-16">
       <div className="max-w-4xl mx-auto">
         <h1 className="text-4xl font-bold text-blue-900 mb-8">Weekly Programs</h1>
         <div className="space-y-8">
@@ -140,5 +144,6 @@ export default function UpcomingProgramsPage() {
         </div>
       </div>
     </div>
+    </>
   );
 }
