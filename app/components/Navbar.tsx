@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
-import { BiMenuAltRight, } from "react-icons/bi";
+import { BiMenuAltRight } from "react-icons/bi";
 import { RiCloseLine } from "react-icons/ri";
 
 type NavItem = {
@@ -17,14 +17,46 @@ type NavbarProps = {
   churchName?: string;
 };
 
-    const defaultNavItems: NavItem[] = [
-      { label: "HOME", link: "#",  },
-      { label: "ABOUT US", link: "#", children: [{ label: "Our History", link: "About-Us/our-history" }, { label: "Mission and Vision", link: "About-Us/mission-and-vision" }, { label: "Our Beliefs", link: "About-Us/our-beliefs" }] },
-      { label: "ONLINE GIVINGS", link: "/Online-Giving", children: [{ label: "Work In Progress", link: "#" },] },
-      { label: "CHURCH RESOURCES", link: "#", children: [{ label: "Gospel Hymnal", link: "/Gospel-hymns" }, { label: "Honey From The Rock", link: "/Honey-from-the-rock" }, { label: "Daily Honey", link: "/Daily-honey" },  { label: "Bible", link: "/Bible" }, { label: "Audio & Video Resources", link: "/Media-Resources" }] },
-      { label: "OUR PROGRAMS", link: "/Upcoming-Programs", },
-      { label: "CONTACT US", link: "/Contact-Us/Home", children: [{label: "Our Locations", link: "/Contact-Us/Our-Locations" }, {label: "Prayer Request", link:"/Contact-Us/Prayer-RequestPage"},{label: "Testimony", link:"/Contact-Us/Testimony"}, {label: "Contact Us", link:"/Contact-Us/Get-In-Touch"}, ]},
-    ];
+const defaultNavItems: NavItem[] = [
+  { label: "HOME", link: "/" },
+  {
+    label: "ABOUT US",
+    link: "#",
+    children: [
+      { label: "Our History", link: "/About-Us/our-history" },
+      { label: "Mission and Vision", link: "/About-Us/mission-and-vision" },
+      { label: "Our Beliefs", link: "/About-Us/our-beliefs" },
+    ],
+  },
+  {
+    label: "CHURCH RESOURCES",
+    link: "#",
+    children: [
+      { label: "Gospel Hymnal", link: "/Gospel-hymns" },
+      { label: "Honey From The Rock", link: "/Honey-from-the-rock" },
+      { label: "Daily Honey", link: "/Daily-honey" },
+      { label: "Bible", link: "/Bible" },
+      { label: "Audio & Video Resources", link: "/Media-Resources" },
+    ],
+  },
+  {
+    label: "ONLINE GIVINGS",
+    link: "/Online-Giving",
+    children: [{ label: "Work In Progress", link: "#" }],
+  },
+
+  { label: "OUR PROGRAMS", link: "/Upcoming-Programs" },
+  {
+    label: "CONTACT US",
+    link: "/Contact-Us/Home",
+    children: [
+      { label: "Our Locations", link: "/Contact-Us/Our-Locations" },
+      { label: "Prayer Request", link: "/Contact-Us/Prayer-RequestPage" },
+      { label: "Testimony", link: "/Contact-Us/Testimony" },
+      { label: "Contact Us", link: "/Contact-Us/Get-In-Touch" },
+    ],
+  },
+];
 
 export default function Navbar({
   navItems = defaultNavItems,
@@ -48,14 +80,17 @@ export default function Navbar({
         <div className="flex items-center justify-between max-w-7xl  px-4 py-3">
           {/* Logo at left */}
           <div className="flex items-center gap-2">
-          <Link href="/" className="flex items-center gap-2">
-            <Image
-              src="/assets/HCEC_LOGO.png"
-              width={80}
-              height={48}
-              alt="HCEC Logo"
-              className="h-[3rem] w-[5rem] object-cover"
-            />
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+            >
+              <Image
+                src="/assets/HCEC_LOGO.png"
+                width={80}
+                height={48}
+                alt="HCEC Logo"
+                className="h-[3rem] w-[5rem] object-cover"
+              />
             </Link>
             <span className="hidden md:inline font-bold text-lg uppercase text-white">
               {churchName.split("Evangelical")[0]}
@@ -63,8 +98,8 @@ export default function Navbar({
               Evangelical{churchName.split("Evangelical")[1] || ""}
             </span>
           </div>
-          {/* Desktop nav */}
-          <nav className="hidden md:flex text-white  text-[11px] ml-12 justify-between items-center gap-8">
+          {/* Desktop nav (right-aligned) */}
+          <nav className="hidden md:flex text-white text-[11px] items-center gap-8 ml-auto">
             {navItems.map((d, i) => (
               <div
                 key={i}
@@ -82,13 +117,13 @@ export default function Navbar({
                 {d.children && (
                   <div className="absolute flex flex-col justify-start left-1/2 transform -translate-x-1/2 top-10 bg-amber-50 text-black w-[11rem] transition-all text-[12px] border-t-4 border-red-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
                     {d.children.map((ch, j) => (
-                      <a
+                      <Link
                         key={j}
                         href={ch.link ?? "#"}
-                        className="py-2 px-4 hover:bg-red-500 hover:text-white"
+                        className="py-2 px-4 hover:bg-red-500 hover:text-white block"
                       >
                         {ch.label}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 )}
@@ -124,7 +159,7 @@ export default function Navbar({
             {navItems.map((item, index) => (
               <li
                 key={index}
-                className="w-full text-left mb-2 border-t border-gray-600/30"
+                className="w-full text-left mb-2 border-t-2 border-gray-600/50"
               >
                 <div className="flex items-center justify-between w-full">
                   <Link
@@ -149,9 +184,7 @@ export default function Navbar({
                       className="px-2 focus:outline-none"
                       onClick={() => handleSubMenu(index)}
                       aria-label="Toggle submenu"
-                    >
-                      
-                    </button>
+                    ></button>
                   )}
                 </div>
                 {item.children && openSubMenu === index && (
@@ -159,7 +192,7 @@ export default function Navbar({
                     {item.children.map((child, childIndex) => (
                       <li
                         key={childIndex}
-                        className="w-full text-left border-t border-gray-600/30"
+                        className="w-full text-left border-t-2 border-gray-600/50"
                       >
                         <Link
                           href={child.link ?? "#"}

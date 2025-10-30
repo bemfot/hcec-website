@@ -6,6 +6,7 @@ import React, { useMemo, useState } from "react";
 import { DailyStudyCard } from "../components/daily-honey/daily-honey-card";
 import { DailyStudyDetail } from "../components/daily-honey/daily-honey-detail";
 import { DailyHoney } from "../components/daily-honey/types";
+import Navbar from "../components/Navbar";
 
 const DailyHoneyPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
@@ -33,7 +34,9 @@ const DailyHoneyPage: React.FC = () => {
   }, [filteredStudies]);
 
   return (
-    <div className="min-h-screen bg-white">
+    <>
+    <Navbar />
+    <div className="min-h-screen mt-[5rem] bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="mb-8">
           <h1 className="text-4xl font-bold text-black mb-2">Daily Honey</h1>
@@ -94,6 +97,7 @@ const DailyHoneyPage: React.FC = () => {
         />
       )}
     </div>
+    </>
   );
 };
 

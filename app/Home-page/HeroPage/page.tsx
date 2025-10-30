@@ -9,7 +9,7 @@ export default function Heropage() {
   };
 
   return (
-    <section className="relative w-full h-screen ">
+    <section className="relative w-full h-[30rem] ">
       {/* Background Image */}
       <Image
         src="/assets/img.jpg" // replace path if different

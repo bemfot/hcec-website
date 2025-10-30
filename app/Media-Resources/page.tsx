@@ -1,9 +1,13 @@
 import React from 'react';
 import { MdPermMedia } from "react-icons/md";
+import Navbar from '../components/Navbar';
+
 
 function page() {
   return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] bg-white">
+    <>
+    <Navbar />
+    <div className="flex flex-col mt-[3rem] items-center justify-center min-h-[60vh] bg-white">
       <a
         href="https://drive.google.com/" // Replace with your actual Google Drive link
         target="_blank"
@@ -15,6 +19,7 @@ function page() {
         <span className="text-sm text-gray-500">(Google Drive)</span>
       </a>
     </div>
+    </>
   );
 }
 
