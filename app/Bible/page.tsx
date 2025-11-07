@@ -39,7 +39,19 @@ const BiblePage: React.FC = () => {
   const [selectedBook, setSelectedBook] = useState<BibleBook | null>(null);
   const [view, setView] = useState<"books" | "chapters" | "reading">("books");
   const [booksData, setBooksData] = useState<Record<string, any[]>>({});
-  const [localBooks, setLocalBooks] = useState<any[]>([]); 
+  const [localBooks, setLocalBooks] = useState<any[]>([]);
+
+  React.useEffect(() => {
+    if (booksData && Object.keys(booksData).length > 0) {
+      const translationId = getCurrentTranslationId();
+      if (booksData[translationId]) {
+        setLocalBooks(booksData[translationId]);
+        setSelectedBook(null);
+        setBibleData(null);
+        setView("books");
+      }
+    }
+  }, [language, englishVersion]);
 
   React.useEffect(() => {
     (async () => {
@@ -300,7 +312,6 @@ const BiblePage: React.FC = () => {
     }
   };
 
-
   const oldTestamentBooks = (() => {
     if (!localBooks || localBooks.length === 0) return [];
     if (localBooks.some((b) => b.testament)) {
@@ -344,7 +355,12 @@ const BiblePage: React.FC = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <select
                 value={language}
-                onChange={(e) => setLanguage(e.target.value)}
+                onChange={(e) => {
+                  setLanguage(e.target.value);
+                  // Reset search when language changes
+                  setSearchQuery("");
+                  setError(null);
+                }}
                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black bg-white cursor-pointer"
               >
                 {LANGUAGES.map((lang) => (
@@ -357,7 +373,12 @@ const BiblePage: React.FC = () => {
               {language === "english" ? (
                 <select
                   value={englishVersion}
-                  onChange={(e) => setEnglishVersion(e.target.value)}
+                  onChange={(e) => {
+                    setEnglishVersion(e.target.value);
+                    // Reset search when version changes
+                    setSearchQuery("");
+                    setError(null);
+                  }}
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black bg-white cursor-pointer"
                 >
                   {ENGLISH_VERSIONS.map((version) => (
