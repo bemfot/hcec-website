@@ -18,19 +18,32 @@ export const SAMPLE_SEARCHES = [
   "Philippians 4:13",
 ];
 export interface BibleVerse {
-  bookname: string;
+  book_id: string;
+  book_name: string;
   chapter: number;
   verse: number;
   text: string;
 }
 
-export interface BibleResponse {
-  reference: string;
-  verses: BibleVerse[];
-  text: string;
+export interface BibleChapterResponse {
   translation_id: string;
   translation_name: string;
   translation_note: string;
+  book_id: string;
+  book_name: string;
+  chapter: number;
+  verses: BibleVerse[];
+}
+
+export interface BibleVerseResponse {
+  translation_id: string;
+  translation_name: string;
+  translation_note: string;
+  book_id: string;
+  book_name: string;
+  chapter: number;
+  verse: number;
+  text: string;
 }
 
 export interface BibleBook {
