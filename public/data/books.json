@@ -1,0 +1,1988 @@
+{
+  "eng_kjv": [
+    {
+      "translationId": "eng_kjv",
+      "id": "GEN",
+      "name": "Genesis",
+      "englishName": null,
+      "commonName": "Genesis",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/GEN/1.json",
+      "numberOfChapters": 50
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "EXO",
+      "name": "Exodus",
+      "englishName": null,
+      "commonName": "Exodus",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/EXO/1.json",
+      "numberOfChapters": 40
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "LEV",
+      "name": "Leviticus",
+      "englishName": null,
+      "commonName": "Leviticus",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/LEV/1.json",
+      "numberOfChapters": 27
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "NUM",
+      "name": "Numbers",
+      "englishName": null,
+      "commonName": "Numbers",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/NUM/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "DEU",
+      "name": "Deuteronomy",
+      "englishName": null,
+      "commonName": "Deuteronomy",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/DEU/1.json",
+      "numberOfChapters": 34
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JOS",
+      "name": "Joshua",
+      "englishName": null,
+      "commonName": "Joshua",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JOS/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JDG",
+      "name": "Judges",
+      "englishName": null,
+      "commonName": "Judges",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JDG/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "RUT",
+      "name": "Ruth",
+      "englishName": null,
+      "commonName": "Ruth",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/RUT/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1SA",
+      "name": "1 Samuel",
+      "englishName": null,
+      "commonName": "1 Samuel",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1SA/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2SA",
+      "name": "2 Samuel",
+      "englishName": null,
+      "commonName": "2 Samuel",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2SA/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1KI",
+      "name": "1 Kings",
+      "englishName": null,
+      "commonName": "1 Kings",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1KI/1.json",
+      "numberOfChapters": 22
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2KI",
+      "name": "2 Kings",
+      "englishName": null,
+      "commonName": "2 Kings",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2KI/1.json",
+      "numberOfChapters": 25
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1CH",
+      "name": "1 Chronicles",
+      "englishName": null,
+      "commonName": "1 Chronicles",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1CH/1.json",
+      "numberOfChapters": 29
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2CH",
+      "name": "2 Chronicles",
+      "englishName": null,
+      "commonName": "2 Chronicles",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2CH/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "EZR",
+      "name": "Ezra",
+      "englishName": null,
+      "commonName": "Ezra",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/EZR/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "NEH",
+      "name": "Nehemiah",
+      "englishName": null,
+      "commonName": "Nehemiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/NEH/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "EST",
+      "name": "Esther",
+      "englishName": null,
+      "commonName": "Esther",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/EST/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JOB",
+      "name": "Job",
+      "englishName": null,
+      "commonName": "Job",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JOB/1.json",
+      "numberOfChapters": 42
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "PSA",
+      "name": "Psalms",
+      "englishName": null,
+      "commonName": "Psalms",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/PSA/1.json",
+      "numberOfChapters": 150
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "PRO",
+      "name": "Proverbs",
+      "englishName": null,
+      "commonName": "Proverbs",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/PRO/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ECC",
+      "name": "Ecclesiastes",
+      "englishName": null,
+      "commonName": "Ecclesiastes",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ECC/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "SNG",
+      "name": "Song of Solomon",
+      "englishName": null,
+      "commonName": "Song of Songs",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/SNG/1.json",
+      "numberOfChapters": 8
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ISA",
+      "name": "Isaiah",
+      "englishName": null,
+      "commonName": "Isaiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ISA/1.json",
+      "numberOfChapters": 66
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JER",
+      "name": "Jeremiah",
+      "englishName": null,
+      "commonName": "Jeremiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JER/1.json",
+      "numberOfChapters": 52
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "LAM",
+      "name": "Lamentations",
+      "englishName": null,
+      "commonName": "Lamentations",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/LAM/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "EZK",
+      "name": "Ezekiel",
+      "englishName": null,
+      "commonName": "Ezekiel",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/EZK/1.json",
+      "numberOfChapters": 48
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "DAN",
+      "name": "Daniel",
+      "englishName": null,
+      "commonName": "Daniel",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/DAN/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "HOS",
+      "name": "Hosea",
+      "englishName": null,
+      "commonName": "Hosea",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/HOS/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JOL",
+      "name": "Joel",
+      "englishName": null,
+      "commonName": "Joel",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JOL/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "AMO",
+      "name": "Amos",
+      "englishName": null,
+      "commonName": "Amos",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/AMO/1.json",
+      "numberOfChapters": 9
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "OBA",
+      "name": "Obadiah",
+      "englishName": null,
+      "commonName": "Obadiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/OBA/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JON",
+      "name": "Jonah",
+      "englishName": null,
+      "commonName": "Jonah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JON/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "MIC",
+      "name": "Micah",
+      "englishName": null,
+      "commonName": "Micah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/MIC/1.json",
+      "numberOfChapters": 7
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "NAM",
+      "name": "Nahum",
+      "englishName": null,
+      "commonName": "Nahum",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/NAM/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "HAB",
+      "name": "Habakkuk",
+      "englishName": null,
+      "commonName": "Habakkuk",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/HAB/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ZEP",
+      "name": "Zephaniah",
+      "englishName": null,
+      "commonName": "Zephaniah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ZEP/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "HAG",
+      "name": "Haggai",
+      "englishName": null,
+      "commonName": "Haggai",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/HAG/1.json",
+      "numberOfChapters": 2
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ZEC",
+      "name": "Zechariah",
+      "englishName": null,
+      "commonName": "Zechariah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ZEC/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "MAL",
+      "name": "Malachi",
+      "englishName": null,
+      "commonName": "Malachi",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/MAL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "MAT",
+      "name": "Matthew",
+      "englishName": null,
+      "commonName": "Matthew",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/MAT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "MRK",
+      "name": "Mark",
+      "englishName": null,
+      "commonName": "Mark",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/MRK/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "LUK",
+      "name": "Luke",
+      "englishName": null,
+      "commonName": "Luke",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/LUK/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JHN",
+      "name": "John",
+      "englishName": null,
+      "commonName": "John",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JHN/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ACT",
+      "name": "Acts",
+      "englishName": null,
+      "commonName": "Acts",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ACT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "ROM",
+      "name": "Romans",
+      "englishName": null,
+      "commonName": "Romans",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/ROM/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1CO",
+      "name": "1 Corinthians",
+      "englishName": null,
+      "commonName": "1 Corinthians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1CO/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2CO",
+      "name": "2 Corinthians",
+      "englishName": null,
+      "commonName": "2 Corinthians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2CO/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "GAL",
+      "name": "Galatians",
+      "englishName": null,
+      "commonName": "Galatians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/GAL/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "EPH",
+      "name": "Ephesians",
+      "englishName": null,
+      "commonName": "Ephesians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/EPH/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "PHP",
+      "name": "Philippians",
+      "englishName": null,
+      "commonName": "Philippians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/PHP/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "COL",
+      "name": "Colossians",
+      "englishName": null,
+      "commonName": "Colossians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/COL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1TH",
+      "name": "1 Thessalonians",
+      "englishName": null,
+      "commonName": "1 Thessalonians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1TH/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2TH",
+      "name": "2 Thessalonians",
+      "englishName": null,
+      "commonName": "2 Thessalonians",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2TH/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1TI",
+      "name": "1 Timothy",
+      "englishName": null,
+      "commonName": "1 Timothy",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1TI/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2TI",
+      "name": "2 Timothy",
+      "englishName": null,
+      "commonName": "2 Timothy",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2TI/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "TIT",
+      "name": "Titus",
+      "englishName": null,
+      "commonName": "Titus",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/TIT/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "PHM",
+      "name": "Philemon",
+      "englishName": null,
+      "commonName": "Philemon",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/PHM/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "HEB",
+      "name": "Hebrews",
+      "englishName": null,
+      "commonName": "Hebrews",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/HEB/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JAS",
+      "name": "James",
+      "englishName": null,
+      "commonName": "James",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JAS/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1PE",
+      "name": "1 Peter",
+      "englishName": null,
+      "commonName": "1 Peter",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1PE/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2PE",
+      "name": "2 Peter",
+      "englishName": null,
+      "commonName": "2 Peter",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2PE/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "1JN",
+      "name": "1 John",
+      "englishName": null,
+      "commonName": "1 John",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/1JN/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "2JN",
+      "name": "2 John",
+      "englishName": null,
+      "commonName": "2 John",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/2JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "3JN",
+      "name": "3 John",
+      "englishName": null,
+      "commonName": "3 John",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/3JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "JUD",
+      "name": "Jude",
+      "englishName": null,
+      "commonName": "Jude",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/JUD/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "eng_kjv",
+      "id": "REV",
+      "name": "Revelation",
+      "englishName": null,
+      "commonName": "Revelation",
+      "shortName": null,
+      "firstChapterApiLink": "/api/eng_kjv/REV/1.json",
+      "numberOfChapters": 22
+    }
+  ],
+  "fra_lsg": [
+    {
+      "translationId": "fra_lsg",
+      "id": "GEN",
+      "name": "GENÈSE",
+      "englishName": null,
+      "commonName": "GENÈSE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/GEN/1.json",
+      "numberOfChapters": 50
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "EXO",
+      "name": "EXODE",
+      "englishName": null,
+      "commonName": "EXODE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/EXO/1.json",
+      "numberOfChapters": 40
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "LEV",
+      "name": "LÉVITIQUE",
+      "englishName": null,
+      "commonName": "LÉVITIQUE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/LEV/1.json",
+      "numberOfChapters": 27
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "NUM",
+      "name": "NOMBRES",
+      "englishName": null,
+      "commonName": "NOMBRES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/NUM/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "DEU",
+      "name": "DEUTÉRONOME",
+      "englishName": null,
+      "commonName": "DEUTÉRONOME",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/DEU/1.json",
+      "numberOfChapters": 34
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JOS",
+      "name": "JOSUÉ",
+      "englishName": null,
+      "commonName": "JOSUÉ",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JOS/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JDG",
+      "name": "JUGES",
+      "englishName": null,
+      "commonName": "JUGES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JDG/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "RUT",
+      "name": "RUTH",
+      "englishName": null,
+      "commonName": "RUTH",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/RUT/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1SA",
+      "name": "1 SAMUEL",
+      "englishName": null,
+      "commonName": "1 SAMUEL",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1SA/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2SA",
+      "name": "2 SAMUEL",
+      "englishName": null,
+      "commonName": "2 SAMUEL",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2SA/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1KI",
+      "name": "1 ROIS",
+      "englishName": null,
+      "commonName": "1 ROIS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1KI/1.json",
+      "numberOfChapters": 22
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2KI",
+      "name": "2 ROIS",
+      "englishName": null,
+      "commonName": "2 ROIS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2KI/1.json",
+      "numberOfChapters": 25
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1CH",
+      "name": "1 CHRONIQUES",
+      "englishName": null,
+      "commonName": "1 CHRONIQUES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1CH/1.json",
+      "numberOfChapters": 29
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2CH",
+      "name": "2 CHRONIQUES",
+      "englishName": null,
+      "commonName": "2 CHRONIQUES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2CH/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "EZR",
+      "name": "ESDRAS",
+      "englishName": null,
+      "commonName": "ESDRAS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/EZR/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "NEH",
+      "name": "NÉHÉMIE",
+      "englishName": null,
+      "commonName": "NÉHÉMIE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/NEH/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "EST",
+      "name": "ESTHER",
+      "englishName": null,
+      "commonName": "ESTHER",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/EST/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JOB",
+      "name": "JOB",
+      "englishName": null,
+      "commonName": "JOB",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JOB/1.json",
+      "numberOfChapters": 42
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "PSA",
+      "name": "PSAUMES",
+      "englishName": null,
+      "commonName": "PSAUMES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/PSA/1.json",
+      "numberOfChapters": 150
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "PRO",
+      "name": "PROVERBES",
+      "englishName": null,
+      "commonName": "PROVERBES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/PRO/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ECC",
+      "name": "ECCLÉSIASTE",
+      "englishName": null,
+      "commonName": "ECCLÉSIASTE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ECC/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "SNG",
+      "name": "CANTIQUE DES CANTIQUES",
+      "englishName": null,
+      "commonName": "CANTIQUE DES CANTIQUES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/SNG/1.json",
+      "numberOfChapters": 8
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ISA",
+      "name": "ÉSAÏE",
+      "englishName": null,
+      "commonName": "ÉSAÏE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ISA/1.json",
+      "numberOfChapters": 66
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JER",
+      "name": "JÉRÉMIE",
+      "englishName": null,
+      "commonName": "JÉRÉMIE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JER/1.json",
+      "numberOfChapters": 52
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "LAM",
+      "name": "LAMENTATIONS",
+      "englishName": null,
+      "commonName": "LAMENTATIONS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/LAM/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "EZK",
+      "name": "ÉZÉCHIEL",
+      "englishName": null,
+      "commonName": "ÉZÉCHIEL",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/EZK/1.json",
+      "numberOfChapters": 48
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "DAN",
+      "name": "DANIEL",
+      "englishName": null,
+      "commonName": "DANIEL",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/DAN/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "HOS",
+      "name": "OSÉE",
+      "englishName": null,
+      "commonName": "OSÉE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/HOS/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JOL",
+      "name": "JOËL",
+      "englishName": null,
+      "commonName": "JOËL",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JOL/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "AMO",
+      "name": "AMOS",
+      "englishName": null,
+      "commonName": "AMOS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/AMO/1.json",
+      "numberOfChapters": 9
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "OBA",
+      "name": "ABDIAS",
+      "englishName": null,
+      "commonName": "ABDIAS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/OBA/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JON",
+      "name": "JONAS",
+      "englishName": null,
+      "commonName": "JONAS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JON/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "MIC",
+      "name": "MICHÉE",
+      "englishName": null,
+      "commonName": "MICHÉE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/MIC/1.json",
+      "numberOfChapters": 7
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "NAM",
+      "name": "NAHUM",
+      "englishName": null,
+      "commonName": "NAHUM",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/NAM/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "HAB",
+      "name": "HABACUC",
+      "englishName": null,
+      "commonName": "HABACUC",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/HAB/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ZEP",
+      "name": "SOPHONIE",
+      "englishName": null,
+      "commonName": "SOPHONIE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ZEP/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "HAG",
+      "name": "AGGÉE",
+      "englishName": null,
+      "commonName": "AGGÉE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/HAG/1.json",
+      "numberOfChapters": 2
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ZEC",
+      "name": "ZACHARIE",
+      "englishName": null,
+      "commonName": "ZACHARIE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ZEC/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "MAL",
+      "name": "MALACHIE",
+      "englishName": null,
+      "commonName": "MALACHIE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/MAL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "MAT",
+      "name": "MATTHIEU",
+      "englishName": null,
+      "commonName": "MATTHIEU",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/MAT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "MRK",
+      "name": "MARC",
+      "englishName": null,
+      "commonName": "MARC",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/MRK/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "LUK",
+      "name": "LUC",
+      "englishName": null,
+      "commonName": "LUC",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/LUK/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JHN",
+      "name": "JEAN",
+      "englishName": null,
+      "commonName": "JEAN",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JHN/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ACT",
+      "name": "ACTES",
+      "englishName": null,
+      "commonName": "ACTES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ACT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "ROM",
+      "name": "ROMAINS",
+      "englishName": null,
+      "commonName": "ROMAINS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/ROM/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1CO",
+      "name": "1 CORINTHIENS",
+      "englishName": null,
+      "commonName": "1 CORINTHIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1CO/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2CO",
+      "name": "2 CORINTHIENS",
+      "englishName": null,
+      "commonName": "2 CORINTHIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2CO/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "GAL",
+      "name": "GALATES",
+      "englishName": null,
+      "commonName": "GALATES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/GAL/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "EPH",
+      "name": "ÉPHÉSIENS",
+      "englishName": null,
+      "commonName": "ÉPHÉSIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/EPH/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "PHP",
+      "name": "PHILIPPIENS",
+      "englishName": null,
+      "commonName": "PHILIPPIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/PHP/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "COL",
+      "name": "COLOSSIENS",
+      "englishName": null,
+      "commonName": "COLOSSIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/COL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1TH",
+      "name": "1 THESSALONICIENS",
+      "englishName": null,
+      "commonName": "1 THESSALONICIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1TH/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2TH",
+      "name": "2 THESSALONICIENS",
+      "englishName": null,
+      "commonName": "2 THESSALONICIENS",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2TH/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1TI",
+      "name": "1 TIMOTHÉE",
+      "englishName": null,
+      "commonName": "1 TIMOTHÉE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1TI/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2TI",
+      "name": "2 THIMOTHÉE",
+      "englishName": null,
+      "commonName": "2 THIMOTHÉE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2TI/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "TIT",
+      "name": "TITE",
+      "englishName": null,
+      "commonName": "TITE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/TIT/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "PHM",
+      "name": "PHILÉMON",
+      "englishName": null,
+      "commonName": "PHILÉMON",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/PHM/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "HEB",
+      "name": "HÉBREUX",
+      "englishName": null,
+      "commonName": "HÉBREUX",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/HEB/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JAS",
+      "name": "JACQUES",
+      "englishName": null,
+      "commonName": "JACQUES",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JAS/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1PE",
+      "name": "1 PIERRE",
+      "englishName": null,
+      "commonName": "1 PIERRE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1PE/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2PE",
+      "name": "2 PIERRE",
+      "englishName": null,
+      "commonName": "2 PIERRE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2PE/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "1JN",
+      "name": "1 JEAN",
+      "englishName": null,
+      "commonName": "1 JEAN",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/1JN/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "2JN",
+      "name": "2 JEAN",
+      "englishName": null,
+      "commonName": "2 JEAN",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/2JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "3JN",
+      "name": "3 JEAN",
+      "englishName": null,
+      "commonName": "3 JEAN",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/3JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "JUD",
+      "name": "JUDE",
+      "englishName": null,
+      "commonName": "JUDE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/JUD/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "fra_lsg",
+      "id": "REV",
+      "name": "APOCALYPSE",
+      "englishName": null,
+      "commonName": "APOCALYPSE",
+      "shortName": null,
+      "firstChapterApiLink": "/api/fra_lsg/REV/1.json",
+      "numberOfChapters": 22
+    }
+  ],
+  "yor_bib": [
+    {
+      "translationId": "yor_bib",
+      "id": "GEN",
+      "name": "Gẹnẹsisi",
+      "englishName": null,
+      "commonName": "Gẹnẹsisi",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/GEN/1.json",
+      "numberOfChapters": 50
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "EXO",
+      "name": "Eksodu",
+      "englishName": null,
+      "commonName": "Eksodu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/EXO/1.json",
+      "numberOfChapters": 40
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "LEV",
+      "name": "Lefitiku",
+      "englishName": null,
+      "commonName": "Lefitiku",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/LEV/1.json",
+      "numberOfChapters": 27
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "NUM",
+      "name": "Numeri",
+      "englishName": null,
+      "commonName": "Numeri",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/NUM/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "DEU",
+      "name": "Deuteronomi",
+      "englishName": null,
+      "commonName": "Deuteronomi",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/DEU/1.json",
+      "numberOfChapters": 34
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JOS",
+      "name": "Joṣua",
+      "englishName": null,
+      "commonName": "Joṣua",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JOS/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JDG",
+      "name": "Onidajọ",
+      "englishName": null,
+      "commonName": "Onidajọ",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JDG/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "RUT",
+      "name": "Rutu",
+      "englishName": null,
+      "commonName": "Rutu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/RUT/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1SA",
+      "name": "1 Samuẹli",
+      "englishName": null,
+      "commonName": "1 Samuẹli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1SA/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2SA",
+      "name": "2 Samuẹli",
+      "englishName": null,
+      "commonName": "2 Samuẹli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2SA/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1KI",
+      "name": "1 Ọba",
+      "englishName": null,
+      "commonName": "1 Ọba",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1KI/1.json",
+      "numberOfChapters": 22
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2KI",
+      "name": "2 Ọba",
+      "englishName": null,
+      "commonName": "2 Ọba",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2KI/1.json",
+      "numberOfChapters": 25
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1CH",
+      "name": "1 Kronika",
+      "englishName": null,
+      "commonName": "1 Kronika",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1CH/1.json",
+      "numberOfChapters": 29
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2CH",
+      "name": "2 Kronika",
+      "englishName": null,
+      "commonName": "2 Kronika",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2CH/1.json",
+      "numberOfChapters": 36
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "EZR",
+      "name": "Esra",
+      "englishName": null,
+      "commonName": "Esra",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/EZR/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "NEH",
+      "name": "Nehemiah",
+      "englishName": null,
+      "commonName": "Nehemiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/NEH/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "EST",
+      "name": "Esteri",
+      "englishName": null,
+      "commonName": "Esteri",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/EST/1.json",
+      "numberOfChapters": 10
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JOB",
+      "name": "Jobu",
+      "englishName": null,
+      "commonName": "Jobu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JOB/1.json",
+      "numberOfChapters": 42
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "PSA",
+      "name": "Saamu",
+      "englishName": null,
+      "commonName": "Saamu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/PSA/1.json",
+      "numberOfChapters": 150
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "PRO",
+      "name": "Òwe",
+      "englishName": null,
+      "commonName": "Òwe",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/PRO/1.json",
+      "numberOfChapters": 31
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ECC",
+      "name": "Oniwaasu",
+      "englishName": null,
+      "commonName": "Oniwaasu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ECC/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "SNG",
+      "name": "Orin Solomoni",
+      "englishName": null,
+      "commonName": "Orin Solomoni",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/SNG/1.json",
+      "numberOfChapters": 8
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ISA",
+      "name": "Isaiah",
+      "englishName": null,
+      "commonName": "Isaiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ISA/1.json",
+      "numberOfChapters": 66
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JER",
+      "name": "Jeremiah",
+      "englishName": null,
+      "commonName": "Jeremiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JER/1.json",
+      "numberOfChapters": 52
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "LAM",
+      "name": "Ẹkún Jeremiah",
+      "englishName": null,
+      "commonName": "Ẹkún Jeremiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/LAM/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "EZK",
+      "name": "Esekiẹli",
+      "englishName": null,
+      "commonName": "Esekiẹli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/EZK/1.json",
+      "numberOfChapters": 48
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "DAN",
+      "name": "Daniẹli",
+      "englishName": null,
+      "commonName": "Daniẹli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/DAN/1.json",
+      "numberOfChapters": 12
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "HOS",
+      "name": "Hosea",
+      "englishName": null,
+      "commonName": "Hosea",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/HOS/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JOL",
+      "name": "Joẹli",
+      "englishName": null,
+      "commonName": "Joẹli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JOL/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "AMO",
+      "name": "Amosi",
+      "englishName": null,
+      "commonName": "Amosi",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/AMO/1.json",
+      "numberOfChapters": 9
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "OBA",
+      "name": "Obadiah",
+      "englishName": null,
+      "commonName": "Obadiah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/OBA/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JON",
+      "name": "Jona",
+      "englishName": null,
+      "commonName": "Jona",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JON/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "MIC",
+      "name": "Mika",
+      "englishName": null,
+      "commonName": "Mika",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/MIC/1.json",
+      "numberOfChapters": 7
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "NAM",
+      "name": "Nahumu",
+      "englishName": null,
+      "commonName": "Nahumu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/NAM/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "HAB",
+      "name": "Habakuku",
+      "englishName": null,
+      "commonName": "Habakuku",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/HAB/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ZEP",
+      "name": "Sefaniah",
+      "englishName": null,
+      "commonName": "Sefaniah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ZEP/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "HAG",
+      "name": "Hagai",
+      "englishName": null,
+      "commonName": "Hagai",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/HAG/1.json",
+      "numberOfChapters": 2
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ZEC",
+      "name": "Sekariah",
+      "englishName": null,
+      "commonName": "Sekariah",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ZEC/1.json",
+      "numberOfChapters": 14
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "MAL",
+      "name": "Malaki",
+      "englishName": null,
+      "commonName": "Malaki",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/MAL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "MAT",
+      "name": "Matiu",
+      "englishName": null,
+      "commonName": "Matiu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/MAT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "MRK",
+      "name": "Marku",
+      "englishName": null,
+      "commonName": "Marku",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/MRK/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "LUK",
+      "name": "Luku",
+      "englishName": null,
+      "commonName": "Luku",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/LUK/1.json",
+      "numberOfChapters": 24
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JHN",
+      "name": "Johanu",
+      "englishName": null,
+      "commonName": "Johanu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JHN/1.json",
+      "numberOfChapters": 21
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ACT",
+      "name": "Ìṣe àwọn Aposteli",
+      "englishName": null,
+      "commonName": "Ìṣe àwọn Aposteli",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ACT/1.json",
+      "numberOfChapters": 28
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "ROM",
+      "name": "Romu",
+      "englishName": null,
+      "commonName": "Romu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/ROM/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1CO",
+      "name": "1 Kọrinti",
+      "englishName": null,
+      "commonName": "1 Kọrinti",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1CO/1.json",
+      "numberOfChapters": 16
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2CO",
+      "name": "2 Kọrinti",
+      "englishName": null,
+      "commonName": "2 Kọrinti",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2CO/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "GAL",
+      "name": "Galatia",
+      "englishName": null,
+      "commonName": "Galatia",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/GAL/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "EPH",
+      "name": "Efesu",
+      "englishName": null,
+      "commonName": "Efesu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/EPH/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "PHP",
+      "name": "Filipi",
+      "englishName": null,
+      "commonName": "Filipi",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/PHP/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "COL",
+      "name": "Kolose",
+      "englishName": null,
+      "commonName": "Kolose",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/COL/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1TH",
+      "name": "1 Tẹsalonika",
+      "englishName": null,
+      "commonName": "1 Tẹsalonika",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1TH/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2TH",
+      "name": "2 Tẹsalonika",
+      "englishName": null,
+      "commonName": "2 Tẹsalonika",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2TH/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1TI",
+      "name": "1 Timotiu",
+      "englishName": null,
+      "commonName": "1 Timotiu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1TI/1.json",
+      "numberOfChapters": 6
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2TI",
+      "name": "2 Timotiu",
+      "englishName": null,
+      "commonName": "2 Timotiu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2TI/1.json",
+      "numberOfChapters": 4
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "TIT",
+      "name": "Titu",
+      "englishName": null,
+      "commonName": "Titu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/TIT/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "PHM",
+      "name": "Filemoni",
+      "englishName": null,
+      "commonName": "Filemoni",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/PHM/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "HEB",
+      "name": "Heberu",
+      "englishName": null,
+      "commonName": "Heberu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/HEB/1.json",
+      "numberOfChapters": 13
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JAS",
+      "name": "Jakọbu",
+      "englishName": null,
+      "commonName": "Jakọbu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JAS/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1PE",
+      "name": "1 Peteru",
+      "englishName": null,
+      "commonName": "1 Peteru",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1PE/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2PE",
+      "name": "2 Peteru",
+      "englishName": null,
+      "commonName": "2 Peteru",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2PE/1.json",
+      "numberOfChapters": 3
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "1JN",
+      "name": "1 Johanu",
+      "englishName": null,
+      "commonName": "1 Johanu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/1JN/1.json",
+      "numberOfChapters": 5
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "2JN",
+      "name": "2 Johanu",
+      "englishName": null,
+      "commonName": "2 Johanu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/2JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "3JN",
+      "name": "3 Johanu",
+      "englishName": null,
+      "commonName": "3 Johanu",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/3JN/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "JUD",
+      "name": "Juda",
+      "englishName": null,
+      "commonName": "Juda",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/JUD/1.json",
+      "numberOfChapters": 1
+    },
+    {
+      "translationId": "yor_bib",
+      "id": "REV",
+      "name": "Ìfihàn",
+      "englishName": null,
+      "commonName": "Ìfihàn",
+      "shortName": null,
+      "firstChapterApiLink": "/api/yor_bib/REV/1.json",
+      "numberOfChapters": 22
+    }
+  ]
+}
