@@ -357,7 +357,6 @@ const BiblePage: React.FC = () => {
                 value={language}
                 onChange={(e) => {
                   setLanguage(e.target.value);
-                  // Reset search when language changes
                   setSearchQuery("");
                   setError(null);
                 }}
