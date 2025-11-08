@@ -1,13 +1,13 @@
-// app/give/page.tsx
 "use client";
 
+import api from "@/utils/api";
 import { useState } from "react";
 import Navbar from "../components/Navbar";
 
 export default function GivePage() {
   const [paymentCode, setPaymentCode] = useState("");
   const [form, setForm] = useState({
-    payType: "",
+    offeringType: "",
     lastName: "",
     firstName: "",
     email: "",
@@ -15,18 +15,55 @@ export default function GivePage() {
     country: "",
     phone: "",
     currency: "NGN",
-    amount: "",
+    amount: "", 
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
+  function handleChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) {
     const { name, value } = e.target;
-    setForm(prev => ({ ...prev, [name]: value }));
+    setForm((prev) => ({ ...prev, [name]: value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // TODO: call payment API
-    alert("Submit form with data: " + JSON.stringify(form));
+    if (isSubmitting) return;
+    setIsSubmitting(true);
+
+    try {
+      const payload = {
+        offeringType: form.offeringType,
+        lastName: form.lastName,
+        firstName: form.firstName,
+        email: form.email,
+        sex: form.sex,
+        country: form.country,
+        phone: form.phone,
+        currency: form.currency,
+        amount: form.amount,
+      } as Record<string, any>;
+
+      const response = await api.post(`/give`, payload);
+console.log(response)
+      const paymentUrl = response?.data?.data?.url ?? response?.data?.url;
+
+      if (!paymentUrl) {
+        alert("Payment URL not returned from server. Please try again.");
+        return;
+      }
+
+      window.location.href = paymentUrl;
+    } catch (err: any) {
+      console.error("Give API error:", err);
+      const message =
+        err?.response?.data?.message ??
+        err?.message ??
+        "An error occurred. Please try again.";
+      alert(message);
+    } finally {
+      setIsSubmitting(false);
+    }
   }
 
   return (
@@ -35,10 +72,13 @@ export default function GivePage() {
       <div className="min-h-screen bg-gray-50 pt-30 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto bg-white rounded-xl shadow--lg overflow-hidden">
           <div className="px-6 py-8">
-            <h1 className="text-3xl font-bold text-blue-900 mb-4">Online Giving / Offering</h1>
+            <h1 className="text-3xl font-bold text-blue-900 mb-4">
+              Online Giving / Offering
+            </h1>
             <p className="text-gray-600 mb-6">
-              Beloved of the Lord, please enter your Payment Code if you already have one,
-              or fill the form to make a donation. God will surely bless.
+              Beloved of the Lord, please enter your Payment Code if you already
+              have one, or fill the form to make a donation. God will surely
+              bless.
             </p>
 
             {/* Payment Code Entry */}
@@ -50,7 +90,7 @@ export default function GivePage() {
                 <input
                   type="text"
                   value={paymentCode}
-                  onChange={e => setPaymentCode(e.target.value)}
+                  onChange={(e) => setPaymentCode(e.target.value)}
                   placeholder="Enter your payment code"
                   className="flex-1 border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
@@ -69,20 +109,24 @@ export default function GivePage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">
-                  Payment Type *
+                  Offering Type *
                 </label>
                 <select
-                  name="payType"
+                  name="offeringType"
                   required
-                  value={form.payType}
+                  value={form.offeringType}
                   onChange={handleChange}
                   className="block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="">— Select Payment Type —</option>
                   <option value="Online Tithes">Online Tithes</option>
                   <option value="Freewill Donation">Freewill Donation</option>
-                  <option value="Convention Offering">Convention Offering</option>
-                  <option value="Thanksgiving Offering">Thanksgiving Offering</option>
+                  <option value="Convention Offering">
+                    Convention Offering
+                  </option>
+                  <option value="Thanksgiving Offering">
+                    Thanksgiving Offering
+                  </option>
                   <option value="FirstFruit Support">FirstFruit Support</option>
                   <option value="Building Support">Building Support</option>
                 </select>
@@ -90,17 +134,20 @@ export default function GivePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Last Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Last Name
+                  </label>
                   <input
                     name="lastName"
-                    
                     value={form.lastName}
                     onChange={handleChange}
                     className="block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">First Name</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    First Name
+                  </label>
                   <input
                     name="firstName"
                     value={form.firstName}
@@ -111,7 +158,9 @@ export default function GivePage() {
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Email
+                </label>
                 <input
                   type="email"
                   name="email"
@@ -123,7 +172,9 @@ export default function GivePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Sex</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Sex
+                  </label>
                   <select
                     name="sex"
                     value={form.sex}
@@ -137,7 +188,9 @@ export default function GivePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Country</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Country
+                  </label>
                   <select
                     name="country"
                     value={form.country}
@@ -150,16 +203,16 @@ export default function GivePage() {
                     <option value="Togo">Togo</option>
                     <option value="United States">United States</option>
                     <option value="United Kingdom">United Kingdom</option>
-                    
                   </select>
                 </div>
               </div>
 
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">Phone *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Phone *
+                </label>
                 <input
                   name="phone"
-                
                   value={form.phone}
                   onChange={handleChange}
                   className="block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -168,7 +221,9 @@ export default function GivePage() {
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Currency *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Currency *
+                  </label>
                   <select
                     name="currency"
                     required
@@ -181,7 +236,9 @@ export default function GivePage() {
                   </select>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-2">Amount *</label>
+                  <label className="block text-sm font-medium text-gray-700 mb-2">
+                    Amount *
+                  </label>
                   <input
                     name="amount"
                     required
@@ -195,9 +252,18 @@ export default function GivePage() {
               <div>
                 <button
                   type="submit"
-                  className="w-full bg-red-600 text-white px-4 py-3 rounded-md text-lg font-bold hover:bg-red-700 transition"
+                  disabled={isSubmitting}
+                  aria-busy={isSubmitting}
+                  className={`w-full flex items-center justify-center bg-red-600 text-white px-4 py-3 rounded-md text-lg font-bold transition ${
+                    isSubmitting
+                      ? "opacity-70 cursor-not-allowed"
+                      : "hover:bg-red-700"
+                  }`}
                 >
-                  Proceed to Pay
+                  <span>Proceed to Pay</span>
+                  {isSubmitting && (
+                    <span className="ml-3 w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  )}
                 </button>
               </div>
             </form>
