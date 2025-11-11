@@ -3,6 +3,8 @@
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
 import ContactLinks from '@/app/Contact-Us/ContactLinks/ContactLinks'
+import { FaPhone } from 'react-icons/fa';
+import { MailIcon } from 'lucide-react';
 
 export default function Testimony() {
   const [formData, setFormData] = useState({
@@ -51,10 +53,10 @@ export default function Testimony() {
             What has God done for you? And how has He came through for you that you want to share with us?
           </p>
           <div className="mb-2">
-             <strong>Phone:</strong> +234 916 986 442, +234 906 099 3734
+            <FaPhone className='inline'/>    +234 916 986 442, +234 906 099 3734
           </div>
           <div>
-             <strong>Email:</strong> info@hiscomingevangelicalchurch.org
+           <MailIcon className='inline'/>   info@hiscomingevangelicalchurch.org
           </div>
         </div>
 

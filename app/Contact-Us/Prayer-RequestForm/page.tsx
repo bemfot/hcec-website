@@ -2,7 +2,8 @@
 
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
-
+import { FaPhoneAlt, } from 'react-icons/fa';
+import {  MailIcon } from 'lucide-react';
 
 export default function PrayerRequestForm() {
   const [formData, setFormData] = useState({
@@ -53,10 +54,10 @@ export default function PrayerRequestForm() {
             or via a simple phone call. This seamless process ensures that heartfelt intentions reach the dedicated prayer team.
           </p>
           <div className="mb-2">
-            📞 <strong>Phone:</strong> 08024097119
+            <FaPhoneAlt className="inline-block" /> 08024097119
           </div>
           <div>
-            📧 <strong>Email:</strong>info@hiscomingevangelicalchurch.org
+            <MailIcon className="inline-block" /> info@hiscomingevangelicalchurch.org
           </div>
         </div>
 
