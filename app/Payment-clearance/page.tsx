@@ -16,12 +16,10 @@ interface CallbackDataProp {
   reference?: string;
 }
 
-export const ChurchPaymentClearancePage: React.FC = () => {
+function ChurchPaymentClearancePage() {
   const router = useRouter();
 
-  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(
-    null
-  );
+  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const verifyPayment = async (callbackData?: CallbackDataProp) => {
@@ -47,8 +45,7 @@ export const ChurchPaymentClearancePage: React.FC = () => {
 
       if (callbackData.provider === "flutterwave") {
         const data = {
-          transactionReference:
-            callbackData.txRef ?? callbackData.reference ?? null,
+          transactionReference: callbackData.txRef ?? callbackData.reference ?? null,
           transactionId: callbackData.transactionId ?? null,
         };
 
@@ -105,6 +102,6 @@ export const ChurchPaymentClearancePage: React.FC = () => {
   }
 
   return <PaymentFailed details={paymentDetails} onRetry={handleRetry} />;
-};
+}
 
 export default ChurchPaymentClearancePage;
