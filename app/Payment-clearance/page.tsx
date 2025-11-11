@@ -16,7 +16,7 @@ interface CallbackDataProp {
   reference?: string;
 }
 
-export const ChurchPaymentClearancePage: React.FC = () => {
+export default function ChurchPaymentClearancePage() {
   const router = useRouter();
 
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(
@@ -105,6 +105,4 @@ export const ChurchPaymentClearancePage: React.FC = () => {
   }
 
   return <PaymentFailed details={paymentDetails} onRetry={handleRetry} />;
-};
-
-export default ChurchPaymentClearancePage;
+}
