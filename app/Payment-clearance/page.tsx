@@ -104,4 +104,3 @@ function ChurchPaymentClearancePage() {
   return <PaymentFailed details={paymentDetails} onRetry={handleRetry} />;
 }
 
-export default ChurchPaymentClearancePage;
