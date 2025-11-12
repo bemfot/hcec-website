@@ -5,6 +5,7 @@ import PrayerRequest from "../Contact-Us/Prayer-RequestForm/page";
 import Focus from "../Focus-Section/page";
 import Heropage from "./HeroPage/page";
 import HomeEvents from "@/app/components/HomeEvents";
+import YoutubeLinkPage from "@/app/youtube/page";
 
 export default function Homepage() {
   return (
@@ -14,6 +15,7 @@ export default function Homepage() {
       <Focus />
 
       <HomeEvents />
+      <YoutubeLinkPage />
       <div className="mt-[8rem] lg:mt-[5rem]">
         <PrayerRequest />
       </div>
