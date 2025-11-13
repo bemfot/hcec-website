@@ -16,12 +16,10 @@ interface CallbackDataProp {
   reference?: string;
 }
 
-export const ChurchPaymentClearancePage: React.FC = () => {
+const ChurchPaymentClearancePage: React.FC = () => {
   const router = useRouter();
 
-  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(
-    null
-  );
+  const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
   const [isLoading, setIsLoading] = useState(true);
 
   const verifyPayment = async (callbackData?: CallbackDataProp) => {
@@ -32,33 +30,26 @@ export const ChurchPaymentClearancePage: React.FC = () => {
         throw new Error("No payment reference found");
       }
 
+      let data;
+
       if (callbackData.provider === "paystack") {
-        const data = {
+        data = {
           transactionReference: callbackData.reference,
           transactionId: null,
         };
-
-        const request = await api.post(`/payment/verify`, data);
-        const response = request.data.data;
-
-        setPaymentDetails(response);
-        return;
-      }
-
-      if (callbackData.provider === "flutterwave") {
-        const data = {
-          transactionReference:
-            callbackData.txRef ?? callbackData.reference ?? null,
+      } else if (callbackData.provider === "flutterwave") {
+        data = {
+          transactionReference: callbackData.txRef ?? callbackData.reference ?? null,
           transactionId: callbackData.transactionId ?? null,
         };
-
-        const request = await api.post(`/payment/verify`, data);
-        const response = request.data.data;
-        setPaymentDetails(response);
-        return;
+      } else {
+        throw new Error("Unsupported payment provider");
       }
 
-      throw new Error("Unsupported payment provider");
+      const request = await api.post(`/payment/verify`, data);
+      const response = request.data.data;
+      setPaymentDetails(response);
+
     } catch (err: any) {
       console.error("Payment verification error:", err);
 
