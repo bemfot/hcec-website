@@ -16,7 +16,7 @@ interface CallbackDataProp {
   reference?: string;
 }
 
-function ChurchPaymentClearancePage() {
+const ChurchPaymentClearancePage: React.FC = () => {
   const router = useRouter();
 
   const [paymentDetails, setPaymentDetails] = useState<PaymentDetails | null>(null);
@@ -30,32 +30,26 @@ function ChurchPaymentClearancePage() {
         throw new Error("No payment reference found");
       }
 
+      let data;
+
       if (callbackData.provider === "paystack") {
-        const data = {
+        data = {
           transactionReference: callbackData.reference,
           transactionId: null,
         };
-
-        const request = await api.post(`/payment/verify`, data);
-        const response = request.data.data;
-
-        setPaymentDetails(response);
-        return;
-      }
-
-      if (callbackData.provider === "flutterwave") {
-        const data = {
+      } else if (callbackData.provider === "flutterwave") {
+        data = {
           transactionReference: callbackData.txRef ?? callbackData.reference ?? null,
           transactionId: callbackData.transactionId ?? null,
         };
-
-        const request = await api.post(`/payment/verify`, data);
-        const response = request.data.data;
-        setPaymentDetails(response);
-        return;
+      } else {
+        throw new Error("Unsupported payment provider");
       }
 
-      throw new Error("Unsupported payment provider");
+      const request = await api.post(`/payment/verify`, data);
+      const response = request.data.data;
+      setPaymentDetails(response);
+
     } catch (err: any) {
       console.error("Payment verification error:", err);
 
@@ -102,5 +96,6 @@ function ChurchPaymentClearancePage() {
   }
 
   return <PaymentFailed details={paymentDetails} onRetry={handleRetry} />;
-}
+};
 
+export default ChurchPaymentClearancePage;
