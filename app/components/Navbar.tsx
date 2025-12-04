@@ -5,6 +5,7 @@ import Link from "next/link";
 import React, { useState } from "react";
 import { BiMenuAltRight } from "react-icons/bi";
 import { RiCloseLine } from "react-icons/ri";
+import { Mail } from "lucide-react";
 
 type NavItem = {
   label?: string;
@@ -43,7 +44,6 @@ const defaultNavItems: NavItem[] = [
     label: "ONLINE GIVINGS",
     link: "/Online-Giving",
   },
-
   { label: "OUR PROGRAMS", link: "/Upcoming-Programs" },
   {
     label: "CONTACT US",
@@ -56,6 +56,8 @@ const defaultNavItems: NavItem[] = [
     ],
   },
 ];
+
+const WEBMAIL_URL = "https://37.qservers.net:2096/cpsess1932003431/webmail/jupiter/index.html?login=1&post_login=91962148816683";
 
 export default function Navbar({
   navItems = defaultNavItems,
@@ -76,13 +78,10 @@ export default function Navbar({
         className="fixed top-0 left-0 w-full z-[80] bg-red-800 shadow-2xl transition-all duration-500"
         suppressHydrationWarning
       >
-        <div className="flex items-center justify-between max-w-7xl  px-4 py-3">
+        <div className="flex items-center justify-between max-w-7xl px-4 py-3">
           {/* Logo at left */}
           <div className="flex items-center gap-2">
-            <Link
-              href="/"
-              className="flex items-center gap-2"
-            >
+            <Link href="/" className="flex items-center gap-2">
               <Image
                 src="/assets/HCEC_LOGO.png"
                 width={80}
@@ -97,13 +96,11 @@ export default function Navbar({
               Evangelical{churchName.split("Evangelical")[1] || ""}
             </span>
           </div>
+
           {/* Desktop nav (right-aligned) */}
           <nav className="hidden md:flex text-white text-[11px] items-center gap-8 ml-auto">
             {navItems.map((d, i) => (
-              <div
-                key={i}
-                className="group relative"
-              >
+              <div key={i} className="group relative">
                 <Link
                   href={d.link ?? "#"}
                   className="group items-center transition-all relative"
@@ -128,7 +125,17 @@ export default function Navbar({
                 )}
               </div>
             ))}
+            <a
+              href={WEBMAIL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 bg-white text-red-800 font-bold rounded-lg hover:bg-amber-50 transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-105 border-2 border-white"
+            >
+              <Mail className="w-4 h-4" />
+              <span className="text-[11px]">WEBMAIL</span>
+            </a>
           </nav>
+
           {/* Mobile menu toggle button at right */}
           <div className="md:hidden flex items-center">
             <button
@@ -151,10 +158,11 @@ export default function Navbar({
           </div>
         </div>
       </div>
-      {/* Mobile menu dropdown overlay, starts below navbar */}
+
+      {/* Mobile menu dropdown overlay */}
       {menuOpen && (
         <div className="fixed inset-0 md:hidden w-full h-screen bg-[#0C101C] text-white shadow-lg z-[60] pt-[5.5rem]">
-          <ul className="flex flex-col items-start p-4 w-full h-full">
+          <ul className="flex flex-col items-start p-4 w-full h-full overflow-y-auto">
             {navItems.map((item, index) => (
               <li
                 key={index}
@@ -172,7 +180,6 @@ export default function Navbar({
                       }
                     }}
                   >
-                    {/* Capitalize only the first letter of the first word */}
                     {item.label
                       ? item.label.charAt(0).toUpperCase() +
                         item.label.slice(1).toLowerCase()
@@ -209,6 +216,23 @@ export default function Navbar({
                 )}
               </li>
             ))}
+
+            {/* Mobile Webmail Button */}
+            <li className="w-full mt-4 px-4 pb-4">
+              <a
+                href={WEBMAIL_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setMenuOpen(false)}
+                className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-gradient-to-r from-white to-amber-50 text-red-800 font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white"
+              >
+                <Mail className="w-5 h-5" />
+                <span className="text-sm">CHURCH WEBMAIL</span>
+              </a>
+              <p className="text-xs text-gray-400 text-center mt-2">
+                For church members & workers
+              </p>
+            </li>
           </ul>
         </div>
       )}
