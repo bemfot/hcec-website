@@ -43,7 +43,6 @@ const defaultNavItems: NavItem[] = [
   {
     label: "ONLINE GIVINGS",
     link: "/Online-Giving",
-    children: [{ label: "Work In Progress", link: "#" }],
   },
   { label: "OUR PROGRAMS", link: "/Upcoming-Programs" },
   {

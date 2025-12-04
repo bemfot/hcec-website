@@ -34,8 +34,8 @@ export default function OurLocations() {
             <h1 className="text-3xl md:text-5xl font-bold">
               Worship With Us Today
             </h1>
-            <div className="mt-3 bg-gradient-to-r from-[#0C101C] to-white text-gradent-to-r rounded-4xl">
-              <p className="text-lg md:text-2xl font-sm my-1 p-2 font-bold backdrop-blur-xl ">
+            <div className="mt-3 bg-[#0C101C]/50 text-gradient-to-r  rounded-4xl">
+              <p className="text-lg md:text-2xl font-sm my-1 p-2 border-1 border-white  font-bold backdrop-blur-xl ">
                 Our Church Locations in Various Regions are Below
               </p>
             </div>

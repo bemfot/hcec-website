@@ -6,6 +6,7 @@ import PrayerRequest from "../Contact-Us/Prayer-RequestForm/page";
 
 import HomeEvents from "@/app/components/HomeEvents";
 import YoutubeLinkPage from "@/app/youtube/page";
+import WelcomePage from "@/app/welcome/page";
 import api from "@/utils/api";
 import Focus from "../Focus-Section/page";
 import Heropage from "./HeroPage/page";
@@ -44,7 +45,7 @@ export default function Homepage() {
   return (
     <div>
       <Heropage />
-
+ <WelcomePage />
       <Focus />
 
       <HomeEvents />
