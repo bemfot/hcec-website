@@ -25,7 +25,7 @@ export default function YoutubeLinkPage() {
         </p>
 
         <Link
-          href="https://www.youtube.com/@YourChannelName"
+          href="https://www.youtube.com/"
           target="_blank"
           rel="noopener noreferrer"
         >

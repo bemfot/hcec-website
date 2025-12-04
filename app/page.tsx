@@ -5,8 +5,8 @@ import NewsTicker from "./components/NewsTicker"; // ⬅️ New import
 
 export default function Home() {
   const newsItems = [
-    "Our Bible Study sessions are every Tuesday at 6 PM.",
-    "Prayer/Revival Hour holds at 6 PM in our various assemblies.",
+    "Our Bible Study sessions are every Tuesday at 5 PM",
+    "Prayer/Revival Hour holds at 5 PM in our various assemblies",
     "Join us for Sunday Worship Services at 9 AM.",
   ];
 
@@ -19,8 +19,9 @@ export default function Home() {
       <Footer />
 
       {/* News Ticker (fixed at bottom, always visible) */}
-      <NewsTicker items={newsItems} speed={40} />
+      <NewsTicker items={newsItems} speed={15} />
     </div>
   );
 }
+
 
