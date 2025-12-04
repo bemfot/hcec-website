@@ -61,7 +61,7 @@ export default function WelcomePage() {
 
           {/* ✅ FULLSCREEN TEXT OVERLAY WHEN OPENED */}
           {showMore && (
-            <div className="absolute inset-0 z-40 md:hidden bg-black/80 flex flex-col justify-end px-4 pb-6">
+            <div className="absolute inset-0 z-40 md:hidden bg-gray-800/20 flex flex-col justify-end px-4 pb-6">
               
               <div
                 className="backdrop-blur-xl bg-white/40 border border-white/5
@@ -80,6 +80,9 @@ export default function WelcomePage() {
 
                   Therefore, if you hear his voice today, do not harden your heart... because delay is dangerous.
                 </p>
+              
+            <p className="text-red-600 text-center font-bold  ">Pastor Dr. F.T Amongbonjaye <br /> <span className="">  Genral Overseer HCEC Worldwide</span> </p>
+                
 
                 {/* ✅ COLLAPSE BUTTON */}
                 <button
