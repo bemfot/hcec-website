@@ -15,7 +15,7 @@ export default function GivePage() {
     country: "",
     phone: "",
     currency: "NGN",
-    amount: "", 
+    amount: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
@@ -32,20 +32,40 @@ export default function GivePage() {
     setIsSubmitting(true);
 
     try {
-      const payload = {
-        offeringType: form.offeringType,
-        lastName: form.lastName,
-        firstName: form.firstName,
-        email: form.email,
-        sex: form.sex,
-        country: form.country,
-        phone: form.phone,
-        currency: form.currency,
-        amount: form.amount,
-      } as Record<string, any>;
+      // amount is required; validate and convert
+      const rawAmount = String(form.amount ?? "").trim();
+      if (!rawAmount) {
+        alert("Amount is required");
+        setIsSubmitting(false);
+        return;
+      }
+      const parsedAmount = Number(rawAmount);
+      if (Number.isNaN(parsedAmount) || parsedAmount <= 0) {
+        alert("Please enter a valid amount greater than zero");
+        setIsSubmitting(false);
+        return;
+      }
+
+      const payload: Record<string, any> = { amount: parsedAmount };
+      const optionalFields = [
+        "offeringType",
+        "lastName",
+        "firstName",
+        "email",
+        "sex",
+        "country",
+        "phone",
+        "currency",
+      ];
+      optionalFields.forEach((key) => {
+        const val = (form as any)[key];
+        if (val !== undefined && val !== null && String(val).trim() !== "") {
+          payload[key] = val;
+        }
+      });
 
       const response = await api.post(`/give`, payload);
-console.log(response)
+      console.log(response);
       const paymentUrl = response?.data?.data?.url ?? response?.data?.url;
 
       if (!paymentUrl) {
@@ -112,8 +132,8 @@ console.log(response)
                   Offering Type *
                 </label>
                 <select
-                  name="offeringType"
                   required
+                  name="offeringType"
                   value={form.offeringType}
                   onChange={handleChange}
                   className="block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -226,7 +246,6 @@ console.log(response)
                   </label>
                   <select
                     name="currency"
-                    required
                     value={form.currency}
                     onChange={handleChange}
                     className="block w-full border border-gray-300 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500"
