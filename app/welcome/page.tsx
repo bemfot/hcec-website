@@ -22,8 +22,9 @@ export default function WelcomePage() {
             priority
           />
 
+
           {/* Overlay for mobile */}
-          <div className="absolute inset-0 bg-black/40 z-10" />
+          <div className="absolute inset-0 bg-red-300/20 z-10" />
 
           {/* ✅ SHOW MORE BUTTON (MOBILE ONLY) */}
        
@@ -32,10 +33,10 @@ export default function WelcomePage() {
           {!showMore && (
 
             <div className="absolute inset-0 z-40 md:hidden  flex flex-col justify-end px-4 pb-6">
-        <div className=" bg-gray-800/20 text-white border border-white/60
+        <div className=" bg-gray-800/30 text-white border border-white/60
                            rounded-tl-4xl rounded-br-4xl shadow-lg p-4 text-center">
                              
-                              <h1 className="text-md text-gray-950 p-1.5 font-bold text-center border-white rounded-tl-4xl rounded-br-4xl  bg-white/40  mb-4">
+                              <h1 className="text-md text-gray-950 p-1.5 font-bold text-center border-white rounded-tl-4xl rounded-br-4xl  bg-white/80  mb-4">
                   WELCOME TO THE FAMILY OF CHRIST WITH A MESSAGE OF SECOND COMING!!! 
                 </h1>
                 <p className="text-center font-normal">
@@ -61,7 +62,7 @@ export default function WelcomePage() {
 
           {/* ✅ FULLSCREEN TEXT OVERLAY WHEN OPENED */}
           {showMore && (
-            <div className="absolute inset-0 z-40 md:hidden bg-black/80 flex flex-col justify-end px-4 pb-6">
+            <div className="absolute inset-0 z-40 md:hidden bg-gray-800/20 flex flex-col justify-end px-4 pb-6">
               
               <div
                 className="backdrop-blur-xl bg-white/40 border border-white/5
@@ -80,6 +81,9 @@ export default function WelcomePage() {
 
                   Therefore, if you hear his voice today, do not harden your heart... because delay is dangerous.
                 </p>
+              
+            <p className="text-red-600 text-center font-bold  ">Pastor Dr. F.T Amongbonjaye <br /> <span className="">  Genral Overseer HCEC Worldwide</span> </p>
+                
 
                 {/* ✅ COLLAPSE BUTTON */}
                 <button
