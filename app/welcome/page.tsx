@@ -33,7 +33,7 @@ export default function WelcomePage() {
           {!showMore && (
 
             <div className="absolute inset-0 z-40 md:hidden  flex flex-col justify-end px-4 pb-6">
-        <div className=" bg-gray-800/30 text-white border border-white/60
+        <div className=" bg-red-600/40 text-white border border-white/60
                            rounded-tl-4xl rounded-br-4xl shadow-lg p-4 text-center">
                              
                               <h1 className="text-md text-gray-950 p-1.5 font-bold text-center border-white rounded-tl-4xl rounded-br-4xl  bg-white/80  mb-4">
