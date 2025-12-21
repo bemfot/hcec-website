@@ -1,27 +1,21 @@
 'use client';
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
+import api from '@/utils/api';
 
 /**
- * Devotional Page (Next.js – Refactored for /daily-honey endpoint)
- * -------------------------------------------------------------
- * Backend rules implemented:
- * 1. GET /daily-honey WITHOUT body  -> Today's lesson
- * 2. GET /daily-honey WITH body     -> Previous lessons
- * 3. Future lessons are blocked (frontend + backend-safe)
- *
- * IMPORTANT:
- * Browsers do NOT support GET with body.
- * Therefore, we proxy through a Next.js API route using POST.
- *
- * Frontend talks to:
- *   POST /api/daily-honey
- *
- * Next.js API route then forwards:
- *   GET {{baseUrl}}/daily-honey (with or without body)
+ * Devotional Page
+ * ----------------
+ * Backend rules:
+ * 1. GET /daily-honey            → Today's lesson
+ * 2. GET /daily-honey?year=&month=&day= → Past lesson
+ * 3. Future lessons are blocked
  */
 
 export default function DevotionalPage() {
+    useEffect(() => {
+    console.log('AXIOS BASE URL:', api.defaults.baseURL);
+  }, []);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [lesson, setLesson] = useState<any>(null);
@@ -33,29 +27,44 @@ export default function DevotionalPage() {
   const daysInMonth = new Date(year, month + 1, 0).getDate();
 
   /* ================= API CALL ================= */
-  async function loadLesson(date?: { year: number; month: string; day: number }) {
+  async function loadLesson(date?: {
+    year: number;
+    month: string;
+    day: number;
+  }) {
     setLoading(true);
+
     try {
-      const res = await fetch('/api/daily-honey', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: date ? JSON.stringify(date) : null,
+      const response = await api.get('/daily-honey', {
+        params: date
+          ? {
+              year: date.year,
+              month: date.month,
+              day: date.day,
+            }
+          : undefined,
       });
 
-      if (!res.ok) throw new Error('Lesson not found');
-      const data = await res.json();
-      setLesson(data);
+      console.log(`>>>>>>>>> ${JSON.stringify(response)}`)
+
+      setLesson(response.data);
 
       if (date) {
-        const mIndex = new Date(`${date.month} 1, ${date.year}`).getMonth();
+        const monthIndex = new Date(
+          `${date.month} 1, ${date.year}`
+        ).getMonth();
+
         setSelectedDate(
-          `${date.year}-${String(mIndex + 1).padStart(2, '0')}-${String(date.day).padStart(2, '0')}`
+          `${date.year}-${String(monthIndex + 1).padStart(2, '0')}-${String(
+            date.day
+          ).padStart(2, '0')}`
         );
       } else {
         setSelectedDate(today.toISOString().slice(0, 10));
       }
-    } catch {
-      alert('Lesson not available');
+    } catch (error) {
+      console.error(error);
+      alert('Lesson not available 1');
     } finally {
       setLoading(false);
     }
@@ -112,7 +121,11 @@ export default function DevotionalPage() {
                     })
                   }
                   className={`h-14 rounded-md font-semibold 
-                    ${future ? 'bg-gray-200 text-red-600 cursor-not-allowed' : 'bg-red-600 text-white hover:scale-105'}`}
+                    ${
+                      future
+                        ? 'bg-gray-200 text-red-600 cursor-not-allowed'
+                        : 'bg-red-600 text-white hover:scale-105'
+                    }`}
                 >
                   {day}
                 </button>
@@ -142,14 +155,18 @@ export default function DevotionalPage() {
 
         {lesson && (
           <article className="bg-white rounded-xl shadow p-6">
-            <h1 className="text-2xl font-bold text-red-600 mb-2">{lesson.topic}</h1>
+            <h1 className="text-2xl font-bold text-red-600 mb-2">
+              {lesson.topic}
+            </h1>
 
             <p className="text-gray-600 mb-4">
-              <strong>Scripture in Focus:</strong> {lesson.scripture}
+              <strong>Scripture in Focus:</strong> {lesson.scriptureInFocus}
             </p>
 
             <div className="border-2 border-red-600 rounded-xl p-4 mb-4 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
-              <p className="text-red-700 font-semibold text-lg">{lesson.learnByHeart}</p>
+              <p className="text-red-700 font-semibold text-lg">
+                {lesson.learnByHeart}
+              </p>
             </div>
 
             <section className="mb-4">
@@ -171,6 +188,7 @@ export default function DevotionalPage() {
               onClick={() => {
                 const d = new Date(selectedDate);
                 d.setDate(d.getDate() - 1);
+
                 loadLesson({
                   year: d.getFullYear(),
                   month: monthName(d.getMonth()),
