@@ -1,104 +1,207 @@
-"use client";
+'use client';
 
-import { dummyDaiyHoneys } from "@/data/daily-honey-dummy.data";
-import { BookOpen, Search } from "lucide-react";
-import React, { useMemo, useState } from "react";
-import { DailyStudyCard } from "../components/daily-honey/daily-honey-card";
-import { DailyStudyDetail } from "../components/daily-honey/daily-honey-detail";
-import { DailyHoney } from "../components/daily-honey/types";
-import Navbar from "../components/Navbar";
+import React, { useEffect, useState } from 'react';
+import api from '@/utils/api';
 
-const DailyHoneyPage: React.FC = () => {
-  const [searchQuery, setSearchQuery] = useState("");
-  const [selectedStudy, setSelectedStudy] = useState<DailyHoney | null>(null);
+/**
+ * Devotional Page
+ * ----------------
+ * Backend rules:
+ * 1. GET /daily-honey            → Today's lesson
+ * 2. GET /daily-honey?year=&month=&day= → Past lesson
+ * 3. Future lessons are blocked
+ */
 
-  const filteredStudies = useMemo(() => {
-    return dummyDaiyHoneys.filter((study) => {
-      if (searchQuery === "") return true;
+export default function DevotionalPage() {
+    useEffect(() => {
+    console.log('AXIOS BASE URL:', api.defaults.baseURL);
+  }, []);
+  const [currentDate, setCurrentDate] = useState(new Date());
+  const [selectedDate, setSelectedDate] = useState<string | null>(null);
+  const [lesson, setLesson] = useState<any>(null);
+  const [loading, setLoading] = useState(false);
 
-      const searchLower = searchQuery.toLowerCase();
-      const matchesDay = study.day.includes(searchQuery);
-      const matchesTopic = study.topic.toLowerCase().includes(searchLower);
+  const today = new Date();
+  const year = currentDate.getFullYear();
+  const month = currentDate.getMonth();
+  const daysInMonth = new Date(year, month + 1, 0).getDate();
 
-      return matchesDay || matchesTopic;
-    });
-  }, [searchQuery]);
+  /* ================= API CALL ================= */
+  async function loadLesson(date?: {
+    year: number;
+    month: string;
+    day: number;
+  }) {
+    setLoading(true);
 
+    try {
+      const response = await api.get('/daily-honey', {
+        params: date
+          ? {
+              year: date.year,
+              month: date.month,
+              day: date.day,
+            }
+          : undefined,
+      });
 
-  const sortedStudies = useMemo(() => {
-    return [...filteredStudies].sort((a, b) => {
-      const dayA = parseInt(a.day);
-      const dayB = parseInt(b.day);
-      return dayA - dayB;
-    });
-  }, [filteredStudies]);
+      console.log(`>>>>>>>>> ${JSON.stringify(response)}`)
 
-  return (
-    <>
-    <Navbar />
-    <div className="min-h-screen mt-[5rem] bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-black mb-2">Daily Honey</h1>
-          <p className="text-gray-600">Sweeten your day with God&apos;s Word</p>
-        </div>
+      setLesson(response.data);
 
-        <div className="mb-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            <input
-              type="text"
-              placeholder="Search by day or topic..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black"
-            />
-          </div>
-        </div>
+      if (date) {
+        const monthIndex = new Date(
+          `${date.month} 1, ${date.year}`
+        ).getMonth();
 
-        <div className="mb-6">
-          <p className="text-gray-600">
-            {sortedStudies.length}{" "}
-            {sortedStudies.length === 1 ? "devotional" : "devotionals"} found
-          </p>
-        </div>
+        setSelectedDate(
+          `${date.year}-${String(monthIndex + 1).padStart(2, '0')}-${String(
+            date.day
+          ).padStart(2, '0')}`
+        );
+      } else {
+        setSelectedDate(today.toISOString().slice(0, 10));
+      }
+    } catch (error) {
+      console.error(error);
+      alert('Lesson not available 1');
+    } finally {
+      setLoading(false);
+    }
+  }
 
-        {sortedStudies.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedStudies.map((study) => (
-              <DailyStudyCard
-                key={study._id}
-                study={study}
-                onClick={() => setSelectedStudy(study)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-            <p className="text-gray-500 text-lg mb-4">
-              No devotionals found matching your search.
-            </p>
+  /* ================= CALENDAR HELPERS ================= */
+  function isFuture(day: number) {
+    return new Date(year, month, day) > today;
+  }
+
+  function monthName(m: number) {
+    return new Date(2024, m).toLocaleString('default', { month: 'long' });
+  }
+
+  /* ================= CALENDAR VIEW ================= */
+  if (!selectedDate) {
+    return (
+      <div className="min-h-screen bg-white p-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex justify-between items-center mb-6">
             <button
-              onClick={() => setSearchQuery("")}
-              className="px-6 py-2 rounded-lg text-white font-medium hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#9f0712" }}
+              className="px-3 py-1 border text-gray-700"
+              onClick={() => setCurrentDate(new Date(year, month - 1, 1))}
             >
-              Clear Search
+              Prev
+            </button>
+
+            <h1 className="text-xl font-bold text-red-600">
+              {monthName(month)} {year}
+            </h1>
+
+            <button
+              className="px-3 py-1 border text-gray-700"
+              onClick={() => setCurrentDate(new Date(year, month + 1, 1))}
+            >
+              Next
             </button>
           </div>
+
+          <div className="grid grid-cols-7 gap-3">
+            {[...Array(daysInMonth)].map((_, i) => {
+              const day = i + 1;
+              const future = isFuture(day);
+
+              return (
+                <button
+                  key={day}
+                  disabled={future}
+                  onClick={() =>
+                    loadLesson({
+                      year,
+                      month: monthName(month),
+                      day,
+                    })
+                  }
+                  className={`h-14 rounded-md font-semibold 
+                    ${
+                      future
+                        ? 'bg-gray-200 text-red-600 cursor-not-allowed'
+                        : 'bg-red-600 text-white hover:scale-105'
+                    }`}
+                >
+                  {day}
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  /* ================= LESSON VIEW ================= */
+  return (
+    <div className="min-h-screen bg-gray-50 p-6">
+      <div className="max-w-4xl mx-auto">
+        <button
+          onClick={() => {
+            setSelectedDate(null);
+            setLesson(null);
+          }}
+          className="mb-4 px-4 py-2 bg-white border text-gray-700"
+        >
+          ← Back to Calendar
+        </button>
+
+        {loading && <p className="text-gray-500">Loading...</p>}
+
+        {lesson && (
+          <article className="bg-white rounded-xl shadow p-6">
+            <h1 className="text-2xl font-bold text-red-600 mb-2">
+              {lesson.topic}
+            </h1>
+
+            <p className="text-gray-600 mb-4">
+              <strong>Scripture in Focus:</strong> {lesson.scriptureInFocus}
+            </p>
+
+            <div className="border-2 border-red-600 rounded-xl p-4 mb-4 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+              <p className="text-red-700 font-semibold text-lg">
+                {lesson.learnByHeart}
+              </p>
+            </div>
+
+            <section className="mb-4">
+              <h3 className="font-semibold text-gray-800">Message</h3>
+              <p className="text-gray-700 mt-1">{lesson.message}</p>
+            </section>
+
+            <section className="mb-4">
+              <h3 className="font-semibold text-gray-800">Challenge</h3>
+              <p className="text-gray-700 mt-1">{lesson.challenge}</p>
+            </section>
+
+            <section className="mb-6">
+              <h3 className="font-semibold text-gray-800">Prayer</h3>
+              <p className="text-gray-700 mt-1">{lesson.prayer}</p>
+            </section>
+
+            <button
+              onClick={() => {
+                const d = new Date(selectedDate);
+                d.setDate(d.getDate() - 1);
+
+                loadLesson({
+                  year: d.getFullYear(),
+                  month: monthName(d.getMonth()),
+                  day: d.getDate(),
+                });
+              }}
+              className="px-4 py-2 bg-red-600 text-white rounded"
+            >
+              ← Previous Lesson
+            </button>
+          </article>
         )}
       </div>
-
-      {selectedStudy && (
-        <DailyStudyDetail
-          study={selectedStudy}
-          onClose={() => setSelectedStudy(null)}
-        />
-      )}
     </div>
-    </>
   );
-};
-
-export default DailyHoneyPage;
+}

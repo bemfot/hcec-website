@@ -1,15 +1,61 @@
 @import "tailwindcss";
 
+/* --- News ticker styles (classic, robust) --- */
+
+/* container ensures a fixed height, hides overflow */
+.ticker-container {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+/* track holds two sequences side-by-side and animates left */
+.ticker-track {
+  display: inline-flex;
+  align-items: center;
+  /* The animation duration is provided by the component via CSS variable --marquee-duration */
+  animation: marquee var(--marquee-duration, 30s) linear infinite;
+  will-change: transform;
+}
+
+/* each sequence uses inline-flex so width is the natural width of content */
+.ticker-seq {
+  display: inline-flex;
+  align-items: center;
+  gap: 7rem; /* space between items inside the sequence (tweak as needed) */
+  padding: 0 1rem;
+}
+
+/* text / item styling */
+.ticker-item {
+  display: inline-block;
+  font-weight: 600;
+  font-size: 0.95rem; /* adjust for mobile friendliness */
+  line-height: 3rem;  /* vertically center inside the 3rem container */
+  white-space: nowrap;
+}
+
+/* pause on hover/focus for accessibility */
+.ticker-track:hover,
+.ticker-track:focus-within {
+  animation-play-state: paused;
+}
+
+/* keyframes: move left by exactly half (duplicate covers the rest) */
 @keyframes marquee {
   0% {
-    transform: translateX(0%);
+    transform: translateX(0);
   }
   100% {
     transform: translateX(-50%);
   }
 }
 
-.animate-marquee {
-  animation: marquee 20s linear infinite;
+/* small responsive tweaks (optional) */
+@media (min-width: 768px) {
+  .ticker-item { font-size: 1rem; }
+}
+
+@media (max-width: 420px) {
+  .ticker-item { font-size: 0.85rem; gap: 10rem; }
 }
 

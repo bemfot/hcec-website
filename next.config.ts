@@ -1,7 +1,13 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  typescript: {
+    // Ensures build passes without introducing risky overrides
+    ignoreBuildErrors: false,
+  },
+  experimental: {
+    typedRoutes: false,
+  },
 };
 
 export default nextConfig;
