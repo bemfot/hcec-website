@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useEffect, useState } from 'react';
-import api from '@/utils/api';
+import api from '@/utils/api'; 
+import { ArrowLeft, BookOpen, Heart, MessageCircle, ScrollText, Target } from 'lucide-react';
 
 /**
  * Devotional Page
@@ -47,7 +48,7 @@ export default function DevotionalPage() {
 
       console.log(`>>>>>>>>> ${JSON.stringify(response)}`)
 
-      setLesson(response.data);
+      setLesson(response.data.data);
 
       if (date) {
         const monthIndex = new Date(
@@ -140,68 +141,107 @@ export default function DevotionalPage() {
   /* ================= LESSON VIEW ================= */
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        <button
-          onClick={() => {
-            setSelectedDate(null);
-            setLesson(null);
-          }}
-          className="mb-4 px-4 py-2 bg-white border text-gray-700"
-        >
-          ← Back to Calendar
-        </button>
+  <div className="max-w-4xl mx-auto">
+    <button
+      onClick={() => {
+        setSelectedDate(null);
+        setLesson(null);
+      }}
+      className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white border text-gray-700 rounded hover:bg-gray-100"
+    >
+      <ArrowLeft size={18} />
+      Back to Calendar
+    </button>
 
-        {loading && <p className="text-gray-500">Loading...</p>}
+    {loading && <p className="text-gray-500">Loading...</p>}
 
-        {lesson && (
-          <article className="bg-white rounded-xl shadow p-6">
-            <h1 className="text-2xl font-bold text-red-600 mb-2">
-              {lesson.topic}
-            </h1>
+    {lesson && (
+      <article className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
+        {/* Title */}
+        <header className="border-b pb-4">
+          <h1 className=" text-2xl md:text-3xl font-bold text-red-700 mb-2">
+            {lesson.topic}
+          </h1>
 
-            <p className="text-gray-600 mb-4">
-              <strong>Scripture in Focus:</strong> {lesson.scriptureInFocus}
-            </p>
+          <p className="flex items-center gap-2 text-gray-600">
+            <BookOpen size={18} className="text-red-600" />
+            <span className="font-semibold">Scripture in Focus:</span>
+            {lesson.scriptureInFocus}
+          </p>
+        </header>
 
-            <div className="border-2 border-red-600 rounded-xl p-4 mb-4 shadow-[0_0_20px_rgba(220,38,38,0.4)]">
-              <p className="text-red-700 font-semibold text-lg">
-                {lesson.learnByHeart}
-              </p>
-            </div>
+        {/* Learn by Heart */}
+        <section className="bg-red-50 border-l-4 border-red-600 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <Heart className="text-red-600" />
+            <h3 className="font-semibold text-red-700">
+              Learn by Heart
+            </h3>
+          </div>
+          <p className="text-gray-800 text-justify font-medium leading-relaxed">
+            {lesson.learnByHeart}
+          </p>
+        </section>
 
-            <section className="mb-4">
-              <h3 className="font-semibold text-gray-800">Message</h3>
-              <p className="text-gray-700 mt-1">{lesson.message}</p>
-            </section>
+        {/* Message */}
+        <section>
+          <div className="flex items-center gap-2 mb-2">
+            <ScrollText className="text-gray-700" />
+            <h3 className="font-semibold  text-gray-800  text-lg">
+              Message
+            </h3>
+          </div>
+          <p className="text-gray-700 text-justify  leading-relaxed">
+            {lesson.message}
+          </p>
+        </section>
 
-            <section className="mb-4">
-              <h3 className="font-semibold text-gray-800">Challenge</h3>
-              <p className="text-gray-700 mt-1">{lesson.challenge}</p>
-            </section>
+        {/* Challenge */}
+        <section className="bg-gray-50 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <Target className="text-red-600" />
+            <h3 className="font-semibold text-gray-800">
+              Today’s Challenge
+            </h3>
+          </div>
+          <p className="text-gray-700">{lesson.challenge}</p>
+        </section>
 
-            <section className="mb-6">
-              <h3 className="font-semibold text-gray-800">Prayer</h3>
-              <p className="text-gray-700 mt-1">{lesson.prayer}</p>
-            </section>
+        {/* Prayer */}
+        <section className="bg-gray-50 rounded-xl p-5">
+          <div className="flex items-center gap-2 mb-2">
+            <MessageCircle className="text-red-600" />
+            <h3 className="font-semibold text-gray-800">
+              Prayer
+            </h3>
+          </div>
+          <p className="text-gray-700 italic">
+            {lesson.prayer}
+          </p>
+        </section>
 
-            <button
-              onClick={() => {
-                const d = new Date(selectedDate);
-                d.setDate(d.getDate() - 1);
+        {/* Previous Lesson */}
+        <div className="pt-4">
+          <button
+            onClick={() => {
+              const d = new Date(selectedDate);
+              d.setDate(d.getDate() - 1);
 
-                loadLesson({
-                  year: d.getFullYear(),
-                  month: monthName(d.getMonth()),
-                  day: d.getDate(),
-                });
-              }}
-              className="px-4 py-2 bg-red-600 text-white rounded"
-            >
-              ← Previous Lesson
-            </button>
-          </article>
-        )}
-      </div>
-    </div>
+              loadLesson({
+                year: d.getFullYear(),
+                month: monthName(d.getMonth()),
+                day: d.getDate(),
+              });
+            }}
+            className="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+          >
+            ← Previous Lesson
+          </button>
+        </div>
+      </article>
+    )}
+  </div>
+</div>
+
   );
 }
