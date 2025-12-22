@@ -1,4 +1,5 @@
-'use client';
+import { BookOpen, Heart, MessageCircle, Target } from "lucide-react";
+import { DailyHoney } from "./types";
 
 import React, { useState } from 'react';
 import api from '@/utils/api';
@@ -112,26 +113,13 @@ export default function DevotionalPage() {
               );
             })}
           </div>
+          <button
+            onClick={onClose}
+            className="text-gray-500 hover:text-black text-3xl font-bold ml-4"
+          >
+            ×
+          </button>
         </div>
-      </div>
-    );
-  }
-
-  /* ================= LESSON VIEW ================= */
-  return (
-    <div className="min-h-screen bg-gray-50 p-6">
-      <div className="max-w-4xl mx-auto">
-        <button
-          onClick={() => {
-            setSelectedDate(null);
-            setLesson(null);
-          }}
-          className="mb-4 px-4 py-2 bg-white border text-gray-700"
-        >
-          ← Back to Calendar
-        </button>
-
-        {loading && <p className="text-gray-500">Loading...</p>}
 
         {lesson && (
           <article className="bg-white rounded-xl shadow p-6">
@@ -148,6 +136,28 @@ export default function DevotionalPage() {
                 {lesson.learnByHeart}
               </p>
             </div>
+          )}
+
+          {study.learnByHeart && (
+            <div className="mb-6 p-4 bg-red-50 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <Heart className="w-5 h-5" style={{ color: "#9f0712" }} />
+                <h3 className="font-semibold text-black">Learn by Heart</h3>
+              </div>
+              <p className="text-gray-800 font-medium">{study.learnByHeart}</p>
+            </div>
+          )}
+
+          {study.body && (
+            <div className="mb-6">
+              <h3 className="font-semibold text-black text-lg mb-3">
+                Devotional
+              </h3>
+              <div className="text-gray-800 leading-relaxed whitespace-pre-line">
+                {study.body}
+              </div>
+            </div>
+          )}
 
             <section className="mb-4">
               <h3 className="font-semibold text-gray-800">Message</h3>
@@ -177,11 +187,30 @@ export default function DevotionalPage() {
               }}
               className="px-4 py-2 bg-red-600 text-white rounded"
             >
-              ← Previous Lesson
-            </button>
-          </article>
-        )}
+              <div className="flex items-center gap-2 mb-2">
+                <Target className="w-5 h-5" style={{ color: "#9f0712" }} />
+                <h3 className="font-semibold text-black">
+                  Today&apos;s Challenge
+                </h3>
+              </div>
+              <p className="text-gray-800">{study.challenge}</p>
+            </div>
+          )}
+
+          {study.prayer && (
+            <div className="p-4 bg-gray-50 rounded-lg">
+              <div className="flex items-center gap-2 mb-2">
+                <MessageCircle
+                  className="w-5 h-5"
+                  style={{ color: "#9f0712" }}
+                />
+                <h3 className="font-semibold text-black">Prayer</h3>
+              </div>
+              <p className="text-gray-800 italic">{study.prayer}</p>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );
-}
+};
