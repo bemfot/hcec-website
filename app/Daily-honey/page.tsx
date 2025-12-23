@@ -1,8 +1,15 @@
-'use client';
+"use client";
 
-import React, { useEffect, useState } from 'react';
-import api from '@/utils/api'; 
-import { ArrowLeft, BookOpen, Heart, MessageCircle, ScrollText, Target } from 'lucide-react';
+import React, { useEffect, useRef, useState } from "react";
+import api from "@/utils/api";
+import {
+  ArrowLeft,
+  BookOpen,
+  Heart,
+  MessageCircle,
+  ScrollText,
+  Target,
+} from "lucide-react";
 
 /**
  * Devotional Page
@@ -14,13 +21,40 @@ import { ArrowLeft, BookOpen, Heart, MessageCircle, ScrollText, Target } from 'l
  */
 
 export default function DevotionalPage() {
-    useEffect(() => {
-    console.log('AXIOS BASE URL:', api.defaults.baseURL);
+  useEffect(() => {
+    console.log("AXIOS BASE URL:", api.defaults.baseURL);
   }, []);
   const [currentDate, setCurrentDate] = useState(new Date());
   const [selectedDate, setSelectedDate] = useState<string | null>(null);
   const [lesson, setLesson] = useState<any>(null);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState<{
+    message: string;
+    type: "success" | "error" | null;
+    visible: boolean;
+  }>({
+    message: "",
+    type: null,
+    visible: false,
+  });
+  const toastTimer = useRef<number | null>(null);
+
+  function showToast(
+    message: string,
+    type: "success" | "error" = "success",
+    timeout = 4000,
+  ) {
+    if (toastTimer.current) {
+      window.clearTimeout(toastTimer.current);
+    }
+
+    setToast({ message, type, visible: true });
+
+    toastTimer.current = window.setTimeout(() => {
+      setToast((t) => ({ ...t, visible: false }));
+      toastTimer.current = null;
+    }, timeout) as unknown as number;
+  }
 
   const today = new Date();
   const year = currentDate.getFullYear();
@@ -36,7 +70,7 @@ export default function DevotionalPage() {
     setLoading(true);
 
     try {
-      const response = await api.get('/daily-honey', {
+      const response = await api.get("/daily-honey", {
         params: date
           ? {
               year: date.year,
@@ -46,26 +80,25 @@ export default function DevotionalPage() {
           : undefined,
       });
 
-      console.log(`>>>>>>>>> ${JSON.stringify(response)}`)
+      console.log(`>>>>>>>>> ${JSON.stringify(response)}`);
 
       setLesson(response.data.data);
 
       if (date) {
-        const monthIndex = new Date(
-          `${date.month} 1, ${date.year}`
-        ).getMonth();
+        const monthIndex = new Date(`${date.month} 1, ${date.year}`).getMonth();
 
         setSelectedDate(
-          `${date.year}-${String(monthIndex + 1).padStart(2, '0')}-${String(
-            date.day
-          ).padStart(2, '0')}`
+          `${date.year}-${String(monthIndex + 1).padStart(2, "0")}-${String(
+            date.day,
+          ).padStart(2, "0")}`,
         );
       } else {
         setSelectedDate(today.toISOString().slice(0, 10));
       }
+      showToast("Welcome To Today's Daily Honey Devotional", "success");
     } catch (error) {
       console.error(error);
-      alert('Lesson not available 1');
+      showToast("Lesson not available", "error");
     } finally {
       setLoading(false);
     }
@@ -77,18 +110,19 @@ export default function DevotionalPage() {
   }
 
   function monthName(m: number) {
-    return new Date(2024, m).toLocaleString('default', { month: 'long' });
+    return new Date(2024, m).toLocaleString("default", { month: "long" });
   }
 
   /* ================= CALENDAR VIEW ================= */
   if (!selectedDate) {
     return (
-      <div className="min-h-screen bg-white p-6">
+      <div className="min-h-screen bg-white p-6 relative">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-6">
             <button
               className="px-3 py-1 border text-gray-700"
               onClick={() => setCurrentDate(new Date(year, month - 1, 1))}
+              disabled={loading}
             >
               Prev
             </button>
@@ -100,6 +134,7 @@ export default function DevotionalPage() {
             <button
               className="px-3 py-1 border text-gray-700"
               onClick={() => setCurrentDate(new Date(year, month + 1, 1))}
+              disabled={loading}
             >
               Next
             </button>
@@ -113,7 +148,7 @@ export default function DevotionalPage() {
               return (
                 <button
                   key={day}
-                  disabled={future}
+                  disabled={future || loading}
                   onClick={() =>
                     loadLesson({
                       year,
@@ -124,8 +159,10 @@ export default function DevotionalPage() {
                   className={`h-14 rounded-md font-semibold 
                     ${
                       future
-                        ? 'bg-gray-200 text-red-600 cursor-not-allowed'
-                        : 'bg-red-600 text-white hover:scale-105'
+                        ? "bg-gray-200 text-red-600 cursor-not-allowed"
+                        : loading
+                        ? "bg-red-400 text-white cursor-wait"
+                        : "bg-red-600 text-white hover:scale-105"
                     }`}
                 >
                   {day}
@@ -134,6 +171,46 @@ export default function DevotionalPage() {
             })}
           </div>
         </div>
+
+        {loading && (
+          <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60">
+            <div className="flex flex-col items-center gap-3">
+              <svg
+                className="w-12 h-12 text-red-600 animate-spin"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+              >
+                <circle
+                  className="opacity-25"
+                  cx="12"
+                  cy="12"
+                  r="10"
+                  stroke="currentColor"
+                  strokeWidth="4"
+                ></circle>
+                <path
+                  className="opacity-75"
+                  fill="currentColor"
+                  d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                ></path>
+              </svg>
+              <div className="text-gray-700 font-medium">Loading lesson...</div>
+            </div>
+          </div>
+        )}
+
+        {toast.visible && (
+          <div className="fixed right-4 top-6 z-60">
+            <div
+              className={`px-4 py-2 rounded shadow-lg text-white ${
+                toast.type === "success" ? "bg-green-600" : "bg-red-600"
+              }`}
+            >
+              {toast.message}
+            </div>
+          </div>
+        )}
       </div>
     );
   }
@@ -141,107 +218,115 @@ export default function DevotionalPage() {
   /* ================= LESSON VIEW ================= */
   return (
     <div className="min-h-screen bg-gray-50 p-6">
-  <div className="max-w-4xl mx-auto">
-    <button
-      onClick={() => {
-        setSelectedDate(null);
-        setLesson(null);
-      }}
-      className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white border text-gray-700 rounded hover:bg-gray-100"
-    >
-      <ArrowLeft size={18} />
-      Back to Calendar
-    </button>
+      <div className="max-w-4xl mx-auto">
+        <button
+          onClick={() => {
+            setSelectedDate(null);
+            setLesson(null);
+          }}
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white border text-gray-700 rounded hover:bg-gray-100"
+        >
+          <ArrowLeft size={18} />
+          Back to Calendar
+        </button>
 
-    {loading && <p className="text-gray-500">Loading...</p>}
+        {loading && <p className="text-gray-500">Loading...</p>}
 
-    {lesson && (
-      <article className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
-        {/* Title */}
-        <header className="border-b pb-4">
-          <h1 className=" text-2xl md:text-3xl font-bold text-red-700 mb-2">
-            {lesson.topic}
-          </h1>
-
-          <p className="flex items-center gap-2 text-gray-600">
-            <BookOpen size={18} className="text-red-600" />
-            <span className="font-semibold">Scripture in Focus:</span>
-            {lesson.scriptureInFocus}
-          </p>
-        </header>
-
-        {/* Learn by Heart */}
-        <section className="bg-red-50 border-l-4 border-red-600 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <Heart className="text-red-600" />
-            <h3 className="font-semibold text-red-700">
-              Learn by Heart
-            </h3>
+        {toast.visible && (
+          <div className="fixed right-4 top-6 z-60">
+            <div
+              className={`px-4 py-4 font-bold text-center rounded mx-auto shadow-lg text-white ${
+                toast.type === "success" ? "bg-red-600" : "bg-red-600"
+              }`}
+            >
+              {toast.message}
+            </div>
           </div>
-          <p className="text-gray-800 text-justify font-medium leading-relaxed">
-            {lesson.learnByHeart}
-          </p>
-        </section>
+        )}
 
-        {/* Message */}
-        <section>
-          <div className="flex items-center gap-2 mb-2">
-            <ScrollText className="text-gray-700" />
-            <h3 className="font-semibold  text-gray-800  text-lg">
-              Message
-            </h3>
-          </div>
-          <p className="text-gray-700 text-justify  leading-relaxed">
-            {lesson.message}
-          </p>
-        </section>
+        {lesson && (
+          <article className="bg-white rounded-2xl shadow-lg p-8 space-y-6">
+            {/* Title */}
+            <header className="border-b pb-4">
+              <h1 className=" text-2xl md:text-3xl font-bold text-red-700 mb-2">
+                {lesson.topic}
+              </h1>
 
-        {/* Challenge */}
-        <section className="bg-gray-50 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <Target className="text-red-600" />
-            <h3 className="font-semibold text-gray-800">
-              Today’s Challenge
-            </h3>
-          </div>
-          <p className="text-gray-700">{lesson.challenge}</p>
-        </section>
+              <p className="flex items-center gap-2 text-gray-900">
+                <BookOpen
+                  size={18}
+                  className="text-red-600"
+                />
+                <span className="font-semibold">Scripture in Focus:</span>
+                {lesson.scriptureInFocus}
+              </p>
+            </header>
 
-        {/* Prayer */}
-        <section className="bg-gray-50 rounded-xl p-5">
-          <div className="flex items-center gap-2 mb-2">
-            <MessageCircle className="text-red-600" />
-            <h3 className="font-semibold text-gray-800">
-              Prayer
-            </h3>
-          </div>
-          <p className="text-gray-700 italic">
-            {lesson.prayer}
-          </p>
-        </section>
+            {/* Learn by Heart */}
+            <section className="bg-red-50 border-l-4 border-red-600 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <Heart className="text-red-600" />
+                <h3 className="font-semibold text-red-700">Learn by Heart</h3>
+              </div>
+              <p className="text-gray-800 text-justify font-medium leading-relaxed">
+                {lesson.learnByHeart}
+              </p>
+            </section>
 
-        {/* Previous Lesson */}
-        <div className="pt-4">
-          <button
-            onClick={() => {
-              const d = new Date(selectedDate);
-              d.setDate(d.getDate() - 1);
+            {/* Message */}
+            <section>
+              <div className="flex items-center gap-2 mb-2">
+                <ScrollText className="text-gray-700" />
+                <h3 className="font-semibold  text-gray-800  text-lg">
+                  Message
+                </h3>
+              </div>
+              <p className="text-gray-800 text-justify  leading-relaxed">
+                {lesson.message}
+              </p>
+            </section>
 
-              loadLesson({
-                year: d.getFullYear(),
-                month: monthName(d.getMonth()),
-                day: d.getDate(),
-              });
-            }}
-            className="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
-          >
-            ← Previous Lesson
-          </button>
-        </div>
-      </article>
-    )}
-  </div>
-</div>
+            {/* Challenge */}
+            <section className="bg-gray-50 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <Target className="text-red-600" />
+                <h3 className="font-semibold text-gray-900">
+                  Today’s Challenge
+                </h3>
+              </div>
+              <p className="text-gray-800">{lesson.challenge}</p>
+            </section>
 
+            {/* Prayer */}
+            <section className="bg-gray-50 rounded-xl p-5">
+              <div className="flex items-center gap-2 mb-2">
+                <MessageCircle className="text-red-600" />
+                <h3 className="font-semibold text-gray-800">Prayer</h3>
+              </div>
+              <p className="text-gray-800 italic">{lesson.prayer}</p>
+            </section>
+
+            {/* Previous Lesson */}
+            <div className="pt-4">
+              <button
+                onClick={() => {
+                  const d = new Date(selectedDate);
+                  d.setDate(d.getDate() - 1);
+
+                  loadLesson({
+                    year: d.getFullYear(),
+                    month: monthName(d.getMonth()),
+                    day: d.getDate(),
+                  });
+                }}
+                className="px-5 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition"
+              >
+                ← Previous Lesson
+              </button>
+            </div>
+          </article>
+        )}
+      </div>
+    </div>
   );
 }
