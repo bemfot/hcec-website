@@ -12,7 +12,9 @@ import { Hymn } from "../components/hymns/types";
 const GospelHymnPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
   const [activeSearchQuery, setActiveSearchQuery] = useState("");
-  const [selectedLanguage, setSelectedLanguage] = useState<"english" | "yoruba">("english");
+  const [selectedLanguage, setSelectedLanguage] = useState<
+    "english" | "yoruba"
+  >("english");
   const [selectedHymn, setSelectedHymn] = useState<Hymn | null>(null);
   const [hymns, setHymns] = useState<Hymn[]>([]);
   const [isPageLoading, setIsPageLoading] = useState(false);
@@ -86,11 +88,13 @@ const GospelHymnPage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen mt-[5rem] bg-white">
+      <div className="min-h-screen mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8">
             <h1 className="text-4xl font-bold text-black mb-2">Gospel Hymns</h1>
-            <p className="text-gray-600">Explore our collection of sacred hymns and songs</p>
+            <p className="text-gray-600">
+              Explore our collection of sacred hymns and songs
+            </p>
           </div>
 
           {/* Search & Filter */}
@@ -115,7 +119,9 @@ const GospelHymnPage: React.FC = () => {
 
             <select
               value={selectedLanguage}
-              onChange={(e) => setSelectedLanguage(e.target.value as "english" | "yoruba")}
+              onChange={(e) =>
+                setSelectedLanguage(e.target.value as "english" | "yoruba")
+              }
               className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] text-black bg-white cursor-pointer"
             >
               <option value="english">English</option>
@@ -137,12 +143,18 @@ const GospelHymnPage: React.FC = () => {
           ) : hymns.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {hymns.map((hymn) => (
-                <HymnCard key={hymn._id} hymn={hymn} onClick={() => setSelectedHymn(hymn)} />
+                <HymnCard
+                  key={hymn._id}
+                  hymn={hymn}
+                  onClick={() => setSelectedHymn(hymn)}
+                />
               ))}
             </div>
           ) : (
             <div className="text-center py-12">
-              <p className="text-gray-500 text-lg">No hymns found matching your search.</p>
+              <p className="text-gray-500 text-lg">
+                No hymns found matching your search.
+              </p>
               <button
                 onClick={handleClearSearch}
                 className="mt-4 px-6 py-2 rounded-lg text-white font-medium hover:opacity-90 transition-opacity"
@@ -168,7 +180,10 @@ const GospelHymnPage: React.FC = () => {
         )}
 
         {selectedHymn && (
-          <HymnDetail hymn={selectedHymn} onClose={() => setSelectedHymn(null)} />
+          <HymnDetail
+            hymn={selectedHymn}
+            onClose={() => setSelectedHymn(null)}
+          />
         )}
       </div>
     </>

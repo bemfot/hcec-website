@@ -24,7 +24,6 @@
 
      // 👇 Base path for your imports
     "baseUrl": ".",
-    // "ignoreDeprecations" : "6.0",
     // 👇 Custom import aliases
 
     "paths": {
