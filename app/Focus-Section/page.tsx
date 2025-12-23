@@ -4,7 +4,7 @@ export default function Focus() {
   return (
     <div className="flex flex-col items-center">
       {/* Top Text Box */}
-      <div className="bg-white shadow-xl drop-shadow-2xl p-4 rounded-md h-52 w-88 -mb-30 z-10">
+git       <div className="bg-white shadow-xl drop-shadow-2xl p-4 rounded-md h-52 w-88 -mb-30 z-10">
         <div>
           <h1 className="text-center text-xl font-bold mb-4 p-2 border-b-2">
             OUR FOCUS
