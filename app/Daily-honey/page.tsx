@@ -1,6 +1,5 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
 import api from "@/utils/api";
 import {
   ArrowLeft,
@@ -10,6 +9,7 @@ import {
   ScrollText,
   Target,
 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 
 /**
  * Devotional Page
@@ -42,7 +42,7 @@ export default function DevotionalPage() {
   function showToast(
     message: string,
     type: "success" | "error" = "success",
-    timeout = 4000,
+    timeout = 4000
   ) {
     if (toastTimer.current) {
       window.clearTimeout(toastTimer.current);
@@ -89,8 +89,8 @@ export default function DevotionalPage() {
 
         setSelectedDate(
           `${date.year}-${String(monthIndex + 1).padStart(2, "0")}-${String(
-            date.day,
-          ).padStart(2, "0")}`,
+            date.day
+          ).padStart(2, "0")}`
         );
       } else {
         setSelectedDate(today.toISOString().slice(0, 10));
@@ -253,10 +253,7 @@ export default function DevotionalPage() {
               </h1>
 
               <p className="flex items-center gap-2 text-gray-900">
-                <BookOpen
-                  size={18}
-                  className="text-red-600"
-                />
+                <BookOpen size={18} className="text-red-600" />
                 <span className="font-semibold">Scripture in Focus:</span>
                 {lesson.scriptureInFocus}
               </p>
@@ -268,9 +265,11 @@ export default function DevotionalPage() {
                 <Heart className="text-red-600" />
                 <h3 className="font-semibold text-red-700">Learn by Heart</h3>
               </div>
-              <p className="text-gray-800 text-justify font-medium leading-relaxed">
-                {lesson.learnByHeart}
-              </p>
+              <div className="text-gray-800 text-justify font-medium leading-relaxed space-y-4">
+                {lesson.learnByHeart.split("\n").map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
+              </div>
             </section>
 
             {/* Message */}
