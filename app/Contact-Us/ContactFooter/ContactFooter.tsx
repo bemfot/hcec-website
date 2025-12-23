@@ -49,7 +49,7 @@ export default function ContactFooter() {
         </div>
         {/* Location - centered on mobile, right on desktop */}
         <div className="flex items-start md:items-center gap-2 text-white w-full md:w-auto justify-center md:justify-end">
-          <FaMapMarkerAlt className="text-lg text-red-400 flex-shrink-0 mt-0.5 md:mt-0" />
+          <FaMapMarkerAlt className="text-lg text-red-400 shrink-0 mt-0.5 md:mt-0" />
           <span className="text-xs md:text-sm font-semibold leading-tight md:leading-normal text-center md:text-left">
             Ajao village, Bare Junction, Old Lagos Road, Alomaja Ibadan.
           </span>

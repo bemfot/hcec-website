@@ -57,7 +57,8 @@ const defaultNavItems: NavItem[] = [
   },
 ];
 
-const WEBMAIL_URL = "https://37.qservers.net:2096/cpsess1932003431/webmail/jupiter/index.html?login=1&post_login=91962148816683";
+const WEBMAIL_URL =
+  "https://37.qservers.net:2096/cpsess1932003431/webmail/jupiter/index.html?login=1&post_login=91962148816683";
 
 export default function Navbar({
   navItems = defaultNavItems,
@@ -75,19 +76,22 @@ export default function Navbar({
     <div className="bg-[#0C101C]">
       {/* Navbar always visible, above menu overlay */}
       <div
-        className="fixed top-0 left-0 w-full z-[80] bg-red-800 shadow-2xl transition-all duration-500"
+        className="fixed top-0 left-0 w-full z-80 bg-red-800 shadow-2xl transition-all duration-500"
         suppressHydrationWarning
       >
         <div className="flex items-center justify-between max-w-7xl px-4 py-3">
           {/* Logo at left */}
           <div className="flex items-center gap-2">
-            <Link href="/" className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="flex items-center gap-2"
+            >
               <Image
                 src="/assets/HCEC_LOGO.png"
                 width={80}
                 height={48}
                 alt="HCEC Logo"
-                className="h-[3rem] w-[5rem] object-cover"
+                className="h-12 w-20 object-cover"
               />
             </Link>
             <span className="hidden md:inline font-bold text-lg uppercase text-white">
@@ -100,7 +104,10 @@ export default function Navbar({
           {/* Desktop nav (right-aligned) */}
           <nav className="hidden md:flex text-white text-[11px] items-center gap-8 ml-auto">
             {navItems.map((d, i) => (
-              <div key={i} className="group relative">
+              <div
+                key={i}
+                className="group relative"
+              >
                 <Link
                   href={d.link ?? "#"}
                   className="group items-center transition-all relative"
@@ -111,7 +118,7 @@ export default function Navbar({
                 </Link>
                 {/* Dropdown */}
                 {d.children && (
-                  <div className="absolute flex flex-col justify-start left-1/2 transform -translate-x-1/2 top-10 bg-amber-50 text-black w-[11rem] transition-all text-[12px] border-t-4 border-red-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
+                  <div className="absolute flex flex-col justify-start left-1/2 transform -translate-x-1/2 top-10 bg-amber-50 text-black w-44 transition-all text-[12px] border-t-4 border-red-500 opacity-0 invisible group-hover:opacity-100 group-hover:visible">
                     {d.children.map((ch, j) => (
                       <Link
                         key={j}
@@ -140,7 +147,7 @@ export default function Navbar({
           <div className="md:hidden flex items-center">
             <button
               onClick={toggleMenu}
-              className={`relative z-[90] transition-all duration-500 ease-in-out p-2 rounded-full border-2 border-white
+              className={`relative z-90 transition-all duration-500 ease-in-out p-2 rounded-full border-2 border-white
                 ${
                   menuOpen
                     ? "bg-white text-red-800 scale-110 rotate-90 shadow-lg"
@@ -161,7 +168,7 @@ export default function Navbar({
 
       {/* Mobile menu dropdown overlay */}
       {menuOpen && (
-        <div className="fixed inset-0 md:hidden w-full h-screen bg-[#0C101C] text-white shadow-lg z-[60] pt-[5.5rem]">
+        <div className="fixed inset-0 md:hidden w-full h-screen bg-[#0C101C] text-white shadow-lg z-60 pt-22">
           <ul className="flex flex-col items-start p-4 w-full h-full overflow-y-auto">
             {navItems.map((item, index) => (
               <li
@@ -224,7 +231,7 @@ export default function Navbar({
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMenuOpen(false)}
-                className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-gradient-to-r from-white to-amber-50 text-red-800 font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white"
+                className="flex items-center justify-center gap-3 w-full px-6 py-3 bg-linear-to-r from-white to-amber-50 text-red-800 font-bold rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105 border-2 border-white"
               >
                 <Mail className="w-5 h-5" />
                 <span className="text-sm">CHURCH WEBMAIL</span>

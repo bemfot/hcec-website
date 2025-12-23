@@ -1,7 +1,7 @@
 // app/events/[id]/page.tsx
 "use client";
 
-import { useParams } from "next/navigation";  // ✅ App Router hook
+import { useParams } from "next/navigation"; // ✅ App Router hook
 import Image from "next/image";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -13,7 +13,7 @@ type Event = {
   time: string;
   location: string;
   description: string;
-  image?: string;   // optional
+  image?: string; // optional
   contactName?: string;
   contactEmail?: string;
   isVirtual?: boolean;
@@ -52,8 +52,8 @@ const mockEvents: Event[] = [
 ];
 
 export default function EventDetailPage() {
-  const params = useParams();       // ✅ gets route params
-  const id = params?.id as string;  // ensure it's a string
+  const params = useParams(); // ✅ gets route params
+  const id = params?.id as string; // ensure it's a string
 
   const event = mockEvents.find((e) => e.id === id);
 
@@ -63,7 +63,7 @@ export default function EventDetailPage() {
 
   return (
     <motion.div
-      className="min-h-screen bg-gradient-to-b from-blue-900 to-blue-700 py-16 px-4 md:px-12"
+      className="min-h-screen bg-linear-to-b from-blue-900 to-blue-700 py-16 px-4 md:px-12"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
@@ -86,9 +86,15 @@ export default function EventDetailPage() {
           </h1>
 
           <div className="text-gray-700 mb-6 space-y-2">
-            <p>📅 <strong>Date:</strong> {event.date}</p>
-            <p>🕒 <strong>Time:</strong> {event.time}</p>
-            <p>📍 <strong>Location:</strong> {event.location}</p>
+            <p>
+              📅 <strong>Date:</strong> {event.date}
+            </p>
+            <p>
+              🕒 <strong>Time:</strong> {event.time}
+            </p>
+            <p>
+              📍 <strong>Location:</strong> {event.location}
+            </p>
             {event.isVirtual && event.virtualLink && (
               <p>
                 🔗 <strong>Join Online:</strong>{" "}
@@ -126,7 +132,10 @@ export default function EventDetailPage() {
           </div>
 
           <div className="mt-8 text-sm text-gray-500">
-            <Link href="/events" className="hover:underline">
+            <Link
+              href="/events"
+              className="hover:underline"
+            >
               ← Back to All Events
             </Link>
           </div>

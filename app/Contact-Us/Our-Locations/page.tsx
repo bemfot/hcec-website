@@ -13,7 +13,7 @@ export default function OurLocations() {
         <h2></h2>
         <p></p>
 
-        <div className="relative w-full h-[25rem] overflow">
+        <div className="relative w-full h-100 overflow">
           <Image
             src="/assets/worship.jpg"
             alt="Your Image"
@@ -28,14 +28,14 @@ export default function OurLocations() {
                 width={80}
                 height={48}
                 alt="Church logo"
-                className="h-[6rem] w-[10rem]"
+                className="h-24 w-40"
               />
             </div>
             <h1 className="text-3xl md:text-5xl font-bold">
               Worship With Us Today
             </h1>
             <div className="mt-3 bg-[#0C101C]/50 text-gradient-to-r  rounded-4xl">
-              <p className="text-lg md:text-2xl font-sm my-1 p-2 border-1 border-white  font-bold backdrop-blur-xl ">
+              <p className="text-lg md:text-2xl font-sm my-1 p-2 border border-white  font-bold backdrop-blur-xl ">
                 Our Church Locations in Various Regions are Below
               </p>
             </div>

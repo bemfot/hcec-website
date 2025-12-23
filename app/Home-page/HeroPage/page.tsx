@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function Heropage() {
   return (
-    <section className="relative w-full h-[30rem]">
+    <section className="relative w-full h-120">
       {/* Background Image */}
       <Image
         src="/assets/img.jpg"
@@ -32,14 +32,14 @@ export default function Heropage() {
           <Link
             href="/Contact-Us/Our-Locations" // change this route as needed
             className="relative inline-block px-8 py-3 font-semibold text-white text-lg rounded-full 
-                       bg-gradient-to-r from-red-600 to-rose-700 
+                       bg-linear-to-r from-red-600 to-rose-700 
                        shadow-md transition-all duration-500 
                        hover:shadow-xl hover:scale-105 hover:from-red-700 hover:to-rose-800 
                        focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-transparent"
           >
             Worship With Us
             <span
-              className="absolute inset-0 rounded-full bg-gradient-to-r from-white/20 to-transparent opacity-0 
+              className="absolute inset-0 rounded-full bg-linear-to-r from-white/20 to-transparent opacity-0 
                          hover:opacity-100 transition-opacity duration-500"
             ></span>
           </Link>

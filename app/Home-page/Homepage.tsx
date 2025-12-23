@@ -45,14 +45,15 @@ export default function Homepage() {
   return (
     <div>
       <Heropage />
- 
+
       <Focus />
-    <div className="mt-[8rem] lg:mt-[5rem]">
-      <WelcomePage /></div>
+      <div className="mt-32 lg:mt-20">
+        <WelcomePage />
+      </div>
 
       <HomeEvents />
       <YoutubeLinkPage />
-      <div className="mt-[8rem] lg:mt-[5rem]">
+      <div className="mt-32 lg:mt-20">
         <PrayerRequest />
       </div>
     </div>

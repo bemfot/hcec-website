@@ -56,7 +56,7 @@ export default function GetInTouch() {
   return (
     <div>
       {" "}
-      <div className="pt-20 md:px-10 md:pt-[6rem] pb-24 md:pb-5 bg-gray-800 shadow-lg min-h-screen">
+      <div className="pt-20 md:px-10 md:pt-24 pb-24 md:pb-5 bg-gray-800 shadow-lg min-h-screen">
         <div className="grid grid-cols-1 md:grid-cols-2 bg-black/60 min-h-screen">
           {/* Left: Red Info Section */}
           <div
@@ -71,8 +71,8 @@ export default function GetInTouch() {
               filling the form or through mail, or via a simple phone call.
             </p>
             <div className="mb-2">
-              <FaMapMarkerAlt className="inline" /> Ajao village, Bare Junction, Old Lagos
-              Road, Alomaja Ibadan.
+              <FaMapMarkerAlt className="inline" /> Ajao village, Bare Junction,
+              Old Lagos Road, Alomaja Ibadan.
             </div>
             <div className="mb-2">
               <FaPhone className="inline" /> +234 916 986 442, +234 906 099 3734
