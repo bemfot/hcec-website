@@ -38,6 +38,7 @@ const ChurchPaymentClearancePage: React.FC = () => {
           transactionId: null,
         };
       } else if (callbackData.provider === "flutterwave") {
+        
         data = {
           transactionReference: callbackData.txRef ?? callbackData.reference ?? null,
           transactionId: callbackData.transactionId ?? null,

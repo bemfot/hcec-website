@@ -1,89 +1,214 @@
-// components/HomeEvents.tsx
+// app/components/HomeEvents.tsx
 "use client";
 
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useMemo, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import programs from "../Upcoming-Programs/programs.json";
+import type { Event as ProgramEvent } from "../Upcoming-Programs/types";
 
-type Event = {
-  id: string;
-  title: string;
-  date: string;
-  time: string;
-  location: string;
-  image: string;
-};
+const DEFAULT_BG = "/assets/GO-piz.jpg";
 
-const mockEvents: Event[] = [
-  {
-    id: "1",
-    title: " Bible Study",
-    date: "Jul 15, 2025",
-    time: "7:00 PM – 9:00 PM",
-    location: "Main Auditorium",
-    image: "/images/bible_study.jpg",
-  },
-  {
-    id: "2",
-title: " Bible Study",
-    date: "Jul 15, 2025",
-    time: "7:00 PM – 9:00 PM",
-    location: "Main Auditorium",
-    image: "/images/bible_study.jpg",
-  },
- 
-];
+function parseMonthAndDays(text: string) {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+
+  const monthMatch = months.find((m) =>
+    new RegExp(`\\b${m}\\b`, "i").test(text),
+  );
+  const dayMatches = Array.from(
+    text.matchAll(/(\d{1,2})(?:st|nd|rd|th)?/g),
+  ).map((m) => parseInt(m[1], 10));
+
+  return { month: monthMatch ?? null, days: dayMatches };
+}
+
+function occursInMonthAndNotPast(item: ProgramEvent, now = new Date()) {
+  const text = (item.startDate || "").toLowerCase();
+  if (!text) return false;
+
+  const months = [
+    "january",
+    "february",
+    "march",
+    "april",
+    "may",
+    "june",
+    "july",
+    "august",
+    "september",
+    "october",
+    "november",
+    "december",
+  ];
+
+  const currentMonthName = months[now.getMonth()];
+
+  if (
+    /\bevery\b|\bweekly\b|\bfirst\b|\bsecond\b|\bmonthly\b/i.test(
+      item.startDate || "",
+    )
+  ) {
+    return true;
+  }
+
+  if (new RegExp(`\\b${currentMonthName}\\b`, "i").test(item.startDate || "")) {
+    const { days } = parseMonthAndDays(item.startDate || "");
+    if (days.length === 0) return true;
+
+    const dayNumbers = days.sort((a, b) => a - b);
+    const endDay =
+      dayNumbers.length > 1 ? dayNumbers[dayNumbers.length - 1] : dayNumbers[0];
+    const endDate = new Date(now.getFullYear(), now.getMonth(), endDay);
+    return (
+      endDate >= new Date(now.getFullYear(), now.getMonth(), now.getDate())
+    );
+  }
+
+  return false;
+}
 
 export default function HomeEvents() {
+  const national: ProgramEvent[] = (programs as any).nationalPrograms || [];
+
+  const slides = useMemo(() => {
+    const now = new Date();
+    const upcomingThisMonth = national.filter((p) =>
+      occursInMonthAndNotPast(p, now),
+    );
+    const chosen =
+      upcomingThisMonth.length > 0 ? upcomingThisMonth : national.slice(0, 3);
+    return chosen
+      .slice(0, 3)
+      .map((p) => ({ ...(p as any), image: (p as any).image || DEFAULT_BG }));
+  }, [national]);
+
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (slides.length === 0) return;
+    const t = setInterval(() => setIndex((i) => (i + 1) % slides.length), 6000);
+    return () => clearInterval(t);
+  }, [slides.length]);
+
+  if (slides.length === 0) return null;
+
   return (
-    <section className="py-50 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 text-center">
-        {/* Title */}
-        <h2 className="text-3xl font-bold text-blue-900 mb-12">
-          What&apos;s Coming Up
-        </h2>
-
-        {/* Event Grid */}
-        <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2">
-          {mockEvents.map((event) => (
-            <Link
-              key={event.id}
-              href={`/events/${event.id}`}
-              className="group bg-white rounded-xl shadow-md overflow-hidden hover:shadow-xl transition"
-            >
-              <div className="relative h-52 w-full">
-                <Image
-                  src={event.image}
-                  alt={event.title}
-                  fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
-                />
-
-                {/* Date Badge */}
-                <div className="absolute top-3 right-3 bg-white text-blue-900 font-bold text-xs px-3 py-1 rounded-md shadow">
-                  {event.date.split(" ")[0].toUpperCase()}{" "}
-                  {event.date.split(" ")[1]}
-                </div>
-              </div>
-
-              <div className="p-4 text-left">
-                <h3 className="text-lg font-semibold text-blue-900 mb-2 group-hover:text-red-600 transition">
-                  {event.title}
-                </h3>
-                <p className="text-sm text-gray-600">{event.date}</p>
-                <p className="text-sm text-gray-600">{event.time}</p>
-              </div>
-            </Link>
-          ))}
-        </div>
-
-        {/* View All Events Button */}
-        <div className="mt-12">
+    <section className="py-12 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4">
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-3xl font-bold text-blue-900">
+            Featured Programs
+          </h2>
           <Link
             href="/Upcoming-Programs"
-            className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition"
+            className="text-sm text-gray-600 hover:text-gray-900"
           >
-            View All Programs
+            View All Programs →
           </Link>
+        </div>
+
+        <div className="relative">
+          <div className="overflow-hidden rounded-2xl bg-white shadow-lg">
+            <div className="relative h-72 md:h-96">
+              <AnimatePresence
+                initial={false}
+                mode="wait"
+              >
+                {slides.map((slide, i) =>
+                  i === index ? (
+                    <motion.div
+                      key={slide.id}
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -50 }}
+                      transition={{ duration: 0.6 }}
+                      className="absolute inset-0 rounded-2xl overflow-hidden"
+                    >
+                      <Link
+                        href="/Upcoming-Programs"
+                        className="block w-full h-full"
+                      >
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={slide.image}
+                            alt={slide.title}
+                            fill
+                            className="object-cover"
+                          />
+                          <div className="absolute inset-0 bg-black/30" />
+
+                          <div className="absolute left-6 bottom-6 text-left text-white max-w-xl">
+                            <div className="bg-white/10 px-3 py-1 rounded-md inline-block text-sm font-semibold mb-2">
+                              {slide.startDate}
+                            </div>
+                            <h3 className="text-2xl md:text-4xl font-bold leading-tight">
+                              {slide.title}
+                            </h3>
+                            <p className="mt-2 text-sm md:text-base">
+                              {slide.location}
+                            </p>
+                          </div>
+                        </div>
+                      </Link>
+                    </motion.div>
+                  ) : null,
+                )}
+              </AnimatePresence>
+            </div>
+          </div>
+
+          <button
+            aria-label="Previous"
+            onClick={() =>
+              setIndex((i) => (i - 1 + slides.length) % slides.length)
+            }
+            className="absolute left-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
+          >
+            ‹
+          </button>
+          <button
+            aria-label="Next"
+            onClick={() => setIndex((i) => (i + 1) % slides.length)}
+            className="absolute right-3 top-1/2 -translate-y-1/2 bg-white/80 p-2 rounded-full shadow"
+          >
+            ›
+          </button>
+
+          <div className="flex justify-center gap-2 mt-4">
+            {slides.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setIndex(i)}
+                className={`w-3 h-3 rounded-full ${
+                  i === index ? "bg-red-600" : "bg-gray-300"
+                }`}
+                aria-label={`Go to slide ${i + 1}`}
+              />
+            ))}
+          </div>
+
+          <div className="mt-8 text-center">
+            <Link
+              href="/Upcoming-Programs"
+              className="inline-block bg-red-600 text-white px-6 py-3 rounded-lg shadow hover:bg-red-700 transition"
+            >
+              View All Programs
+            </Link>
+          </div>
         </div>
       </div>
     </section>

@@ -1,6 +1,7 @@
 "use client";
 
 import api from "@/utils/api";
+import Navbar from "../components/Navbar";
 import {
   ArrowLeft,
   BookOpen,
@@ -116,6 +117,7 @@ export default function DevotionalPage() {
   /* ================= CALENDAR VIEW ================= */
   if (!selectedDate) {
     return (
+      
       <div className="min-h-screen bg-white p-6 relative">
         <div className="max-w-4xl mx-auto">
           <div className="flex justify-between items-center mb-6">
@@ -217,6 +219,8 @@ export default function DevotionalPage() {
 
   /* ================= LESSON VIEW ================= */
   return (
+    <>
+    <Navbar/>
     <div className="min-h-screen bg-gray-50 p-6">
       <div className="max-w-4xl mx-auto">
         <button
@@ -327,5 +331,7 @@ export default function DevotionalPage() {
         )}
       </div>
     </div>
+    </>
+    
   );
 }
