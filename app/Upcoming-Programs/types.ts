@@ -1,3 +1,5 @@
+import type { StaticImageData } from "next/image";
+
 export type Event = {
   id: string;
   title: string;
@@ -8,6 +10,7 @@ export type Event = {
   description?: string;
   googleCalendarLink?: string;
   icsLink?: string;
+  image?: string | StaticImageData;
 };
 
 export type ProgramsData = {
