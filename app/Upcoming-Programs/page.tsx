@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Event } from "./types";
-import programs from "./programs.json";
+import programs from "./programs";
 
 const WeeklyPrograms: Event[] = programs.weeklyPrograms;
 const nationalPrograms: Event[] = programs.nationalPrograms;
