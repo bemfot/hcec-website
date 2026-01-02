@@ -40,17 +40,30 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/praise.jpg"
+    },
+      {
+      "id": "National Program 2",
+      "title": "New Year Fasting and Prayer",
+      "startDate": "5th january",
+      "endDate": "25th",
+      "time": " ",
+      "location": "In All Our Various Assemblies",
+      "googleCalendarLink": "#",
+      "icsLink": "#",
+      "image": "/assets/21days-fasting.jpg"
     },
     {
-      "id": "National Program 2",
+      "id": "National Program 3",
       "title": "Praise Sunday",
       "startDate": "Every First Sunday of the Month",
       "endDate": "",
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/praize.jpg"
     },
     {
       "id": "National Program 3",
@@ -60,38 +73,22 @@
       "time": " ",
       "location": "National Camp Ground",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/Pray.jpg"
     },
+    
     {
       "id": "National Program 4",
-      "title": "Supreme Council Meeting",
-      "startDate": "9th January",
-      "endDate": "",
-      "time": " ",
-      "location": "",
-      "googleCalendarLink": "#",
-      "icsLink": "#"
-    },
-    {
-      "id": "National Program 5",
       "title": "National Prayer Warrior",
       "startDate": "Every 2nd weekend of the Month",
       "endDate": "",
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
-    {
-      "id": "National Program 6",
-      "title": "New Year Fasting" ,
-      "startDate": "5th - 25th january",
-      "endDate": "",
-      "time": " ",
-      "location": "In All Our Various Assemblies",
-      "googleCalendarLink": "#",
-      "icsLink": "#"
-    },
+  
     {
       "id": "National Program 7",
       "title": "Month of Soul Harvest",
@@ -100,7 +97,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 8",
@@ -110,7 +108,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 9",
@@ -120,7 +119,8 @@
       "time": " ",
       "location": "NAtional Camp Ground",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 10",
@@ -130,7 +130,8 @@
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 11",
@@ -140,7 +141,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 12",
@@ -150,7 +152,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 13",
@@ -160,7 +163,8 @@
       "time": " ",
       "location": "National Headquarters",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 14",
@@ -170,7 +174,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 15",
@@ -180,7 +185,8 @@
       "time": " ",
       "location": "NAtional Camp Ground",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 16",
@@ -190,7 +196,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 17",
@@ -200,7 +207,8 @@
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 18",
@@ -210,7 +218,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 19",
@@ -220,7 +229,8 @@
       "time": " ",
       "location": "NAtional Camp Ground, Ajao Village, Alomaja Ibadan",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 20",
@@ -230,7 +240,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 21",
@@ -240,7 +251,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 22",
@@ -250,7 +262,8 @@
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 23",
@@ -260,7 +273,8 @@
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 24",
@@ -270,7 +284,8 @@
       "time": " ",
       "location": "In All Our Various Assemblies",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 25",
@@ -291,7 +306,8 @@
       "time": " ",
       "location": "",
       "googleCalendarLink": "#",
-      "icsLink": "#"
+      "icsLink": "#",
+      "image": "/assets/GO-piz.jpg"
     },
     {
       "id": "National Program 27",
@@ -302,7 +318,7 @@
       "location": " In All Our Various Assemblies",
       "googleCalendarLink": "#",
       "icsLink": "#",
-      "image": "/assets/Late-Founder.jpg"
+      "image": "/assets/"
     }
   ]
 }

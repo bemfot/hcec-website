@@ -5,7 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import programs from "../Upcoming-Programs/programs.json";
+import programs from "../Upcoming-Programs/programs";
 import type { Event as ProgramEvent } from "../Upcoming-Programs/types";
 
 const DEFAULT_BG = "/assets/GO-piz.jpg";
@@ -151,11 +151,11 @@ export default function HomeEvents() {
                           />
                           <div className="absolute inset-0 bg-black/30" />
 
-                          <div className="absolute left-6 bottom-6 text-left text-white max-w-xl">
-                            <div className="bg-white/10 px-3 py-1 rounded-md inline-block text-sm font-semibold mb-2">
+                          <div className="absolute left-6 bottom-9 text-left text-white max-w-xl">
+                            <div className="bg-white/10 px-3 py-1 rounded-md inline-block text-md font-semibold mb-2">
                               {slide.startDate}
                             </div>
-                            <h3 className="text-2xl md:text-4xl font-bold leading-tight">
+                            <h3 className="text-3xl md:text-5xl font-bold leading-tight">
                               {slide.title}
                             </h3>
                             <p className="mt-2 text-sm md:text-base">
