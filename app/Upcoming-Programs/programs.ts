@@ -43,6 +43,7 @@ const programs = {
       location: "In All Our Various Assemblies",
       googleCalendarLink: "#",
       icsLink: "#",
+       image: "/assets/praise.jpg",
     },
     
     
@@ -55,7 +56,7 @@ const programs = {
       location: "In All Our Various Assemblies",
       googleCalendarLink: "#",
       icsLink: "#",
-       image: "/assets/21days-fasting.jpg",
+       image: "/assets/21days-fasting.png",
     },
     {
      "id": "National Program 2",
@@ -177,7 +178,7 @@ const programs = {
       startDate: "9th - 11th July",
       endDate: "",
       time: " ",
-      location: "NAtional Camp Ground",
+      location: "National Camp Ground",
       googleCalendarLink: "#",
       icsLink: "#",
     },

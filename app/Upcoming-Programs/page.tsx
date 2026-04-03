@@ -4,6 +4,7 @@
 import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import { useCallback } from "react";
 import type { Event } from "./types";
 import programs from "./programs";
 
@@ -106,12 +107,7 @@ export default function UpcomingProgramsPage() {
                   <p className="text-gray-700 mb-2">{ev.time}</p>
                   <p className="text-gray-700 mb-4">{ev.location}</p>
                   <div className="flex flex-wrap gap-3">
-                    <Link
-                      href={`/events/${ev.id}`}
-                      className="ml-auto inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-                    >
-                      View Event →
-                    </Link>
+                    {/* No action button for weekly programs */}
                   </div>
                 </div>
               </motion.div>
@@ -151,12 +147,28 @@ export default function UpcomingProgramsPage() {
                       <p className="text-gray-700 mb-2">{event.time}</p>
                       <p className="text-gray-700 mb-4">{event.location}</p>
                       <div className="flex flex-wrap gap-3">
-                        <Link
-                          href={`/events/${event.id}`}
-                          className="ml-auto inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
-                        >
-                          View Program →
-                        </Link>
+                        {/* Only show a button for Annual Convention and National Youth Conference */}
+                        {(() => {
+                          const title = (event.title || "").toLowerCase();
+                          const isTarget =
+                            title.includes("annual convention") ||
+                            title.includes("national youth conference") ||
+                            title.includes("youth conference");
+
+                          if (isTarget) {
+                            return (
+                              <button
+                                type="button"
+                                onClick={() => alert("Details coming soon")}
+                                className="ml-auto inline-block bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition"
+                              >
+                                View Program →
+                              </button>
+                            );
+                          }
+
+                          return null;
+                        })()}
                       </div>
                     </div>
                   </motion.div>

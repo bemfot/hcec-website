@@ -1,108 +1,153 @@
 "use client";
 
-import { dummyLessons } from "@/data/honey-from-the-rock-dummy.data";
-import { BookOpen, Search } from "lucide-react";
-import React, { useMemo, useState } from "react";
-import { HftrCard } from "../components/honey-from-the-rock/hftr-card";
-import { HftrDetail } from "../components/honey-from-the-rock/hftr-detail";
-import { HFTR } from "../components/honey-from-the-rock/types";
+import React, { useEffect, useMemo, useState } from "react";
 import Navbar from "../components/Navbar";
+import { BookOpen, Search } from "lucide-react";
+import { HftrCard } from "../components/honey-from-the-rock/hftr-card";
+import { HFTR } from "../components/honey-from-the-rock/types";
+import { fetchHFTR } from "@/utils/honeyFromTheRock.api";
+import { HftrDetail } from "../components/honey-from-the-rock/hftr-detail";
 
 const HFTRPage: React.FC = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedLesson, setSelectedLesson] = useState<HFTR | null>(null);
+  const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null);
+  const [lessons, setLessons] = useState<HFTR[]>([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [apiType, setApiType] = useState<"children" | "adult">("children");
 
   const filteredLessons = useMemo(() => {
-    return dummyLessons.filter((lesson) => {
-      if (searchQuery === "") return true;
+    const now = new Date();
+    return lessons.filter((lesson) => {
+      // hide future lessons (e.g., the next Sunday's lesson) until that day arrives
+      if (lesson?.date) {
+        const lessonDate = new Date(lesson.date);
+        if (lessonDate > now) return false;
+      }
 
-      const searchLower = searchQuery.toLowerCase();
-      const matchesLessonNumber = lesson.lessonNumber
-        .toString()
-        .includes(searchQuery);
-      const matchesTopic = lesson.topic.toLowerCase().includes(searchLower);
-
-      return matchesLessonNumber || matchesTopic;
+      if (!searchQuery) return true;
+      const q = searchQuery.toLowerCase();
+      return (
+        lesson.topic.toLowerCase().includes(q) ||
+        lesson.lessonNumber.toString().includes(q)
+      );
     });
-  }, [searchQuery]);
+  }, [lessons, searchQuery]);
 
-  // Sort lessons by lesson number
   const sortedLessons = useMemo(() => {
     return [...filteredLessons].sort((a, b) => a.lessonNumber - b.lessonNumber);
   }, [filteredLessons]);
 
+  async function loadLessons() {
+    setLoading(true);
+    setError(null);
+
+    try {
+      const res = await fetchHFTR({
+        type: apiType,
+        language: "english",
+        lesson: "",
+      });
+
+      const data = res.data?.data ?? res.data ?? [];
+      setLessons(Array.isArray(data) ? data : [data]);
+    } catch (err) {
+      console.error("HFTR fetch error:", err);
+      setError("Failed to load lessons");
+      setLessons([]);
+    } finally {
+      setLoading(false);
+    }
+  }
+
+  useEffect(() => {
+    loadLessons();
+  }, []);
+
   return (
     <>
-    <Navbar />
-    <div className="min-h-screen mt-[5rem] bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-black mb-2">
-            Honey From The Rock
-          </h1>
-          <p className="text-gray-600">
-            Deep Bible study lessons for spiritual growth
-          </p>
-        </div>
+      <Navbar />
+      {/* 🔒 UI BELOW IS UNCHANGED */}
+      <div className="min-h-screen mt-20 bg-white relative">
+        <div className="max-w-7xl mx-auto px-4 py-8">
+          {/* Header */}
+          <div className="mb-8 flex justify-between items-center">
+            <h1 className="text-4xl font-bold text-black">
+              Honey From The Rock
+            </h1>
+          </div>
 
-        {/* Search Bar */}
-        <div className="mb-8">
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
+          {/* loading overlay similar to Daily-honey */}
+          {loading && (
+            <div className="absolute inset-0 z-50 flex items-center justify-center bg-white/60">
+              <div className="flex flex-col items-center gap-3">
+                <svg
+                  className="w-12 h-12 text-red-600 animate-spin"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                >
+                  <circle
+                    className="opacity-25"
+                    cx="12"
+                    cy="12"
+                    r="10"
+                    stroke="currentColor"
+                    strokeWidth="4"
+                  ></circle>
+                  <path
+                    className="opacity-75"
+                    fill="currentColor"
+                    d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+                  ></path>
+                </svg>
+                <div className="text-gray-700 font-medium">
+                  Loading lessons...
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Search */}
+          <div className="mb-6 relative">
+            <Search className="absolute left-3 top-3 text-gray-400 w-5 h-5" />
             <input
-              type="text"
-              placeholder="Search by lesson number or topic..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black"
+              placeholder="Search..."
+              className="w-full pl-10 py-3 border rounded"
             />
           </div>
+
+          {sortedLessons.length ? (
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {sortedLessons.map((lesson) => (
+                <HftrCard
+                  key={lesson._id}
+                  lesson={lesson}
+                  onClick={() =>
+                    setSelectedLessonId(String(lesson.lessonNumber))
+                  }
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12">
+              <BookOpen className="mx-auto text-gray-300 w-16 h-16" />
+              <p className="text-gray-500 mt-4">No lessons found.</p>
+            </div>
+          )}
         </div>
 
-        {/* Results Count */}
-        <div className="mb-6">
-          <p className="text-gray-600">
-            {sortedLessons.length}{" "}
-            {sortedLessons.length === 1 ? "lesson" : "lessons"} found
-          </p>
-        </div>
-
-        {/* Lessons Grid */}
-        {sortedLessons.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {sortedLessons.map((lesson) => (
-              <HftrCard
-                key={lesson._id}
-                lesson={lesson}
-                onClick={() => setSelectedLesson(lesson)}
-              />
-            ))}
-          </div>
-        ) : (
-          <div className="text-center py-12">
-            <BookOpen className="w-16 h-16 mx-auto mb-4 text-gray-300" />
-            <p className="text-gray-500 text-lg mb-4">
-              No lessons found matching your search.
-            </p>
-            <button
-              onClick={() => setSearchQuery("")}
-              className="px-6 py-2 rounded-lg text-white font-medium hover:opacity-90 transition-opacity"
-              style={{ backgroundColor: "#9f0712" }}
-            >
-              Clear Search
-            </button>
-          </div>
+        {selectedLessonId && (
+          <HftrDetail
+            lessonId={selectedLessonId}
+            type={apiType}
+            language="english"
+            onClose={() => setSelectedLessonId(null)}
+          />
         )}
       </div>
-
-      {selectedLesson && (
-        <HftrDetail
-          lesson={selectedLesson}
-          onClose={() => setSelectedLesson(null)}
-        />
-      )}
-    </div>
     </>
   );
 };

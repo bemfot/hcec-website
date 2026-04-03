@@ -1,23 +1,29 @@
-import axios, { type InternalAxiosRequestConfig } from "axios";
+// utils/api.ts
+import axios, { InternalAxiosRequestConfig } from "axios";
 
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_BASE_URL,
+  timeout: 15000,
 });
-
 
 api.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
-    const token = localStorage.getItem("hcec_token");
-    if (token) {
-      config.headers.set("Authorization", ` Bearer ${token}`);
+    if (typeof window !== "undefined") {
+      const token = localStorage.getItem("hcec_token");
+      if (token) {
+        config.headers.set("Authorization", `Bearer ${token}`);
+      }
     }
     return config;
   },
-  (error) => {
-    console.error("Request interceptor error:", error);
-    return Promise.reject(error);
-  }
+  (error) => Promise.reject(error),
 );
+
+
+
+
+
+
 
 // api.interceptors.response.use(
 //   (response) => response,

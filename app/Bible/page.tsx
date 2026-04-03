@@ -82,7 +82,7 @@ const BiblePage: React.FC = () => {
     const normalized = query.trim().replace(/\s+/g, " ");
 
     const match = normalized.match(
-      /^([0-9]?\s?[a-zA-Z]+)\s+(\d+)(?::(\d+)(?:-(\d+))?)?$/i
+      /^([0-9]?\s?[a-zA-Z]+)\s+(\d+)(?::(\d+)(?:-(\d+))?)?$/i,
     );
 
     if (!match) return null;
@@ -149,7 +149,7 @@ const BiblePage: React.FC = () => {
   const fetchBiblePassage = async (
     bookName: string,
     chapter: number,
-    verse?: number
+    verse?: number,
   ) => {
     const translationId = getCurrentTranslationId();
 
@@ -223,14 +223,14 @@ const BiblePage: React.FC = () => {
 
       if (!parsed) {
         throw new Error(
-          'Invalid format. Use: "John 3:16" or "Romans 8:28" or "Psalm 23"'
+          'Invalid format. Use: "John 3:16" or "Romans 8:28" or "Psalm 23"',
         );
       }
 
       const data = await fetchBiblePassage(
         parsed.bookName,
         parsed.chapter,
-        parsed.startVerse || undefined
+        parsed.startVerse || undefined,
       );
 
       setBibleData(data);
@@ -238,7 +238,7 @@ const BiblePage: React.FC = () => {
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to fetch Bible verse. Please try again."
+          : "Failed to fetch Bible verse. Please try again.",
       );
       setView("books");
     } finally {
@@ -279,7 +279,7 @@ const BiblePage: React.FC = () => {
       setError(
         err instanceof Error
           ? err.message
-          : "Failed to fetch chapter. Please try again."
+          : "Failed to fetch chapter. Please try again.",
       );
       setView("chapters");
     } finally {
@@ -344,7 +344,7 @@ const BiblePage: React.FC = () => {
   return (
     <>
       <Navbar />
-      <div className="min-h-screen mt-[5rem] bg-white">
+      <div className="min-h-screen mt-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8 text-center">
             <h1 className="text-4xl font-bold text-black mb-2">Holy Bible</h1>
@@ -363,7 +363,10 @@ const BiblePage: React.FC = () => {
                 className="px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black bg-white cursor-pointer"
               >
                 {LANGUAGES.map((lang) => (
-                  <option key={lang.id} value={lang.id}>
+                  <option
+                    key={lang.id}
+                    value={lang.id}
+                  >
                     {lang.name}
                   </option>
                 ))}
@@ -381,7 +384,10 @@ const BiblePage: React.FC = () => {
                   className="flex-1 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#9f0712] focus:border-transparent text-black bg-white cursor-pointer"
                 >
                   {ENGLISH_VERSIONS.map((version) => (
-                    <option key={version.id} value={version.id}>
+                    <option
+                      key={version.id}
+                      value={version.id}
+                    >
                       {version.name}
                     </option>
                   ))}
@@ -436,7 +442,7 @@ const BiblePage: React.FC = () => {
             <div className="mb-8 p-4 bg-red-50 border border-red-200 rounded-lg">
               <div className="flex items-start gap-3">
                 <AlertCircle
-                  className="w-5 h-5 flex-shrink-0 mt-0.5"
+                  className="w-5 h-5 shrink-0 mt-0.5"
                   style={{ color: "#9f0712" }}
                 />
                 <div>
@@ -458,7 +464,10 @@ const BiblePage: React.FC = () => {
 
               <div className="mb-8">
                 <h2 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
-                  <Book className="w-6 h-6" style={{ color: "#9f0712" }} />
+                  <Book
+                    className="w-6 h-6"
+                    style={{ color: "#9f0712" }}
+                  />
                   Old Testament
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
@@ -486,7 +495,10 @@ const BiblePage: React.FC = () => {
 
               <div>
                 <h2 className="text-2xl font-bold text-black mb-4 flex items-center gap-2">
-                  <Book className="w-6 h-6" style={{ color: "#9f0712" }} />
+                  <Book
+                    className="w-6 h-6"
+                    style={{ color: "#9f0712" }}
+                  />
                   New Testament
                 </h2>
                 <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3">
@@ -534,7 +546,7 @@ const BiblePage: React.FC = () => {
               <div className="grid grid-cols-5 sm:grid-cols-8 md:grid-cols-10 lg:grid-cols-12 gap-3">
                 {Array.from(
                   { length: selectedBook.chapters },
-                  (_, i) => i + 1
+                  (_, i) => i + 1,
                 ).map((chapter) => (
                   <button
                     key={chapter}
@@ -610,9 +622,12 @@ const BiblePage: React.FC = () => {
                 <div className="p-6">
                   <div className="space-y-4">
                     {bibleData.verses.map((verse, idx) => (
-                      <div key={idx} className="flex gap-4">
+                      <div
+                        key={idx}
+                        className="flex gap-4"
+                      >
                         <span
-                          className="font-bold text-sm px-2 py-1 rounded h-fit flex-shrink-0"
+                          className="font-bold text-sm px-2 py-1 rounded h-fit shrink-0"
                           style={{ backgroundColor: "#9f0712", color: "white" }}
                         >
                           {verse.verse}
