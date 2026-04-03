@@ -66,7 +66,7 @@ export default function OurHistory() {
                 the ministry of this church. <br />A few months before the said
                 night 4th March, 1970, Rev. J. O. Akindolire (Akindayomi), the
                 General Superintendent of the former church, had prepared the
-                leader of this church - Rev. Samson Adebayo Ogunjedi - with the
+                leader of this church - Rev. Samson Adebayo Ogundeji - with the
                 laying on of hands before many workers of the church in Lagos.{" "}
               </p>
             </div>

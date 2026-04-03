@@ -7,10 +7,10 @@ export default function MissionVision() {
   return (
     <>
       <Navbar />
-      <div className="flex flex-col  mt-20 md:flex-row min-h-screen bg-[#f3f4f6]">
-        {/* History Section */}
-        <div className="flex-1 flex justify-center items-start py-12 px-4 md:px-12">
-          <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl border-l-2 text-justify border-red-500">
+
+      <main className="flex flex-col mt-20 md:flex-row min-h-screen bg-[#f3f4f6]">
+        <section className="flex-1 flex justify-center items-start py-12 px-4 md:px-12">
+          <div className="bg-linear-to-r from-white via-gray-50 to-white shadow-lg rounded-lg p-8 w-full max-w-2xl border border-gray-200 text-justify">
             <div className="flex flex-col items-center justify-center mb-6 gap-2">
               <Image
                 src="/assets/HCEC_LOGO.png"
@@ -19,54 +19,75 @@ export default function MissionVision() {
                 height={60}
                 className="object-contain mb-1"
               />
-              <h1 className="text-4xl font-bold text-[#0C101C] text-center">
+              <h1 className=" text-xl md:text-4xl font-bold text-[#0C101C] text-center">
                 OUR VISION AND MISSION
               </h1>
             </div>
-            <div className="text-gray-700 text-lg leading-relaxed justify-center align-center">
-              <h1>OUR VISION</h1>
-              <p className="mb-3">
-                Kingdom of Heaven is our vison, self sacrifice is our watchword,
-                holiness is our stand, divine prosperity is our reward{" "}
-              </p>
-              <p className="mb-3">
-                During the prayer meetings, God visited them mightily and they
-                all got revived. They wanted to preach Christ everywhere at all
-                costs and get converts to that church for Christ at their own
-                expense. <br />
-                In the course of consultation with the authority of the church,
-                these brothers were misunderstood. Consequent upon this, they
-                were informed by a letter to go out where Sinners were if they
-                were bent on preaching the gospel. The artillery received this
-                letter, which gave them the full privilege of going out without
-                hindrance to preach to All Creatures as commanded by our Lord
-                Jesus Christ. <br />
-                The gathering was inaugurated on 4th March, 1970. That same day,
-                the Church had its name from the Lord himself.
-                <br />
-              </p>
-              <p className="">
-                The Lord spoke through a brother to show them how imminent the
-                second coming of Christ was. <br /> They were commanded that day
-                to go and preach His Second Coming so that the world, everybody
-                and even the Church might be prepared to meet Him. Hence, the
-                name “His Coming Evangelical Church”. Time and space will fail
-                us to talk about the persecution this young congregation
-                suffered, with the loss of many things for Christ’s sake. But
-                thank God today many converts have been won to Christ through
-                the ministry of this church. <br />A few months before the said
-                night 4th March, 1970, Rev. J. O. Akindolire (Akindayomi), the
-                General Superintendent of the former church, had prepared the
-                leader of this church - Rev. Samson Adebayo Ogunjedi - with the
-                laying on of hands before many workers of the church in Lagos.{" "}
-              </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <article className="p-6 bg-white rounded-lg border-l-4 border-blue-500 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg
+                    className="w-6 h-6 text-blue-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M3 10h4l3 8 4-16 3 8h4"
+                    ></path>
+                  </svg>
+                  <h2 className="text-xl font-semibold">OUR VISION</h2>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Kingdom of Heaven is our vision. We uphold self-sacrifice as
+                  our watchword, holiness as our stand, and divine prosperity as
+                  our reward.
+                </p>
+              </article>
+
+              <article className="p-6 bg-white rounded-lg border-l-4 border-red-500 shadow-sm">
+                <div className="flex items-center gap-3 mb-3">
+                  <svg
+                    className="w-6 h-6 text-red-600"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M12 8c-1.657 0-3 1.343-3 3 0 1.657 1.343 3 3 3s3-1.343 3-3c0-1.657-1.343-3-3-3z"
+                    ></path>
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19.428 15.341A8 8 0 1 0 4.572 8.659"
+                    ></path>
+                  </svg>
+                  <h2 className="text-xl font-semibold">OUR MISSION</h2>
+                </div>
+                <p className="text-gray-700 text-sm leading-relaxed">
+                  Our mission is to advance the Kingdom through compassionate
+                  service, spiritual formation, and faithful
+                  stewardship empowering communities to experience God’s
+                  transformative love.
+                </p>
+              </article>
             </div>
           </div>
-        </div>
-        {/* Fixed Image Section */}
-        <div className="relative w-full md:w-100 shrink-0">
-          <div className="md:fixed md:top-7 md:bottom-7 rounded-lg md:right-0 md:w-100 flex flex-col items-center justify-center bg-white shadow-lg p-6">
-            <div className="w-full h-75 relative mb-4 mt-6 rounded-lg overflow-hidden">
+        </section>
+
+        <aside className="relative w-full md:w-96 shrink-0">
+          <div className="md:fixed md:top-7 md:bottom-7 rounded-lg md:right-6 md:w-80 flex flex-col items-center justify-center bg-white shadow-lg p-6">
+            <div className="w-full h-72 relative mb-4 mt-6 rounded-lg overflow-hidden">
               <Image
                 src="/assets/Late-Founder.jpg"
                 alt="Rev Samson Adebayo Ogundeji"
@@ -75,15 +96,17 @@ export default function MissionVision() {
                 className="rounded-lg"
               />
             </div>
-            <h2 className="text-xl font-bold mb text-red-500 text-center uppercase">
-              Late Rev.Dr Samson <br /> Adebayo Ogundeji
+            <h2 className="text-xl font-bold mb-2 text-red-500 text-center uppercase">
+              Late Rev.Dr Samson
+              <br />
+              Adebayo Ogundeji
             </h2>
             <h3 className="text-lg font-semibold mb-4 text-gray-600 text-center">
               Founder & First General Overseer
             </h3>
           </div>
-        </div>
-      </div>
+        </aside>
+      </main>
     </>
   );
 }
