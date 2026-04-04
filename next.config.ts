@@ -5,9 +5,7 @@ const nextConfig: NextConfig = {
     // Ensures build passes without introducing risky overrides
     ignoreBuildErrors: false,
   },
-  experimental: {
-    typedRoutes: false,
-  },
+  typedRoutes: false,
 };
 
 export default nextConfig;
