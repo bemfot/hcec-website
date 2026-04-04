@@ -22,6 +22,8 @@
       }
     ],
 
+    // "ignoreDeprecations": "6.0",
+
      // 👇 Base path for your imports
     "baseUrl": ".",
     // 👇 Custom import aliases
