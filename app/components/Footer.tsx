@@ -19,10 +19,10 @@ export default function Footer() {
           <div>
             <p className="font-semibold mb-4">Follow Us</p>
             <div className="flex justify-center space-x-4 text-xl transition-all duration-100">
-              <a href="https://www.facebook.com/profile.php?id=100067408456230&mibextid=ZbWKwL" aria-label="Facebook" className="hover:text-blue-400 hover:border-2 rounded-md hover:p-1"><FaFacebookF /></a>
+              <a href="https://web.facebook.com/watch/100067408456230/" aria-label="Facebook" className="hover:text-blue-400 hover:border-2 rounded-md hover:p-1"><FaFacebookF /></a>
               <a href="#" aria-label="Twitter" className="hover:text-blue-400 hover:border-2 rounded-md hover:p-1"><FaTwitter /></a>
-              <a href="#" aria-label="Instagram" className="hover:text-pink-400 hover:border-2 rounded-md hover:p-1 hover:border-red-500"><FaInstagram /></a>
-              <a href="#" aria-label="YouTube" className="hover:text-red-500 hover:border-b-2 hover:border-2 rounded-md hover:p-1 hover:border-red-500"><FaYoutube /></a>
+              <a href="https://www.instagram.com/hcechq_?igsh=bXEyMWh2amtidmJr" aria-label="Instagram" className="hover:text-pink-400 hover:border-2 rounded-md hover:p-1 hover:border-red-500"><FaInstagram /></a>
+              <a href="https://www.youtube.com/channel/UCWQs8IVMOCuyo_00Ly_CKMw" aria-label="YouTube" className="hover:text-red-500 hover:border-b-2 hover:border-2 rounded-md hover:p-1 hover:border-red-500"><FaYoutube /></a>
             </div>
           </div>
         </div>

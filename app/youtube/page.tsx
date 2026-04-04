@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function YoutubeLinkPage() {
   return (
-    <section className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-b from-black via-gray-900 to-gray-800 text-white px-6">
+    <section className="min-h-screen flex flex-col items-center justify-center bg-linear-to-b from-black via-gray-900 to-gray-800 text-white px-6">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -25,7 +25,7 @@ export default function YoutubeLinkPage() {
         </p>
 
         <Link
-          href="https://www.youtube.com/"
+          href="https://www.youtube.com/channel/UCWQs8IVMOCuyo_00Ly_CKMw"
           target="_blank"
           rel="noopener noreferrer"
         >
