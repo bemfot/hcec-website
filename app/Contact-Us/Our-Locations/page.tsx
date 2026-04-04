@@ -41,278 +41,280 @@ export default function OurLocations() {
             </div>
           </div>
         </div>
-        <div className="px-10">
-          <div className="overflow-x-auto mt-10 border-white rounded-2xl shadow-lg shadow-gray-500/60">
-            <table className="table-auto border-collapse w-full">
-              {/* Table Header */}
-              <thead>
-                <tr className="border border-white  bg-white  text-red-500">
-                  <th className="border-x border-white px-4 py-2">S/NO</th>
-                  <th className="border-x border-white px-10 py-2">DISTRICT</th>
-                  <th className="border-x border-white px-4 py-2">
-                    DISTRICT HEADQUARTERS ADDRESS
-                  </th>
-                  <th className="border-x border-white px-4 py-2">
-                    DISTRICT OVERSEERS
-                  </th>
-                  <th className="border-x border-white px-4 py-2">PHONE NO</th>
-                </tr>
-              </thead>
-
-              {/* Table Body */}
-              <tbody>
-                <tr className="my-2 rounded-2xl border">
-                  <td className="border-x px-4 py-2">1.</td>
-                  <td className="border-x px-4 py-2">College Crescent</td>
-                  <td className="border-x px-4 py-2">
-                    6, Adekunle Street, Behind Christ The Redeemer Secondary
-                    School, Molete, Ibadan
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor S. Olu Akinbo</td>
-                  <td className="border-x px-4 py-2">+2348035012113</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">2.</td>
-                  <td className="border-x px-4 py-2">Sango-Ibadan</td>
-                  <td className="border-x px-4 py-2">
-                    Behind Humani Alaga Secondary School, Off Poly Road, Ibadan.
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor S. Olu Akinbo</td>
-                  <td className="border-x px-4 py-2">+2348035012113</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">3.</td>
-                  <td className="border-x px-4 py-2">Molade</td>
-                  <td className="border-x px-4 py-2">
-                    Behind Ayepe Primary School, Molade, Ibadan
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Moses Afolabi</td>
-                  <td className="border-x px-4 py-2">+2348125740553</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">4.</td>
-                  <td className="border-x px-4 py-2">Ajegule, Saki</td>
-                  <td className="border-x px-4 py-2">
-                    43,John Popoola Street, Ajegunle, Saki
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor S.O Adeleye</td>
-                  <td className="border-x px-4 py-2">+2348030658512</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">5.</td>
-                  <td className="border-x px-4 py-2">Abimbola-Saki</td>
-                  <td className="border-x px-4 py-2">Abimbola Layout, Saki</td>
-                  <td className="border-x px-4 py-2">Pastor Femi Omisande</td>
-                  <td className="border-x px-4 py-2">+234 814 6919190</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">6.</td>
-                  <td className="border-x px-4 py-2">Akoko, Ondo State</td>
-                  <td className="border-x px-4 py-2">
-                    Mary Hill Nursery and Primary School Oke Akoko, Ondo State
-                  </td>
-                  <td className="border-x px-4 py-2">Evang. J. Abass</td>
-                  <td className="border-x px-4 py-2">+234 803 2105523</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">7.</td>
-                  <td className="border-x px-4 py-2">Agege, Lagos</td>
-                  <td className="border-x px-4 py-2">
-                    1a, Power Line, Oko-Oba Agege, Lagos.
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Josiah Jesufemi</td>
-                  <td className="border-x px-4 py-2">+234 703 1665334</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">8.</td>
-                  <td className="border-x px-4 py-2">Eko-Kan</td>
-                  <td className="border-x px-4 py-2">
-                    Along International Market, Eko-Kan, Saki, Oyo State
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor E. A. Ojoawo</td>
-                  <td className="border-x px-4 py-2">+234 814 3021010</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">9.</td>
-                  <td className="border-x px-4 py-2">Gando</td>
-                  <td className="border-x px-4 py-2">Moussiou, Gando, Togo</td>
-                  <td className="border-x px-4 py-2">Pastor Baale Elisha</td>
-                  <td className="border-x px-4 py-2">+229-95673241</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">10.</td>
-                  <td className="border-x px-4 py-2">Parakou</td>
-                  <td className="border-x px-4 py-2">
-                    Albarika, Parakou, Benin Republic
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Francis Gnami</td>
-                  <td className="border-x px-4 py-2">+228-91906010</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">11.</td>
-                  <td className="border-x px-4 py-2">Bukuro</td>
-                  <td className="border-x px-4 py-2">Bukuro, Kwara, Nigeria</td>
-                  <td className="border-x px-4 py-2">Pastor Modeste Akakpo</td>
-                  <td className="border-x px-4 py-2">+229-97430804</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">12.</td>
-                  <td className="border-x px-4 py-2">Oyo</td>
-                  <td className="border-x px-4 py-2">
-                    Opposite Oranmiyan Grammar School, Soro Hill, Sabo, Oyo
-                  </td>
-                  <td className="border-x px-4 py-2">
-                    Pastor Moses AjijolaJesu
-                  </td>
-                  <td className="border-x px-4 py-2">+234 814 4535690</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">13.</td>
-                  <td className="border-x px-4 py-2">Abuja</td>
-                  <td className="border-x px-4 py-2">
-                    Behind LEA Primary School, Lugbe, Airport Road, Abuja
-                  </td>
-                  <td className="border-x px-4 py-2">
-                    Pastor Gbenga Oluwatayo
-                  </td>
-                  <td className="border-x px-4 py-2">+234 8039608050</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">14.</td>
-                  <td className="border-x px-4 py-2">Kajola</td>
-                  <td className="border-x px-4 py-2">
-                    Oluwole Street, behind K. K. Bread, High School, Kajola,
-                    Akure
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Sule Akinlolu</td>
-                  <td className="border-x px-4 py-2">+234 838619990</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">15.</td>
-                  <td className="border-x px-4 py-2">Ipele, Owo</td>
-                  <td className="border-x px-4 py-2">
-                    3, Idera Street, Ipele Owo, Ondo State
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Oluponna N.O.A.</td>
-                  <td className="border-x px-4 py-2">+234 8038393403</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">16.</td>
-                  <td className="border-x px-4 py-2">Sango - Ota</td>
-                  <td className="border-x px-4 py-2">
-                    Lanre Oyefemi Close, Beside FAS School, Sango-Ota
-                  </td>
-                  <td className="border-x px-4 py-2">
-                    Pastor Aruleba Sesan Isaac
-                  </td>
-                  <td className="border-x px-4 py-2">+234 8028321835</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">17.</td>
-                  <td className="border-x px-4 py-2">Ado Ekiti Central</td>
-                  <td className="border-x px-4 py-2">
-                    Adjacent NOVA Secondary School, NOVA Road, Opopo Gbora, Ado
-                    Ekiti
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Victor Ogunyemi</td>
-                  <td className="border-x px-4 py-2">+234 7033824133</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">18.</td>
-                  <td className="border-x px-4 py-2">Oke-lla, Ado Ekiti</td>
-                  <td className="border-x px-4 py-2">
-                    No. 1, Ilupeju Avenue, Odo-Ado, Ado-Ekiti
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor S. O. Adedipe</td>
-                  <td className="border-x px-4 py-2">+234 8033846123</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">19.</td>
-                  <td className="border-x px-4 py-2">Ilawe - Ekiti</td>
-                  <td className="border-x px-4 py-2">
-                    52, Afunremu Street, Okebedo Quarter, Ilawe-Ekiti
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor E. O. Bolaji</td>
-                  <td className="border-x px-4 py-2">+234 8038466373</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">20.</td>
-                  <td className="border-x px-4 py-2">Oke-Ijebu, Akure</td>
-                  <td className="border-x px-4 py-2">
-                    105, Oke Ijebu Street, Beside Matrix Petrol Station, Akure
-                  </td>
-                  <td className="border-x px-4 py-2">
-                    Evangelist Tope Olasusi
-                  </td>
-                  <td className="border-x px-4 py-2">+234 8033925096</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">21.</td>
-                  <td className="border-x px-4 py-2">Oke-Aro, Akure</td>
-                  <td className="border-x px-4 py-2">
-                    Behind Police Station, B Division, Oke-Aro, Akure
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Festus Alabi</td>
-                  <td className="border-x px-4 py-2">+234 8033639968</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">22.</td>
-                  <td className="border-x px-4 py-2">Kwara</td>
-                  <td className="border-x px-4 py-2">
-                    35, Ejiba Street, Off Stadium Road, Ilorin
-                  </td>
-                  <td className="border-x px-4 py-2">
-                    Deacon Bamidele Oguntimehin
-                  </td>
-                  <td className="border-x px-4 py-2">+234 8035828510</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">23.</td>
-                  <td className="border-x px-4 py-2">Osogbo</td>
-                  <td className="border-x px-4 py-2">
-                    Dada Estate, Behind MTN Office, Osogbo
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Festus Oladele</td>
-                  <td className="border-x px-4 py-2">+234 7032045312</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">24.</td>
-                  <td className="border-x px-4 py-2">Owo</td>
-                  <td className="border-x px-4 py-2">
-                    15, Oke Street, Iselu Owo
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Steve Adekunle</td>
-                  <td className="border-x px-4 py-2">+234 8051501228</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">25.</td>
-                  <td className="border-x px-4 py-2">Ikere-Ekiti</td>
-                  <td className="border-x px-4 py-2">
-                    Odo-Oja Street, Ikere-Ekiti
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor S. A. Adewusi</td>
-                  <td className="border-x px-4 py-2">+234 8035148522</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">26.</td>
-                  <td className="border-x px-4 py-2">Boluwaduro</td>
-                  <td className="border-x px-4 py-2">
-                    Zone 8, Boluwaduro Street, Off Onaala, Ado-Ekiti
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Agbaje Ayorinde</td>
-                  <td className="border-x px-4 py-2">+234 8133217099</td>
-                </tr>
-                <tr className="my-2 rounded border">
-                  <td className="border-x px-4 py-2">27.</td>
-                  <td className="border-x px-4 py-2">Materi</td>
-                  <td className="border-x px-4 py-2">
-                    His Coming Evangelical Church, Materi
-                  </td>
-                  <td className="border-x px-4 py-2">Pastor Mark Tchanete</td>
-                  <td className="border-x px-4 py-2">+22963825232</td>
-                </tr>
-              </tbody>
-            </table>
+        <div className="px-6 md:px-10">
+          <div className="max-w-7xl mx-auto mt-10">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {
+                // Inline dataset converted from table rows
+                [
+                  {
+                    id: 1,
+                    district: "College Crescent",
+                    address:
+                      "6, Adekunle Street, Behind Christ The Redeemer Secondary School, Molete, Ibadan",
+                    overseer: "Pastor S. Olu Akinbo",
+                    phone: "+2348035012113",
+                  },
+                  {
+                    id: 2,
+                    district: "Sango-Ibadan",
+                    address:
+                      "Behind Humani Alaga Secondary School, Off Poly Road, Ibadan.",
+                    overseer: "Evang. Wale Joseph",
+                    phone: "2348164877944",
+                  },
+                  {
+                    id: 3,
+                    district: "Molade",
+                    address: "Behind Ayepe Primary School, Molade, Ibadan",
+                    overseer: "Pastor Ayo Oluwatayo",
+                    phone: "+2348069472276",
+                  },
+                  {
+                    id: 4,
+                    district: "Ajegule, Saki",
+                    address: "43,John Popoola Street, Ajegunle, Saki",
+                    overseer: "Pastor S.O Adeleye",
+                    phone: "+2348030658512",
+                  },
+                  {
+                    id: 5,
+                    district: "Abimbola-Saki",
+                    address: "Abimbola Layout, Saki",
+                    overseer: "Pastor Femi Omisande",
+                    phone: "+234 814 6919190",
+                  },
+                  {
+                    id: 6,
+                    district: "Akoko, Ondo State",
+                    address:
+                      "Mary Hill Nursery and Primary School Oke Akoko, Ondo State",
+                    overseer: "Evang. J. Abass",
+                    phone: "+234 8032150523",
+                  },
+                  {
+                    id: 7,
+                    district: "Agege, Lagos",
+                    address: "1a, Power Line, Oko-Oba Agege, Lagos.",
+                    overseer: "Pastor Josiah Jesufemi",
+                    phone: "+234 703 1665334",
+                  },
+                  {
+                    id: 8,
+                    district: "Eko-Kan",
+                    address:
+                      "Along International Market, Eko-Kan, Saki, Oyo State",
+                    overseer: "Pastor E. A. Ojoawo",
+                    phone: "+2348143201205",
+                  },
+                  {
+                    id: 9,
+                    district: "Gando",
+                    address: "Moussiou, Gando, Togo",
+                    overseer: "Pastor Baale Elisha",
+                    phone: "+229-95673241",
+                  },
+                  {
+                    id: 10,
+                    district: "Parakou",
+                    address: "Albarika, Parakou, Benin Republic",
+                    overseer: "Pastor Francis Gnami",
+                    phone: "+228-91906010",
+                  },
+                  {
+                    id: 11,
+                    district: "Bukuro",
+                    address: "Bukuro, Kwara, Nigeria",
+                    overseer: "Pastor Modeste Akakpo",
+                    phone: "+229-97438084",
+                  },
+                  {
+                    id: 12,
+                    district: "Oyo",
+                    address:
+                      "Opposite Oranmiyan Grammar School, Soro Hill, Sabo, Oyo",
+                    overseer: "Pastor S.O Omiwole",
+                    phone: "+2348054653197",
+                  },
+                  {
+                    id: 13,
+                    district: "Abuja",
+                    address:
+                      "Behind LEA Primary School, Lugbe, Airport Road, Abuja",
+                    overseer: "Pastor Gbenga Oluwatayo",
+                    phone: "+234 8039608050",
+                  },
+                  {
+                    id: 14,
+                    district: "Kajola",
+                    address:
+                      "Oluwole Street, behind K. K. Bread, High School, Kajola, Akure",
+                    overseer: "Pastor Sule Akinlolu",
+                    phone: "+234 838619990",
+                  },
+                  {
+                    id: 15,
+                    district: "Ipele, Owo",
+                    address: "3, Idera Street, Ipele Owo, Ondo State",
+                    overseer: "Pastor Oluponna N.O.A.",
+                    phone: "+234 8038393403",
+                  },
+                  {
+                    id: 16,
+                    district: "Sango - Ota",
+                    address:
+                      "Lanre Oyefemi Close, Beside FAS School, Sango-Ota",
+                    overseer: "Pastor Aruleba Sesan Isaac",
+                    phone: "+234 8028321835",
+                  },
+                  {
+                    id: 17,
+                    district: "Ado Ekiti Central",
+                    address:
+                      "Adjacent NOVA Secondary School, NOVA Road, Opopo Gbora, Ado Ekiti",
+                    overseer: "Pastor Victor Ogunyemi",
+                    phone: "+234 7033824133",
+                  },
+                  {
+                    id: 18,
+                    district: "Oke-lla, Ado Ekiti",
+                    address: "No. 1, Ilupeju Avenue, Odo-Ado, Ado-Ekiti",
+                    overseer: "Pastor S. O. Adedipe",
+                    phone: "+234 8033846123",
+                  },
+                  {
+                    id: 19,
+                    district: "Ilawe - Ekiti",
+                    address:
+                      "52, Afunremu Street, Okebedo Quarter, Ilawe-Ekiti",
+                    overseer: "Pastor E. O. Bolaji",
+                    phone: "+234 8038466373",
+                  },
+                  {
+                    id: 20,
+                    district: "Oke-Ijebu, Akure",
+                    address:
+                      "105, Oke Ijebu Street, Beside Matrix Petrol Station, Akure",
+                    overseer: "Evangelist Tope Olasusi",
+                    phone: "+234 8033925096",
+                  },
+                  {
+                    id: 21,
+                    district: "Oke-Aro, Akure",
+                    address:
+                      "Behind Police Station, B Division, Oke-Aro, Akure",
+                    overseer: "Pastor Festus Alabi",
+                    phone: "+234 8033639968",
+                  },
+                  {
+                    id: 22,
+                    district: "Kwara",
+                    address: "35, Ejiba Street, Off Stadium Road, Ilorin",
+                    overseer: "Deacon Bamidele Oguntimehin",
+                    phone: "+234 8035828510",
+                  },
+                  {
+                    id: 23,
+                    district: "Osogbo",
+                    address: "Dada Estate, Behind MTN Office, Osogbo",
+                    overseer: "Pastor Festus Oladele",
+                    phone: "+234 7032045312",
+                  },
+                  {
+                    id: 24,
+                    district: "Owo",
+                    address: "15, Oke Street, Iselu Owo",
+                    overseer: "Pastor Steve Adekunle",
+                    phone: "+234 8051501228",
+                  },
+                  {
+                    id: 25,
+                    district: "Ikere-Ekiti",
+                    address: "Odo-Oja Street, Ikere-Ekiti",
+                    overseer: "Pastor S. A. Adewusi",
+                    phone: "+234 8035148522",
+                  },
+                  {
+                    id: 26,
+                    district: "Boluwaduro",
+                    address: "Zone 8, Boluwaduro Street, Off Onaala, Ado-Ekiti",
+                    overseer: "Pastor Agbaje Ayorinde",
+                    phone: "+234 8133217099",
+                  },
+                  {
+                    id: 27,
+                    district: "Materi",
+                    address: "His Coming Evangelical Church, Materi",
+                    overseer: "Pastor Mark Tchanete",
+                    phone: "+22963825232",
+                  },
+                ].map((loc) => (
+                  <article
+                    key={loc.id}
+                    className="bg-white rounded-lg shadow-md p-6 border"
+                  >
+                    <div className="flex items-start gap-4">
+                      <div className="shrink-0">
+                        <svg
+                          className="w-10 h-10 text-red-600"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M17.657 16.657L13.414 20.9a1 1 0 0 1-1.414 0l-4.243-4.243A8 8 0 1 1 17.657 16.657z"
+                          ></path>
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                          ></path>
+                        </svg>
+                      </div>
+                      <div className="flex-1">
+                        <h3 className="text-lg font-semibold text-gray-900">
+                          {loc.district}
+                        </h3>
+                        <p className="text-sm text-gray-900 mt-2">
+                          {loc.address}
+                        </p>
+                        <div className="mt-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
+                          <div className="text-sm text-gray-900">
+                            <div className="font-medium">Overseer</div>
+                            <div>{loc.overseer}</div>
+                          </div>
+                          <a
+                            href={`tel:${loc.phone}`}
+                            className="inline-flex items-center gap-2 text-sm text-red-600 font-medium"
+                          >
+                            <svg
+                              className="w-4 h-4"
+                              fill="none"
+                              stroke="currentColor"
+                              viewBox="0 0 24 24"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <path
+                                strokeLinecap="round"
+                                strokeLinejoin="round"
+                                strokeWidth="2"
+                                d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.2 3.6a1 1 0 01-.217 1.01L8.28 10.72a11.042 11.042 0 005.999 5.999l1.739-1.91a1 1 0 011.01-.217l3.6 1.2A1 1 0 0121 17.72V21a2 2 0 01-2 2h-1C6.477 23 1 17.523 1 11V10a2 2 0 012-2h0z"
+                              ></path>
+                            </svg>
+                            {loc.phone}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                  </article>
+                ))
+              }
+            </div>
           </div>
         </div>
       </div>
