@@ -37,8 +37,15 @@ export const CalendarView: React.FC<CalendarViewProps> = ({ onSelectDate }) => {
     // Only Sundays are clickable
     if (dayOfWeek !== 0) return false; 
 
-    // For testing purposes, make all Sundays clickable:
-    return true; 
+    // Future Sunday should be clickable from the Saturday preceding the Sunday
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    
+    // The release date is the Saturday before the Sunday
+    const releaseDate = new Date(year, month, day - 1);
+    releaseDate.setHours(0, 0, 0, 0);
+    
+    return today.getTime() >= releaseDate.getTime();
   };
 
   const renderSundays = () => {
