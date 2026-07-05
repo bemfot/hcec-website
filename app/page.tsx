@@ -1,6 +1,4 @@
-import Navbar from "./components/Navbar";
 import Homepage from './Home-page/Homepage';
-import Footer from "./components/Footer";
 import NewsTicker from "./components/NewsTicker"; // ⬅️ New import
 
 export default function Home() {
@@ -12,11 +10,7 @@ export default function Home() {
 
   return (
     <div className="justify-center relative min-h-screen">
-      {/* Navbar Component */}
-      <Navbar />
-
       <Homepage />
-      <Footer />
 
       {/* News Ticker (fixed at bottom, always visible) */}
       <NewsTicker items={newsItems} speed={15} />

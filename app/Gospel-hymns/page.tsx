@@ -4,7 +4,7 @@ import api from "@/utils/api";
 import { LoadingSpinner } from "@/utils/loader-effect";
 import { Search } from "lucide-react";
 import React, { useCallback, useEffect, useState } from "react";
-import Navbar from "../components/Navbar";
+
 import { HymnCard } from "../components/hymns/hymn-card";
 import { HymnDetail } from "../components/hymns/hymn-detail";
 import { Hymn } from "../components/hymns/types";
@@ -87,7 +87,7 @@ const GospelHymnPage: React.FC = () => {
 
   return (
     <>
-      <Navbar />
+      
       <div className="min-h-screen mt-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="mb-8">

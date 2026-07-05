@@ -1,146 +1,115 @@
 "use client";
-import { div, p } from "framer-motion/client";
+import React, { useState } from "react";
 import Image from "next/image";
-import { useState } from "react"; // ✅ ADDED
+import { motion, AnimatePresence } from "framer-motion";
+import { ChevronDown, ChevronUp } from "lucide-react";
 
 export default function WelcomePage() {
-  const [showMore, setShowMore] = useState(false); // ✅ ADDED
+  const [showMore, setShowMore] = useState(false);
 
   return (
-    <main className="relative w-full min-h-screen bg-[#eff1f6] text-black">
-      {/* Container */}
-      <div className="flex flex-col md:flex-row items-center justify-center w-full h-full">
-        {/* Image Section */}
-        <div className="relative backdrop-blur-xl bg-white/10 w-full md:w-1/2 h-screen sm:h-[90vh] sh md:h-screen">
-          <Image
-            src="/assets/GO-piz.jpg"
-            alt="Church Welcome"
-            fill
-            className="object-top object-cover w-full h-full transition-all duration-700 ease-in-out overflow-hidden rounded-rl-4xl"
-            priority
-          />
+    <section className="relative w-full min-h-[90vh] bg-gray-50 flex items-center justify-center py-20 overflow-hidden">
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="flex flex-col lg:flex-row items-center bg-white rounded-[2.5rem] shadow-[0_8px_40px_rgb(0,0,0,0.08)] overflow-hidden border border-gray-100">
+          
+          {/* Image Section */}
+          <div className="relative w-full lg:w-1/2 h-[50vh] lg:h-[800px] shrink-0">
+            <Image
+              src="/assets/GO-piz.jpg"
+              alt="General Overseer"
+              fill
+              className="object-cover object-top"
+              priority
+            />
+            {/* Soft Gradient Overlay for image text (if any) */}
+            <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent lg:hidden" />
+          </div>
 
-          {/* Overlay for mobile */}
-          <div className="absolute inset-0 bg-red-300/20 z-10" />
+          {/* Content Section */}
+          <div className="relative w-full lg:w-1/2 p-8 sm:p-12 lg:p-16 flex flex-col justify-center bg-white">
+            
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-sm font-bold tracking-widest text-red-600 uppercase mb-4">
+                Welcome Message
+              </h2>
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-gray-900 mb-6 leading-tight">
+                Welcome to the family of Christ with a message of <span className="text-red-600">Second Coming</span>
+              </h1>
+            </motion.div>
 
-          {/* ✅ SHOW MORE BUTTON (MOBILE ONLY) */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="prose prose-lg prose-red text-gray-600"
+            >
+              <blockquote className="italic border-l-4 border-red-500 pl-4 py-1 mb-8 text-gray-700 bg-gray-50 rounded-r-xl">
+                "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light..."
+                <span className="block mt-2 font-bold text-sm text-gray-900 not-italic">— Matthew 11:28-30</span>
+              </blockquote>
 
-          {!showMore && (
-            <div className="absolute inset-0 z-40 md:hidden  flex flex-col justify-end px-4 pb-6">
-              <div
-                className=" bg-gray-800/30 text-white border border-white/60
-                           rounded-tl-4xl rounded-br-4xl shadow-lg p-4 text-center"
-              >
-                <h1 className="text-md text-gray-950 p-1.5 font-bold text-center border-white rounded-tl-4xl rounded-br-4xl  bg-white/80  mb-4">
-                  WELCOME TO THE FAMILY OF CHRIST WITH A MESSAGE OF SECOND
-                  COMING!!!
-                </h1>
-                <p className="text-center font-normal">
-                  "Come unto me, all ye that labour and are heavy laden, and I
-                  will give you rest. Take my yoke upon you, and learn of me;
-                  for I am meek and lowly in heart: and ye shall find rest unto
-                  your souls. For my yoke is easy, and my burden is light..."-
-                  Mathew 11:28 - 30. <br />
-                  There are decisions, and there are decisions. However, the
-                  decision to accept Christ's gift of salvation is the best one
-                  can ever make in his life time.
+              <p className="mb-4">
+                There are decisions, and there are decisions. However, the decision to accept Christ's gift of salvation is the best one can ever make in his lifetime. While every decision has consequences, your acceptance of salvation does not only give you meaningful existence here, but also adds eternal value to your life.
+              </p>
+
+              {/* Desktop Always Visible, Mobile Collapsible */}
+              <div className="hidden lg:block">
+                <p className="mb-6">
+                  On the other hand, the greatest risk one can take is to postpone the day of his salvation. As days pass, we get closer to the end of the age as all events happening now are indications of the imminence of the rapture of the saints. Death too is getting closer by the day. Therefore, if you hear his voice today, do not harden your heart... because delay is dangerous.
                 </p>
-
-                <button
-                  onClick={() => setShowMore(true)}
-                  className=" bottom-6  mt-2 z-30 md:hidden
-                         bg-white text-black px-6 py-2 rounded-full font-semibold shadow-lg rounded-tl-4xl rounded-br-4xl"
-                >
-                  Show More
-                </button>
+                <div className="pt-6 border-t border-gray-100">
+                  <p className="font-bold text-gray-900 text-lg">Pastor Dr. F.T Amongbonjaye</p>
+                  <p className="text-red-600 text-sm font-medium uppercase tracking-wider">General Overseer HCEC Worldwide</p>
+                </div>
               </div>
-            </div>
-          )}
 
-          {/* ✅ FULLSCREEN TEXT OVERLAY WHEN OPENED */}
-          {showMore && (
-            <div className="absolute inset-0 z-40 md:hidden bg-gray-800/20 flex flex-col justify-end px-4 pb-6">
-              <div
-                className="backdrop-blur-xl bg-white/40 border border-white/5
-                           rounded-tl-4xl rounded-br-4xl shadow-lg p-4 text-center"
-              >
-                <p className="text-sm text-black text-justify">
-                  Mathew 11:8 - 30. Come unto me, all ye that labour and are
-                  heavy laden, and I will give you rest. Take my yoke upon you,
-                  and learn of me; for I am meek and lowly in heart: and ye
-                  shall find rest unto your souls. For my yoke is easy, and my
-                  burden is light..." <br /> <br />
-                  There are decisions, and there are decisions. However, the
-                  decision to accept Christ's gift of salvation is the best one
-                  can ever make in his life time. While every decision has
-                  consequences, your acceptance of salvation does not only give
-                  you meaningful existence here, but also add eternal value to
-                  your life. <br /> <br />
-                  On the other hand, the greatest risk one can take is to
-                  postpone the day of his salvation. As day passes, we get
-                  closer to the end of the age as all events happening now are
-                  indications of the imminence of rapture of the saints. Death
-                  too is getting closer by the day. Therefore, if you hear his
-                  voice today, do not harden your heart... because delay is
-                  dangerous.
-                </p>
-
-                <p className="text-red-600 text-center font-bold  ">
-                  Pastor Dr. F.T Amongbonjaye <br />{" "}
-                  <span className=""> Genral Overseer HCEC Worldwide</span>{" "}
-                </p>
-
-                {/* ✅ COLLAPSE BUTTON */}
-                <button
-                  onClick={() => setShowMore(false)}
-                  className="mt-4 w-full bg-white text-black py-2 rounded-lg font-semibold shadow"
-                >
-                  Collapse
-                </button>
+              {/* Mobile View Toggle */}
+              <div className="block lg:hidden">
+                <AnimatePresence>
+                  {showMore && (
+                    <motion.div
+                      initial={{ height: 0, opacity: 0 }}
+                      animate={{ height: "auto", opacity: 1 }}
+                      exit={{ height: 0, opacity: 0 }}
+                      className="overflow-hidden"
+                    >
+                      <p className="mb-6">
+                        On the other hand, the greatest risk one can take is to postpone the day of his salvation. As days pass, we get closer to the end of the age as all events happening now are indications of the imminence of the rapture of the saints. Death too is getting closer by the day. Therefore, if you hear his voice today, do not harden your heart... because delay is dangerous.
+                      </p>
+                    </motion.div>
+                  )}
+                </AnimatePresence>
+                
+                <div className="pt-6 border-t border-gray-100 mt-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                  <div>
+                    <p className="font-bold text-gray-900 text-lg">Pastor Dr. F.T Amongbonjaye</p>
+                    <p className="text-red-600 text-sm font-medium uppercase tracking-wider">General Overseer HCEC Worldwide</p>
+                  </div>
+                  
+                  <button 
+                    onClick={() => setShowMore(!showMore)}
+                    className="flex items-center justify-center gap-2 px-6 py-2.5 bg-gray-100 hover:bg-gray-200 text-gray-900 rounded-full text-sm font-bold transition-colors w-full sm:w-auto"
+                  >
+                    {showMore ? (
+                      <>Read Less <ChevronUp className="w-4 h-4" /></>
+                    ) : (
+                      <>Read More <ChevronDown className="w-4 h-4" /></>
+                    )}
+                  </button>
+                </div>
               </div>
-            </div>
-          )}
-        </div>
 
-        {/* ✅ DESKTOP SECTION — COMPLETELY UNTOUCHED */}
-        <div className="hidden md:flex md:w-1/2 items-center justify-center p-10">
-          <h1> </h1>
-          <div
-            className="backdrop-blur-xl bg-white/10 border border-white/20
-                       rounded-3xl shadow-lg p-10 max-w-lg
-                       transition-all duration-500 hover:bg-white/20 hover:scale-[1.02]"
-          >
-            <h1 className="text-xl font-bold text-center text-red-500 my-4">
-              WELCOME TO THE FAMILY OF CHRIST WITH A MESSAGE OF SECOND COMING!!!
-            </h1>
-
-            <p className="text-lg text-black text-justify leading-relaxed">
-              Mathew 11: "28 - 30. Come unto me, all ye that labour and are
-              heavy laden, and I will give you rest. Take my yoke upon you, and
-              learn of me; for I am meek and lowly in heart: and ye shall find
-              rest unto your souls. For my yoke is easy, and my burden is
-              light..." <br /> <br />
-              There are decisions, and there are decisions. However, the
-              decision to accept Christ's gift of salvation is the best one can
-              ever make in his life time. While every decision has consequences,
-              your acceptance of salvation does not only give you meaningful
-              existence here, but also add eternal value to your life. <br />
-              On the other hand, the greatest risk one can take is to postpone
-              the day of his salvation. As day passes, we get closer to the end
-              of the age as all events happening now are indications of the
-              imminence of rapture of the saints. Death too is getting closer by
-              the day. <br />
-              Therefore, if you hear his voice today, do not harden your
-              heart... because delay is dangerous.
-            </p>
-
-            <p className="text-red-600 text-center font-bold  ">
-              Pastor Dr. F.T Amongbonjaye <br />{" "}
-              <span className=""> Genral Overseer HCEC Worldwide</span>{" "}
-            </p>
+            </motion.div>
           </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

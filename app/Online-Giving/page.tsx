@@ -2,7 +2,6 @@
 
 import api from "@/utils/api";
 import { useState } from "react";
-import Navbar from "../components/Navbar";
 
 export default function GivePage() {
   const [paymentCode, setPaymentCode] = useState("");
@@ -88,7 +87,6 @@ export default function GivePage() {
 
   return (
     <>
-      <Navbar />
       <div className="min-h-screen bg-gray-50 pt-30 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto bg-white rounded-xl shadow--lg overflow-hidden">
           <div className="px-6 py-8">

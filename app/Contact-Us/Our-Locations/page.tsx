@@ -1,7 +1,6 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Footer from "@/app/components/Footer";
 import ContactLinks from "@/app/Contact-Us/ContactLinks/ContactLinks";
 import ContactFooter from "../ContactFooter/ContactFooter";
 
@@ -317,7 +316,6 @@ export default function OurLocations() {
         </div>
       </div>
       <ContactFooter />
-      <Footer />
-    </div>
+          </div>
   );
 }

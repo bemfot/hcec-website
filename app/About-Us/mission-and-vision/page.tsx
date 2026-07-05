@@ -1,13 +1,11 @@
 "use client";
 import React from "react";
 import Image from "next/image";
-import Navbar from "../../components/Navbar";
 
 export default function MissionVision() {
   return (
     <>
-      <Navbar />
-      <div className="flex flex-col  mt-20 md:flex-row min-h-screen bg-[#f3f4f6]">
+            <div className="flex flex-col  mt-20 md:flex-row min-h-screen bg-[#f3f4f6]">
         {/* History Section */}
         <div className="flex-1 flex justify-center items-start py-12 px-4 md:px-12">
           <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-2xl border-l-2 text-justify border-red-500">

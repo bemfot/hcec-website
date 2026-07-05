@@ -1,7 +1,6 @@
 // app/events/page.tsx
 "use client";
 
-import Navbar from "../components/Navbar";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import type { Event } from "./types";
@@ -78,8 +77,7 @@ export default function UpcomingProgramsPage() {
 
   return (
     <>
-      <Navbar />
-      <div className="bg-gray-100 min-h-screen mt-20 py-12 px-4 md:px-8 lg:px-16">
+            <div className="bg-gray-100 min-h-screen mt-20 py-12 px-4 md:px-8 lg:px-16">
         <div className="max-w-7xl mx-auto">
           <h1 className="text-4xl font-bold text-blue-900 mb-8">
             Weekly Programs

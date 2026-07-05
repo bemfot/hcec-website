@@ -43,19 +43,13 @@ export default function Homepage() {
   }, [runStartRequest]);
 
   return (
-    <div>
+    <div className="flex flex-col">
       <Heropage />
-
       <Focus />
-      <div className="mt-32 lg:mt-20">
-        <WelcomePage />
-      </div>
-
+      <WelcomePage />
       <HomeEvents />
       <YoutubeLinkPage />
-      <div className="mt-32 lg:mt-20">
-        <PrayerRequest />
-      </div>
+      <PrayerRequest />
     </div>
   );
 }

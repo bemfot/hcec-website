@@ -1,7 +1,7 @@
 "use client";
 
 import api from "@/utils/api";
-import Navbar from "../components/Navbar";
+
 import {
   ArrowLeft,
   BookOpen,
