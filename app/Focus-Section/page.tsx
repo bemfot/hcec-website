@@ -24,7 +24,7 @@ export default function Focus() {
               <div className="absolute top-0 left-0 w-1 h-full bg-gradient-to-b from-gray-900 to-gray-700" />
               <h2 className="text-sm font-bold tracking-widest text-gray-900 uppercase mb-4">2026 Anchor</h2>
               <blockquote className="text-lg font-medium text-gray-600 italic leading-relaxed relative">
-                <span className="text-4xl text-gray-300 absolute -top-4 -left-2">"</span>
+                <span className="text-4xl text-gray-300 absolute -top-4 -left-2">&quot;</span>
                 Behold, I come quickly: and my reward is with me, to give every man according as his work shall be.
                 <span className="block mt-4 text-sm font-bold text-gray-900 not-italic uppercase tracking-wider">— Revelation 22:12 KJV</span>
               </blockquote>

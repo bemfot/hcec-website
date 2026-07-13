@@ -123,7 +123,7 @@ const HFTRPage: React.FC = () => {
             date: lesson.date,
             objective: lesson.objective,
             memoryVerse: lesson.memoryVerse,
-            verses: lesson.verse,
+            verses: lesson.verses || lesson.verse,
             introduction: lesson.introduction,
             lessonOutline: lesson.lessonOutline || [],
             questions: lesson.questions || [],
@@ -193,6 +193,7 @@ const HFTRPage: React.FC = () => {
           <HftrDetail
             lesson={selectedLesson}
             onClose={() => setSelectedLesson(null)}
+            language={activeCategory?.includes('french') ? 'french' : 'english'}
           />
         )}
       </div>
