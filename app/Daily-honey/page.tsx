@@ -11,6 +11,7 @@ import {
   Target,
 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
+import { formatWithBibleLinks } from "../components/BibleLinkFormatter";
 
 /**
  * Devotional Page
@@ -258,7 +259,7 @@ export default function DevotionalPage() {
               <p className="flex items-center gap-2 text-gray-900">
                 <BookOpen size={18} className="text-red-600" />
                 <span className="font-semibold">Scripture in Focus:</span>
-                {lesson.scriptureInFocus}
+                {formatWithBibleLinks(lesson.scriptureInFocus)}
               </p>
             </header>
 
@@ -269,8 +270,8 @@ export default function DevotionalPage() {
                 <h3 className="font-semibold text-red-700">Learn by Heart</h3>
               </div>
               <div className="text-gray-800 text-justify font-medium leading-relaxed space-y-4">
-                {lesson.learnByHeart.split("\n").map((paragraph, index) => (
-                  <p key={index}>{paragraph}</p>
+                {lesson.learnByHeart.split("\n").map((paragraph: string, index: number) => (
+                  <p key={index}>{formatWithBibleLinks(paragraph)}</p>
                 ))}
               </div>
             </section>
@@ -284,7 +285,7 @@ export default function DevotionalPage() {
                 </h3>
               </div>
               <p className="text-gray-800 text-justify  leading-relaxed">
-                {lesson.message}
+                {formatWithBibleLinks(lesson.message)}
               </p>
             </section>
 
@@ -296,7 +297,7 @@ export default function DevotionalPage() {
                   Today’s Challenge
                 </h3>
               </div>
-              <p className="text-gray-800">{lesson.challenge}</p>
+              <p className="text-gray-800">{formatWithBibleLinks(lesson.challenge)}</p>
             </section>
 
             {/* Prayer */}
@@ -305,7 +306,7 @@ export default function DevotionalPage() {
                 <MessageCircle className="text-red-600" />
                 <h3 className="font-semibold text-gray-800">Prayer</h3>
               </div>
-              <p className="text-gray-800 italic">{lesson.prayer}</p>
+              <p className="text-gray-800 italic">{formatWithBibleLinks(lesson.prayer)}</p>
             </section>
 
             {/* Previous Lesson */}

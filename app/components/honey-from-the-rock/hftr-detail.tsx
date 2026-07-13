@@ -8,10 +8,12 @@ import {
 } from "lucide-react";
 import React from "react";
 import { HFTR } from "./types";
+import { formatWithBibleLinks } from "../BibleLinkFormatter";
 
-export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
+export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void; language?: string }> = ({
   lesson,
   onClose,
+  language = 'english',
 }) => {
   const formattedDate = new Date(lesson.date).toLocaleDateString("en-US", {
     year: "numeric",
@@ -20,40 +22,41 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
   });
 
   return (
-    <div className="fixed inset-0 bg-[#263b51]/40 backdrop-blur-md flex items-center justify-center p-4 z-50 overflow-y-auto">
-      <div className="bg-white rounded-lg max-w-5xl w-full my-8">
-        <div className="sticky top-0 bg-white border-b border-gray-200 p-6 flex justify-between items-start rounded-t-lg">
-          <div>
-            <div className="flex items-center gap-4 mb-2">
-              <span
-                className="text-xl font-bold px-4 py-2 rounded-lg"
-                style={{ backgroundColor: "#9f0712", color: "white" }}
-              >
-                Lesson {lesson.lessonNumber}
-              </span>
-              <div className="flex items-center gap-2 text-sm text-gray-500">
-                <Calendar className="w-4 h-4" />
-                <span>{formattedDate}</span>
+    <div className="fixed inset-0 bg-[#263b51]/40 backdrop-blur-md z-50 overflow-y-auto">
+      <div className="min-h-full flex items-center justify-center p-4 py-8">
+        <div className="bg-white rounded-lg max-w-5xl w-full relative">
+          <div className="sticky top-0 z-20 bg-white border-b border-gray-200 p-6 flex justify-between items-start rounded-t-lg shadow-sm">
+            <div>
+              <div className="flex items-center gap-4 mb-2">
+                <span
+                  className="text-xl font-bold px-4 py-2 rounded-lg"
+                  style={{ backgroundColor: "#9f0712", color: "white" }}
+                >
+                  Lesson {lesson.lessonNumber}
+                </span>
+                <div className="flex items-center gap-2 text-sm text-gray-500">
+                  <Calendar className="w-4 h-4" />
+                  <span>{formattedDate}</span>
+                </div>
               </div>
+              <h2 className="text-3xl font-bold text-black">{lesson.topic}</h2>
             </div>
-            <h2 className="text-3xl font-bold text-black">{lesson.topic}</h2>
+            <button
+              onClick={onClose}
+              className="text-gray-500 hover:text-black text-3xl font-bold ml-4"
+            >
+              ×
+            </button>
           </div>
-          <button
-            onClick={onClose}
-            className="text-gray-500 hover:text-black text-3xl font-bold ml-4"
-          >
-            ×
-          </button>
-        </div>
 
-        <div className="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
+          <div className="p-6">
           {lesson.objective && (
             <div className="mb-6 p-4 bg-red-50 rounded-lg">
               <div className="flex items-center gap-2 mb-2">
                 <Target className="w-5 h-5" style={{ color: "#9f0712" }} />
                 <h3 className="font-semibold text-black">Lesson Objective</h3>
               </div>
-              <p className="text-gray-800">{lesson.objective}</p>
+              <p className="text-gray-800">{formatWithBibleLinks(lesson.objective, language)}</p>
             </div>
           )}
 
@@ -67,7 +70,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
                 <h3 className="font-semibold text-black">Memory Verse</h3>
               </div>
               <p className="text-gray-800 italic font-medium">
-                {lesson.memoryVerse}
+                {formatWithBibleLinks(lesson.memoryVerse, language)}
               </p>
             </div>
           )}
@@ -77,7 +80,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
               <h3 className="font-semibold text-black mb-2">
                 Scripture References
               </h3>
-              <p className="text-gray-700">{lesson.verses}</p>
+              <p className="text-gray-700">{formatWithBibleLinks(lesson.verses, language)}</p>
             </div>
           )}
 
@@ -87,7 +90,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
                 Introduction
               </h3>
               <p className="text-gray-800 leading-relaxed">
-                {lesson.introduction}
+                {formatWithBibleLinks(lesson.introduction, language)}
               </p>
             </div>
           )}
@@ -109,7 +112,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
                     >
                       {idx + 1}
                     </span>
-                    <p className="text-gray-800 flex-1">{point}</p>
+                    <p className="text-gray-800 flex-1">{formatWithBibleLinks(point, language)}</p>
                   </div>
                 ))}
               </div>
@@ -130,7 +133,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
                     <span className="font-bold" style={{ color: "#9f0712" }}>
                       {idx + 1}.
                     </span>
-                    <p className="text-gray-800 flex-1">{question}</p>
+                    <p className="text-gray-800 flex-1">{formatWithBibleLinks(question, language)}</p>
                   </div>
                 ))}
               </div>
@@ -154,7 +157,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
                     <span className="font-bold" style={{ color: "#9f0712" }}>
                       {idx + 1}.
                     </span>
-                    <p className="text-gray-800 flex-1">{application}</p>
+                    <p className="text-gray-800 flex-1">{formatWithBibleLinks(application, language)}</p>
                   </div>
                 ))}
               </div>
@@ -162,6 +165,7 @@ export const HftrDetail: React.FC<{ lesson: HFTR; onClose: () => void }> = ({
           )}
         </div>
       </div>
+    </div>
     </div>
   );
 };

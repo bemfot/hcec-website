@@ -51,12 +51,12 @@ export default function WelcomePage() {
               className="prose prose-lg prose-red text-gray-600"
             >
               <blockquote className="italic border-l-4 border-red-500 pl-4 py-1 mb-8 text-gray-700 bg-gray-50 rounded-r-xl">
-                "Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light..."
+                &quot;Come unto me, all ye that labour and are heavy laden, and I will give you rest. Take my yoke upon you, and learn of me; for I am meek and lowly in heart: and ye shall find rest unto your souls. For my yoke is easy, and my burden is light...&quot;
                 <span className="block mt-2 font-bold text-sm text-gray-900 not-italic">— Matthew 11:28-30</span>
               </blockquote>
 
               <p className="mb-4">
-                There are decisions, and there are decisions. However, the decision to accept Christ's gift of salvation is the best one can ever make in his lifetime. While every decision has consequences, your acceptance of salvation does not only give you meaningful existence here, but also adds eternal value to your life.
+                There are decisions, and there are decisions. However, the decision to accept Christ&apos;s gift of salvation is the best one can ever make in his lifetime. While every decision has consequences, your acceptance of salvation does not only give you meaningful existence here, but also adds eternal value to your life.
               </p>
 
               {/* Desktop Always Visible, Mobile Collapsible */}
